@@ -16,13 +16,11 @@ namespace Chat
     public partial class SettingsAccount : Form
     {
 
-        private readonly LoggedUserService loggedUserService;
-        private readonly ChatDbContext _dbContext;
-        public SettingsAccount(ChatDbContext dbContext)
+        SettingsAccountService settingsAccountService = new SettingsAccountService();
+        LoggedUserService loggedUserService = new LoggedUserService();
+        public SettingsAccount()
         {
             InitializeComponent();
-            _dbContext = dbContext;
-            /*ChatDbContext dbContext = new ChatDbContext();*/
         }
 
         private void exit_Click(object sender, EventArgs e)
@@ -49,7 +47,7 @@ namespace Chat
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            LoggedUserService loggedUserService = new LoggedUserService();
+/*przenieść do settingsaccountservice*/
             usernameBox.Text = loggedUserService.GetUsername();
             nameBox.Text = loggedUserService.GetName();
             lastNameBox.Text = loggedUserService.GetLastName();
@@ -70,21 +68,8 @@ namespace Chat
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            var user = new User()
-            {
-                NickName = nicknameBox.Text,
-                UserName = usernameBox.Text,
-                EmailAdress = emailBox.Text,
-                Password = passwordBox.Text,
-                Name = nameBox.Text,
-                LastName = lastNameBox.Text,
-                Blocked = blockedChb.Checked,
-                /*RoleId = 9,*/
-            };
-
-/*wrzucic do settings account service*/
-            dbContext.Users.AddRange(user);
-            dbContext.SaveChanges();
+            settingsAccountService.SavingUserData(nicknameBox.Text, usernameBox.Text, emailBox.Text,
+                passwordBox.Text, nameBox.Text, lastNameBox.Text, blockedChb.Checked);
         }
     }
 }

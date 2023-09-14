@@ -9,16 +9,22 @@ namespace Chat.Services
 {
     internal class SettingsAccountService
     {
-        private readonly LoggedUserService _loggedUserService;
+        LoggedUserService loggedUserService = new LoggedUserService();
+        ChatDbContext _dbContext = new ChatDbContext();
+        public SettingsAccountService(){}
 
-        public SettingsAccountService()
+        public void SavingUserData(string nickname, string username, string email, string password, 
+            string name, string lastname, bool blocking) 
         {
-            /*_loggedUserService = new LoggedUserService();*/
-        }
+            loggedUserService.SetNickname(nickname);
+            loggedUserService.SetUsername(username);
+            loggedUserService.SetEmail(email);
+            loggedUserService.SetPassword(password);
+            loggedUserService.SetName(name);
+            loggedUserService.SetLastName(lastname);
+            loggedUserService.SetBlocked(blocking);
 
-        public object GetData() 
-        {
-            return _loggedUserService;
+            _dbContext.SaveChanges();
         }
     }
 }

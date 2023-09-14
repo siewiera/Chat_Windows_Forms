@@ -18,8 +18,6 @@ namespace Chat.Services
         public SignInService(ChatDbContext dbContext)
         {
             _dbContext = dbContext;
-            /*_userID = GetIdLoggedUser();*/
-            /*userID = username.First().Id;*/
         }
 
         public int GetDataInLogin(string login, string password)

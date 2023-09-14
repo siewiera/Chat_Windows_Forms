@@ -43,12 +43,13 @@ namespace Chat
             string password = passwordBox.Text;
 
             DashboardChat chat = new DashboardChat();
-            SettingsAccount settingsAccount = new SettingsAccount();
+            
             var signInService = new SignInService(_dbContext);
             int check = signInService.GetDataInLogin(login, password);
 
             if (check == 100) 
             {
+                SettingsAccount settingsAccount = new SettingsAccount();
                 this.Hide();
                 settingsAccount.Show();
             }
