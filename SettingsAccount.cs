@@ -18,11 +18,14 @@ namespace Chat
     public partial class SettingsAccount : Form
     {
 
-        SettingsAccountService settingsAccountService = new SettingsAccountService();
-        LoggedUserService loggedUserService = new LoggedUserService();
-        public SettingsAccount()
+        
+        DashboardChat dashboardChat = new DashboardChat();
+        private SettingsAccountService settingsAccountService;
+        public SettingsAccount(int? id)
         {
             InitializeComponent();
+            if (id == null) id = GlobalVariables.Instance.globalId;
+            settingsAccountService = new SettingsAccountService(id);
         }
 
         private void exit_Click(object sender, EventArgs e)
@@ -66,8 +69,7 @@ namespace Chat
         }
 
         private void backBtn_Click(object sender, EventArgs e)
-        {
-            DashboardChat dashboardChat = new DashboardChat();
+        {   
             this.Close();
             dashboardChat.Show();
         }
@@ -83,7 +85,13 @@ namespace Chat
             string lastname = lastNameBox.Text;
             bool blocked = blockedChb.Checked;
 
-            settings.SavingUserData(nickname, username, email, password, name, lastname, blocked);
+            bool check = settings.SavingUserData(nickname, username, email, password, name, lastname, blocked);
+
+            if (check)
+            {
+                this.Close();
+                dashboardChat.Show();
+            }
         }
     }
 }

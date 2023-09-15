@@ -13,10 +13,14 @@ namespace Chat.Services
 {
     internal class SettingsAccountService
     {
-        LoggedUserService loggedUserService = new LoggedUserService();
+        private readonly int id;
+        
         ChatDbContext _dbContext = new ChatDbContext();
-        private object d;
-        public SettingsAccountService() { }
+        private LoggedUserService _loggedUserService;
+        public SettingsAccountService(int id) 
+        {
+            _loggedUserService = new LoggedUserService(id);
+        }
 
         public class UserData
         {
@@ -34,63 +38,75 @@ namespace Chat.Services
         {
             var user = new UserData()
             {
-                id = loggedUserService.GetId(),
-                nickname = loggedUserService.GetNickname(),
-                username = loggedUserService.GetUsername(),
-                email = loggedUserService.GetEmail(),
-                password = loggedUserService.GetPassword(),
-                name = loggedUserService.GetName(),
-                lastname = loggedUserService.GetLastName(),
-                blocked = loggedUserService.IsBlocked(),
+                id = _loggedUserService.GetId(),
+                nickname = _loggedUserService.GetNickname(),
+                username = _loggedUserService.GetUsername(),
+                email = _loggedUserService.GetEmail(),
+                password = _loggedUserService.GetPassword(),
+                name = _loggedUserService.GetName(),
+                lastname = _loggedUserService.GetLastName(),
+                blocked = _loggedUserService.IsBlocked(),
             };
 
             return user;
         }
 
-        public void SavingUserData(string nickname, string username, string email, string password,
+        public bool SavingUserData(string nickname, string username, string email, string password,
             string name, string lastname, bool blocking)
         {
-            var user = _dbContext.Set<User>();
+            int user_id = GlobalVariables.Instance.globalId;
+            var user = _dbContext.Set<User>()
+                .Where(e => e.Id != user_id);
             var user_email = user.Where(e => e.EmailAdress == email);
             var user_username = user.Where(e => e.UserName == username);
 
-            int user_id = GlobalVariables.Instance.globalId;
+            
 
             if (username.Count() <= 4)
             {
                 MessageBox.Show($"The entered username must be longer than 4 characters");
-                return;
+                return false;
             }
-            if (user_username.First().Id != user_id)
+            if (user_username.Count() >= 1)
             {
                 MessageBox.Show($"Username: '{username}' already exists!");
-                return;
+                return false;
             }
             if (password.Count() <= 4)
             {
                 MessageBox.Show($"The entered password must be longer than 4 characters");
-                return;
+                return false;
             }
             if (!email.Contains("@"))
             {
                 MessageBox.Show($"Incorrect email address!");
-                return;
+                return false;
             }
-            if (user_email.First().Id != user_id)
+            if (user_email.Count() >= 1)
             {
                 MessageBox.Show($"Email: '{email}' already exists!");
-                return;
+                return false;
             }
 
-            loggedUserService.SetNickname(nickname);
-            loggedUserService.SetUsername(username);
-            loggedUserService.SetEmail(email);
-            loggedUserService.SetPassword(password);
-            loggedUserService.SetName(name);
-            loggedUserService.SetLastName(lastname);
-            loggedUserService.SetBlocked(blocking);
+            _loggedUserService.SetNickname(nickname);
+            _loggedUserService.SetUsername(username);
+            _loggedUserService.SetEmail(email);
+            _loggedUserService.SetPassword(password);
+            _loggedUserService.SetName(name);
+            _loggedUserService.SetLastName(lastname);
+            _loggedUserService.SetBlocked(blocking);
 
-            loggedUserService.SaveChanges();
+            _loggedUserService.SaveChanges();
+
+            MessageBoxButtons button = MessageBoxButtons.OK;
+            DialogResult result;
+
+            result = MessageBox.Show("You'r data has been saves", "Save..", button);
+            if (result == DialogResult.OK)
+            {
+                return true;
+            }
+            else return false;
         }
     }
 }

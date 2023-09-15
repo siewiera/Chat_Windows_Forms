@@ -80,7 +80,7 @@ namespace Chat.Services
                 Name = "",
                 LastName = "",
                 Blocked = false,
-                RoleId = 9,
+                RoleId = 1,
             };
 
             _dbContext.Users.AddRange(user);

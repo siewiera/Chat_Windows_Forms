@@ -11,17 +11,16 @@ namespace Chat.Services
 {
     internal class LoggedUserService
     {
-        private readonly int _id;
         public User _user;
         private readonly ChatDbContext _dbContext;
 
-        public LoggedUserService()
+        public LoggedUserService(int id)
         {
             /*ChatDbContext _dbContext = new ChatDbContext();*/
             _dbContext = new ChatDbContext();
-            _id = GlobalVariables.Instance.globalId;
-            _user = _dbContext.Set<User>()
-                            .Where(u => u.Id == _id)
+/*            _id = GlobalVariables.Instance.globalId;
+*/            _user = _dbContext.Set<User>()
+                            .Where(u => u.Id == id)
                             .First();
         }
 
