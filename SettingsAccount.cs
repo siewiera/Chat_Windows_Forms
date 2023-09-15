@@ -1,6 +1,8 @@
 ﻿using Chat.Entities;
 using Chat.Services;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,15 +49,19 @@ namespace Chat
 
         private void Settings_Load(object sender, EventArgs e)
         {
-/*przenieść do settingsaccountservice*/
-            usernameBox.Text = loggedUserService.GetUsername();
-            nameBox.Text = loggedUserService.GetName();
-            lastNameBox.Text = loggedUserService.GetLastName();
-            passwordBox.Text = loggedUserService.GetPassword();
-            passwordBox2.Text = loggedUserService.GetPassword();
-            emailBox.Text = loggedUserService.GetEmail();
-            nicknameBox.Text = loggedUserService.GetNickname();
-            blockedChb.Checked = loggedUserService.IsBlocked();
+
+            var userData = settingsAccountService.LoadUserData();
+
+            idBox.Text = userData.id.ToString();
+            usernameBox.Text = userData.username;
+            nameBox.Text = userData.name;
+            lastNameBox.Text = userData.lastname;
+            passwordBox.Text = userData.password;
+            passwordBox2.Text = "";
+            emailBox.Text = userData.email;
+            nicknameBox.Text = userData.nickname;
+            blockedChb.Checked = userData.blocked;
+           
             blockedChb_CheckedChanged(sender, e);
         }
 
@@ -68,8 +74,16 @@ namespace Chat
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            settingsAccountService.SavingUserData(nicknameBox.Text, usernameBox.Text, emailBox.Text,
-                passwordBox.Text, nameBox.Text, lastNameBox.Text, blockedChb.Checked);
+            SettingsAccountService settings = new SettingsAccountService();
+            string nickname = nicknameBox.Text;
+            string username = usernameBox.Text;
+            string email = emailBox.Text;
+            string password = passwordBox.Text;
+            string name = nameBox.Text;
+            string lastname = lastNameBox.Text;
+            bool blocked = blockedChb.Checked;
+
+            settings.SavingUserData(nickname, username, email, password, name, lastname, blocked);
         }
     }
 }

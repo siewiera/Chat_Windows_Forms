@@ -49,6 +49,8 @@
             this.nicknameBox = new System.Windows.Forms.TextBox();
             this.pictureBlocked = new System.Windows.Forms.PictureBox();
             this.blockedChb = new System.Windows.Forms.CheckBox();
+            this.idBox = new System.Windows.Forms.TextBox();
+            this.pictureId = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureNickname)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePassword)).BeginInit();
@@ -56,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUsername)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBlocked)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureId)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureName
@@ -145,7 +148,7 @@
             this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
             this.exit.ForeColor = System.Drawing.Color.Maroon;
             this.exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.exit.Location = new System.Drawing.Point(515, 13);
+            this.exit.Location = new System.Drawing.Point(490, 9);
             this.exit.Margin = new System.Windows.Forms.Padding(0);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(33, 28);
@@ -169,7 +172,7 @@
             this.minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
             this.minimize.ForeColor = System.Drawing.Color.Maroon;
             this.minimize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.minimize.Location = new System.Drawing.Point(449, 13);
+            this.minimize.Location = new System.Drawing.Point(424, 9);
             this.minimize.Margin = new System.Windows.Forms.Padding(0);
             this.minimize.Name = "minimize";
             this.minimize.Size = new System.Drawing.Size(33, 28);
@@ -364,12 +367,43 @@
             this.blockedChb.UseVisualStyleBackColor = false;
             this.blockedChb.CheckedChanged += new System.EventHandler(this.blockedChb_CheckedChanged);
             // 
+            // idBox
+            // 
+            this.idBox.BackColor = System.Drawing.Color.White;
+            this.idBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.idBox.Enabled = false;
+            this.idBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.idBox.Location = new System.Drawing.Point(103, 171);
+            this.idBox.MaximumSize = new System.Drawing.Size(50, 30);
+            this.idBox.MinimumSize = new System.Drawing.Size(50, 30);
+            this.idBox.Name = "idBox";
+            this.idBox.Size = new System.Drawing.Size(50, 30);
+            this.idBox.TabIndex = 45;
+            // 
+            // pictureId
+            // 
+            this.pictureId.BackColor = System.Drawing.Color.Transparent;
+            this.pictureId.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureId.BackgroundImage")));
+            this.pictureId.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureId.ErrorImage = null;
+            this.pictureId.Location = new System.Drawing.Point(33, 155);
+            this.pictureId.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureId.Name = "pictureId";
+            this.pictureId.Size = new System.Drawing.Size(53, 46);
+            this.pictureId.TabIndex = 44;
+            this.pictureId.TabStop = false;
+            // 
             // SettingsAccount
             // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Chat.Properties.Resources.black_1072366_1920;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(557, 751);
+            this.ClientSize = new System.Drawing.Size(551, 748);
+            this.Controls.Add(this.idBox);
+            this.Controls.Add(this.pictureId);
             this.Controls.Add(this.blockedChb);
             this.Controls.Add(this.pictureBlocked);
             this.Controls.Add(this.nicknameBox);
@@ -390,9 +424,11 @@
             this.Controls.Add(this.pictureNickname);
             this.Controls.Add(this.pictureName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(0, 35);
             this.Name = "SettingsAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Settings account";
             this.Load += new System.EventHandler(this.Settings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureNickname)).EndInit();
@@ -401,6 +437,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUsername)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBlocked)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,5 +464,7 @@
         private System.Windows.Forms.TextBox nicknameBox;
         private System.Windows.Forms.PictureBox pictureBlocked;
         private System.Windows.Forms.CheckBox blockedChb;
+        private System.Windows.Forms.TextBox idBox;
+        private System.Windows.Forms.PictureBox pictureId;
     }
 }

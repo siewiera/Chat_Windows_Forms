@@ -11,7 +11,7 @@ namespace Chat.Services
 {
     internal class LoggedUserService
     {
-        /*private readonly int _id;*/
+        private readonly int _id;
         public User _user;
         private readonly ChatDbContext _dbContext;
 
@@ -19,82 +19,100 @@ namespace Chat.Services
         {
             /*ChatDbContext _dbContext = new ChatDbContext();*/
             _dbContext = new ChatDbContext();
-            int _id = GlobalVariables.Instance.globalId;
+            _id = GlobalVariables.Instance.globalId;
             _user = _dbContext.Set<User>()
                             .Where(u => u.Id == _id)
                             .First();
         }
 
+        public int GetId()
+        {
+            return _user.Id;
+        }
+
+
         public string GetUsername()
         {
             return _user.UserName;
         }
-        public string SetUsername(string username)
+        public void SetUsername(string username)
         {
-            return _user.UserName = username;
+            _user.UserName = username;
         }
+
 
         public string GetName()
         {
             return _user.Name;
         }
-        public string SetName(string name)
+        public void SetName(string name)
         {
-            return _user.Name = name;
+            _user.Name = name;
         }
+
 
         public string GetLastName()
         {
             return _user.LastName;
         }
-        public string SetLastName(string lastname)
+        public void SetLastName(string lastname)
         {
-            return _user.LastName = lastname;
+            _user.LastName = lastname;
         }
+
 
         public string GetEmail()
         {
             return _user.EmailAdress;
         }
-        public string SetEmail(string email)
+        public void SetEmail(string email)
         {
-            return _user.EmailAdress = email;
+            _user.EmailAdress = email;
         }
+
 
         public bool IsBlocked()
         {
             return _user.Blocked;
         }
-        public bool SetBlocked(bool blocking)
+        public void SetBlocked(bool blocking)
         {
-            return _user.Blocked = blocking;
+            _user.Blocked = blocking;
         }
+
 
         public int GetRole()
         {
             return _user.RoleId;
         }
-        public int SetRole(int role)
+        public void SetRole(int role)
         {
-            return _user.RoleId = role;
+            _user.RoleId = role;
         }
+
 
         public string GetPassword()
         {
             return _user.Password;
         }
-        public string SetPassword(string password)
+        public void SetPassword(string password)
         {
-            return _user.Password = password;
+            _user.Password = password;
         }
+        
 
         public string GetNickname()
         {
             return _user.NickName;
         }
-        public string SetNickname(string nickname)
+        public void SetNickname(string nickname)
         {
-            return _user.NickName = nickname;
+            _user.NickName = nickname;
+        }
+
+        public void SaveChanges() 
+        {
+            _dbContext.SaveChanges();
         }
     }
 }
