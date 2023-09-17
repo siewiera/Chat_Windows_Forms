@@ -17,20 +17,16 @@ namespace Chat
 {
     public partial class Register : Form
     {
-        private readonly ChatDbContext _dbContext;
-
+        private readonly ChatDbContext _dbContext = new ChatDbContext();
+        private SignIn signIn = new SignIn();
         public Register()
         {
             InitializeComponent();
-            _dbContext = new ChatDbContext();
-            /*var service = new ChatService(_dbContext);
-            service.AddDataToDatabase();*/
         }
     
 
         private void signInButton_Click(object sender, EventArgs e)
         {
-            SignIn signIn = new SignIn();
             signIn.Show();
             this.Hide();
         }
@@ -46,10 +42,9 @@ namespace Chat
             string email = emailBox.Text;
             string password = passwordBox.Text;
 
-            var checkRegistration = new RegistrationService(_dbContext).CheckRegister(login, email, password);
+            var checkRegistration = new RegistrationService().CheckRegister(login, email, password);
             if (checkRegistration)
             {
-                SignIn signIn = new SignIn();
                 this.Hide();
                 signIn.Show();
             }

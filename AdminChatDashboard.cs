@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Chat
 {
-    public partial class DashboardChat : Form
+    public partial class AdminChatDashboard : Form
     {
-        public DashboardChat()
+        public AdminChatDashboard()
         {
             InitializeComponent();
         }
@@ -44,11 +44,6 @@ namespace Chat
         private void chanelButton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void DashboardChat_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

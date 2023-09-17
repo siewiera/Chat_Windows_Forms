@@ -13,9 +13,9 @@ namespace Chat.Services
     {
         private readonly ChatDbContext _dbContext;
 
-        public ChatService(ChatDbContext dbContext)
+        public ChatService()
         {
-            _dbContext = dbContext;
+            _dbContext = new ChatDbContext();
         }
 
         public void AddDataToDatabase()

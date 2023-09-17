@@ -19,12 +19,11 @@ namespace Chat
     {
 
         
-        DashboardChat dashboardChat = new DashboardChat();
+        AdminChatDashboard adminChatDashboard = new AdminChatDashboard();
         private SettingsAccountService settingsAccountService;
-        public SettingsAccount(int? id)
+        public SettingsAccount(int id)
         {
             InitializeComponent();
-            if (id == null) id = GlobalVariables.Instance.globalId;
             settingsAccountService = new SettingsAccountService(id);
         }
 
@@ -69,14 +68,14 @@ namespace Chat
         }
 
         private void backBtn_Click(object sender, EventArgs e)
-        {   
+        {       
             this.Close();
-            dashboardChat.Show();
+            adminChatDashboard.Show();
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            SettingsAccountService settings = new SettingsAccountService();
+            /*SettingsAccountService settings = new SettingsAccountService(id);*/
             string nickname = nicknameBox.Text;
             string username = usernameBox.Text;
             string email = emailBox.Text;
@@ -85,12 +84,13 @@ namespace Chat
             string lastname = lastNameBox.Text;
             bool blocked = blockedChb.Checked;
 
-            bool check = settings.SavingUserData(nickname, username, email, password, name, lastname, blocked);
+            bool check = settingsAccountService
+                    .SavingUserData(nickname, username, email, password, name, lastname, blocked);
 
             if (check)
             {
                 this.Close();
-                dashboardChat.Show();
+                adminChatDashboard.Show();
             }
         }
     }

@@ -10,10 +10,10 @@ namespace Chat.Entities
 {
     internal class ChatDbContext : DbContext
     {
-        /*private string _connectionString = 
-            "Server=localhost;Database=ChatDb;Trusted_Connection=true;TrustServerCertificate=true;";*/
         private string _connectionString =
-            "Server=BPX-SIEWISE2;Database=ChatDb;Trusted_Connection=true;TrustServerCertificate=true;";
+            "Server=localhost;Database=ChatDb;Trusted_Connection=true;TrustServerCertificate=true;";
+        /*private string _connectionString =
+            "Server=BPX-SIEWISE2;Database=ChatDb;Trusted_Connection=true;TrustServerCertificate=true;";*/
 
 
         public DbSet<ConversationUser> ConversationUsers { get; set; }

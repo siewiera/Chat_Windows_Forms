@@ -59,8 +59,7 @@ namespace Chat.Services
                 .Where(e => e.Id != user_id);
             var user_email = user.Where(e => e.EmailAdress == email);
             var user_username = user.Where(e => e.UserName == username);
-
-            
+          
 
             if (username.Count() <= 4)
             {

@@ -15,13 +15,10 @@ namespace Chat
 {
     public partial class SignIn : Form
     {
-        private readonly ChatDbContext _dbContext;
-
         public SignIn()
         {
             InitializeComponent();
-            _dbContext = new ChatDbContext();
-            var service = new ChatService(_dbContext);
+            var service = new ChatService();
             service.AddDataToDatabase();
         }
 
@@ -42,14 +39,15 @@ namespace Chat
             string login = loginBox.Text;
             string password = passwordBox.Text;
 
-            DashboardChat chat = new DashboardChat();
+            AdminChatDashboard adminChatDashboard = new AdminChatDashboard();
             
-            var signInService = new SignInService(_dbContext);
+            var signInService = new SignInService();
             int check = signInService.GetDataInLogin(login, password);
 
             if (check == 100) 
             {
-                SettingsAccount settingsAccount = new SettingsAccount();
+                int id = GlobalVariables.Instance.globalId;
+                SettingsAccount settingsAccount = new SettingsAccount(id);
                 this.Hide();
                 settingsAccount.Show();
             }

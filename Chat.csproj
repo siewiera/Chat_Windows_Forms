@@ -317,11 +317,11 @@
     <Compile Include="Configure\Database.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DashboardChat.cs">
+    <Compile Include="AdminChatDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DashboardChat.Designer.cs">
-      <DependentUpon>DashboardChat.cs</DependentUpon>
+    <Compile Include="AdminChatDashboard.Designer.cs">
+      <DependentUpon>AdminChatDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\ChatDbContext.cs" />
     <Compile Include="Entities\ConversationUser.cs" />
@@ -380,8 +380,8 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DashboardChat.resx">
-      <DependentUpon>DashboardChat.cs</DependentUpon>
+    <EmbeddedResource Include="AdminChatDashboard.resx">
+      <DependentUpon>AdminChatDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsAccount.resx">
       <DependentUpon>SettingsAccount.cs</DependentUpon>

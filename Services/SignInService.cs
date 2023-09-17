@@ -15,9 +15,9 @@ namespace Chat.Services
         private readonly ChatDbContext _dbContext;
         public int _userID;
 
-        public SignInService(ChatDbContext dbContext)
+        public SignInService()
         {
-            _dbContext = dbContext;
+            _dbContext = new ChatDbContext();
         }
 
         public int GetDataInLogin(string login, string password)

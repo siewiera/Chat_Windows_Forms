@@ -15,26 +15,22 @@ namespace Chat.Services
 {
     internal class RegistrationService
     {
-        private readonly ChatDbContext _dbContext;
-        public RegistrationService(ChatDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
+        private ChatDbContext _dbContext = new ChatDbContext();
+        public RegistrationService(){}
 
         private bool CheckEmailExists(string email)
         {
-            if (email == "")
+            if (!email.Contains("@") || !email.Contains("."))
             {
-                MessageBox.Show($"Email field is required!");
+                MessageBox.Show($"Incorrect email address!");
                 return false;
             }
 
             var count_email = _dbContext.Set<User>()
-                .Where(u => u.EmailAdress == email)
-                .ToList()
+                .Where(u => u.EmailAdress == email)            
                 .Count();
 
-            if (count_email > 0)
+            if (count_email >= 1)
             {
                 MessageBox.Show($"Email: '{email}' already exists!");
                 return false;
@@ -44,18 +40,17 @@ namespace Chat.Services
 
         private bool CheckLoginExists(string login)
         {
-            if (login == "")
+            if (login.Count() <= 4)
             {
-                MessageBox.Show($"Username field is required!");
+                MessageBox.Show($"The entered username must be longer than 4 characters");
                 return false;
             }
 
             var count_login = _dbContext.Set<User>()
                 .Where(u => u.UserName == login)
-                .ToList()
                 .Count();
 
-            if (count_login > 0)
+            if (count_login >= 1)
             {
                 MessageBox.Show($"Username: '{login}' already exists!");
                 return false;
@@ -80,7 +75,7 @@ namespace Chat.Services
                 Name = "",
                 LastName = "",
                 Blocked = false,
-                RoleId = 1,
+                RoleId = 9,
             };
 
             _dbContext.Users.AddRange(user);
@@ -89,9 +84,6 @@ namespace Chat.Services
 
         private bool GoToLoginPanel()
         {
-            SignIn sigIn = new SignIn();
-            Register register = new Register();
-
             MessageBoxButtons button = MessageBoxButtons.OK;
             DialogResult result;
 

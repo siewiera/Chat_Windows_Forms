@@ -1,6 +1,6 @@
 ﻿namespace Chat
 {
-    partial class DashboardChat
+    partial class AdminChatDashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardChat));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminChatDashboard));
             this.exit = new System.Windows.Forms.Button();
             this.minimize = new System.Windows.Forms.Button();
             this.resize = new System.Windows.Forms.Button();
             this.chanelButton = new System.Windows.Forms.Button();
-            this.accountButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.usersButton = new System.Windows.Forms.Button();
+            this.roleButton = new System.Windows.Forms.Button();
+            this.messageButton = new System.Windows.Forms.Button();
+            this.xas = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // exit
@@ -86,52 +90,89 @@
             // 
             // chanelButton
             // 
-            this.chanelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.chanelButton.BackColor = System.Drawing.Color.DarkGray;
             resources.ApplyResources(this.chanelButton, "chanelButton");
             this.chanelButton.Cursor = System.Windows.Forms.Cursors.Default;
-            this.chanelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.chanelButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.chanelButton.FlatAppearance.BorderSize = 2;
+            this.chanelButton.ForeColor = System.Drawing.Color.White;
             this.chanelButton.Name = "chanelButton";
             this.chanelButton.UseVisualStyleBackColor = false;
             this.chanelButton.Click += new System.EventHandler(this.chanelButton_Click);
             // 
-            // accountButton
-            // 
-            this.accountButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            resources.ApplyResources(this.accountButton, "accountButton");
-            this.accountButton.Cursor = System.Windows.Forms.Cursors.Default;
-            this.accountButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.accountButton.Name = "accountButton";
-            this.accountButton.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             resources.ApplyResources(this.button3, "button3");
             this.button3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
+            this.button3.FlatAppearance.BorderSize = 2;
+            this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Name = "button3";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // DashboardChat
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
+            // usersButton
+            // 
+            this.usersButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            resources.ApplyResources(this.usersButton, "usersButton");
+            this.usersButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.usersButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.usersButton.FlatAppearance.BorderSize = 2;
+            this.usersButton.ForeColor = System.Drawing.Color.White;
+            this.usersButton.Name = "usersButton";
+            this.usersButton.UseVisualStyleBackColor = false;
+            // 
+            // roleButton
+            // 
+            this.roleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            resources.ApplyResources(this.roleButton, "roleButton");
+            this.roleButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.roleButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.roleButton.FlatAppearance.BorderSize = 2;
+            this.roleButton.ForeColor = System.Drawing.Color.White;
+            this.roleButton.Name = "roleButton";
+            this.roleButton.UseVisualStyleBackColor = false;
+            // 
+            // messageButton
+            // 
+            this.messageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            resources.ApplyResources(this.messageButton, "messageButton");
+            this.messageButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.messageButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.messageButton.FlatAppearance.BorderSize = 2;
+            this.messageButton.ForeColor = System.Drawing.Color.White;
+            this.messageButton.Name = "messageButton";
+            this.messageButton.UseVisualStyleBackColor = false;
+            // 
+            // xas
+            // 
+            resources.ApplyResources(this.xas, "xas");
+            this.xas.BackColor = System.Drawing.Color.Transparent;
+            this.xas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.xas.ForeColor = System.Drawing.Color.Silver;
+            this.xas.Name = "xas";
+            // 
+            // AdminChatDashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
-            this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = global::Chat.Properties.Resources.black_1072366_1920;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.CancelButton = this.exit;
             this.ControlBox = false;
+            this.Controls.Add(this.xas);
+            this.Controls.Add(this.messageButton);
+            this.Controls.Add(this.roleButton);
+            this.Controls.Add(this.usersButton);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.accountButton);
             this.Controls.Add(this.chanelButton);
             this.Controls.Add(this.resize);
             this.Controls.Add(this.minimize);
@@ -141,9 +182,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "DashboardChat";
-            this.Load += new System.EventHandler(this.DashboardChat_Load);
+            this.Name = "AdminChatDashboard";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -152,8 +194,11 @@
         private System.Windows.Forms.Button minimize;
         private System.Windows.Forms.Button chanelButton;
         private System.Windows.Forms.Button resize;
-        private System.Windows.Forms.Button accountButton;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button usersButton;
+        private System.Windows.Forms.Button roleButton;
+        private System.Windows.Forms.Button messageButton;
+        private System.Windows.Forms.Label xas;
     }
 }

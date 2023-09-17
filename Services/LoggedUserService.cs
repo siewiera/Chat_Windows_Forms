@@ -16,10 +16,9 @@ namespace Chat.Services
 
         public LoggedUserService(int id)
         {
-            /*ChatDbContext _dbContext = new ChatDbContext();*/
             _dbContext = new ChatDbContext();
 /*            _id = GlobalVariables.Instance.globalId;
-*/            _user = _dbContext.Set<User>()
+*/          _user = _dbContext.Set<User>()
                             .Where(u => u.Id == id)
                             .First();
         }
