@@ -46,10 +46,10 @@ namespace Chat
 
             if (check == 100) 
             {
-                int id = GlobalVariables.Instance.globalId;
-                SettingsAccount settingsAccount = new SettingsAccount(id);
+                /*int id = GlobalVariables.Instance.globalId;
+                SettingsAccount settingsAccount = new SettingsAccount(id);*/
                 this.Hide();
-                settingsAccount.Show();
+                adminChatDashboard.Show();
             }
             else
             {

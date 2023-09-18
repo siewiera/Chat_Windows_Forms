@@ -16,10 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 namespace Chat
 {
     public partial class SettingsAccount : Form
-    {
-
-        
-        AdminChatDashboard adminChatDashboard = new AdminChatDashboard();
+    {      
         private SettingsAccountService settingsAccountService;
         public SettingsAccount(int id)
         {
@@ -70,12 +67,11 @@ namespace Chat
         private void backBtn_Click(object sender, EventArgs e)
         {       
             this.Close();
-            adminChatDashboard.Show();
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            /*SettingsAccountService settings = new SettingsAccountService(id);*/
+            int id = Int32.Parse(idBox.Text);
             string nickname = nicknameBox.Text;
             string username = usernameBox.Text;
             string email = emailBox.Text;
@@ -85,12 +81,11 @@ namespace Chat
             bool blocked = blockedChb.Checked;
 
             bool check = settingsAccountService
-                    .SavingUserData(nickname, username, email, password, name, lastname, blocked);
+                    .SavingUserData(id, nickname, username, email, password, name, lastname, blocked);
 
             if (check)
             {
                 this.Close();
-                adminChatDashboard.Show();
             }
         }
     }

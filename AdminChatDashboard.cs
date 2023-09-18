@@ -45,5 +45,17 @@ namespace Chat
         {
             this.Close();
         }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            SettingsAccount settingsAccount = new SettingsAccount(7);
+
+            settingsAccount.Show();
+        }
+
+        private void usersButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

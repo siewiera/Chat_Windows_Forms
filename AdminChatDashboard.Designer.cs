@@ -33,12 +33,12 @@
             this.minimize = new System.Windows.Forms.Button();
             this.resize = new System.Windows.Forms.Button();
             this.chanelButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.usersButton = new System.Windows.Forms.Button();
             this.roleButton = new System.Windows.Forms.Button();
             this.messageButton = new System.Windows.Forms.Button();
-            this.xas = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,22 +100,22 @@
             this.chanelButton.UseVisualStyleBackColor = false;
             this.chanelButton.Click += new System.EventHandler(this.chanelButton_Click);
             // 
-            // button3
+            // settingsButton
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
-            this.button3.FlatAppearance.BorderSize = 2;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Name = "button3";
-            this.button3.UseVisualStyleBackColor = false;
+            this.settingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            resources.ApplyResources(this.settingsButton, "settingsButton");
+            this.settingsButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.settingsButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
+            this.settingsButton.FlatAppearance.BorderSize = 2;
+            this.settingsButton.ForeColor = System.Drawing.Color.White;
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.UseVisualStyleBackColor = false;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
@@ -129,6 +129,7 @@
             this.usersButton.ForeColor = System.Drawing.Color.White;
             this.usersButton.Name = "usersButton";
             this.usersButton.UseVisualStyleBackColor = false;
+            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
             // 
             // roleButton
             // 
@@ -152,13 +153,12 @@
             this.messageButton.Name = "messageButton";
             this.messageButton.UseVisualStyleBackColor = false;
             // 
-            // xas
+            // titleLabel
             // 
-            resources.ApplyResources(this.xas, "xas");
-            this.xas.BackColor = System.Drawing.Color.Transparent;
-            this.xas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.xas.ForeColor = System.Drawing.Color.Silver;
-            this.xas.Name = "xas";
+            resources.ApplyResources(this.titleLabel, "titleLabel");
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
+            this.titleLabel.ForeColor = System.Drawing.Color.Silver;
+            this.titleLabel.Name = "titleLabel";
             // 
             // AdminChatDashboard
             // 
@@ -167,12 +167,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.CancelButton = this.exit;
             this.ControlBox = false;
-            this.Controls.Add(this.xas);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.messageButton);
             this.Controls.Add(this.roleButton);
             this.Controls.Add(this.usersButton);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.chanelButton);
             this.Controls.Add(this.resize);
             this.Controls.Add(this.minimize);
@@ -194,11 +194,11 @@
         private System.Windows.Forms.Button minimize;
         private System.Windows.Forms.Button chanelButton;
         private System.Windows.Forms.Button resize;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button usersButton;
         private System.Windows.Forms.Button roleButton;
         private System.Windows.Forms.Button messageButton;
-        private System.Windows.Forms.Label xas;
+        private System.Windows.Forms.Label titleLabel;
     }
 }

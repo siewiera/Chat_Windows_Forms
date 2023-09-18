@@ -51,12 +51,12 @@ namespace Chat.Services
             return user;
         }
 
-        public bool SavingUserData(string nickname, string username, string email, string password,
+        public bool SavingUserData(int id, string nickname, string username, string email, string password,
             string name, string lastname, bool blocking)
         {
-            int user_id = GlobalVariables.Instance.globalId;
+            /*int user_id = GlobalVariables.Instance.globalId;*/
             var user = _dbContext.Set<User>()
-                .Where(e => e.Id != user_id);
+                .Where(e => e.Id != id);
             var user_email = user.Where(e => e.EmailAdress == email);
             var user_username = user.Where(e => e.UserName == username);
           

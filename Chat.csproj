@@ -354,6 +354,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\AdminChatDashboardService.cs" />
     <Compile Include="Services\ChatService.cs" />
     <Compile Include="Services\GlobalVariables.cs" />
     <Compile Include="Services\LoggedUserService.cs" />
