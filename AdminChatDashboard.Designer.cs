@@ -39,6 +39,7 @@
             this.roleButton = new System.Windows.Forms.Button();
             this.messageButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.listUsers = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,6 +97,7 @@
             this.chanelButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.chanelButton.FlatAppearance.BorderSize = 2;
             this.chanelButton.ForeColor = System.Drawing.Color.White;
+            this.chanelButton.Image = global::Chat.Properties.Resources.conversation6;
             this.chanelButton.Name = "chanelButton";
             this.chanelButton.UseVisualStyleBackColor = false;
             this.chanelButton.Click += new System.EventHandler(this.chanelButton_Click);
@@ -160,6 +162,20 @@
             this.titleLabel.ForeColor = System.Drawing.Color.Silver;
             this.titleLabel.Name = "titleLabel";
             // 
+            // listUsers
+            // 
+            this.listUsers.BackColor = System.Drawing.Color.Silver;
+            resources.ApplyResources(this.listUsers, "listUsers");
+            this.listUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listUsers.ForeColor = System.Drawing.Color.White;
+            this.listUsers.HideSelection = false;
+            this.listUsers.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            ((System.Windows.Forms.ListViewItem)(resources.GetObject("listUsers.Items")))});
+            this.listUsers.Name = "listUsers";
+            this.listUsers.UseCompatibleStateImageBehavior = false;
+            this.listUsers.View = System.Windows.Forms.View.Details;
+            this.listUsers.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
             // AdminChatDashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -167,6 +183,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.CancelButton = this.exit;
             this.ControlBox = false;
+            this.Controls.Add(this.listUsers);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.messageButton);
             this.Controls.Add(this.roleButton);
@@ -183,6 +200,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdminChatDashboard";
+            this.Load += new System.EventHandler(this.AdminChatDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -200,5 +218,6 @@
         private System.Windows.Forms.Button roleButton;
         private System.Windows.Forms.Button messageButton;
         private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.ListView listUsers;
     }
 }

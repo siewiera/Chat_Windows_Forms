@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chat.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Chat
 {
     public partial class AdminChatDashboard : Form
     {
+        AdminChatDashboardService adminChatDashboardService = new AdminChatDashboardService(); 
         public AdminChatDashboard()
         {
             InitializeComponent();
@@ -48,7 +51,8 @@ namespace Chat
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            SettingsAccount settingsAccount = new SettingsAccount(7);
+            int idLoggedUser = GlobalVariables.Instance.globalId;
+            SettingsAccount settingsAccount = new SettingsAccount(idLoggedUser);
 
             settingsAccount.Show();
         }
@@ -56,6 +60,50 @@ namespace Chat
         private void usersButton_Click(object sender, EventArgs e)
         {
 
+            ListViewItem entryListItem = listUsers.Items.Add("Settings");
+            entryListItem.UseItemStyleForSubItems = false;
+            entryListItem.SubItems.Add("settings");
+
+            listUsers.Columns.Add("Id");
+            listUsers.Columns.Add("Username");
+            listUsers.Columns.Add("Email");
+            listUsers.Columns.Add("Password");
+            listUsers.Columns.Add("Name");
+            listUsers.Columns.Add("Lastname");
+            listUsers.Columns.Add("Blocked");
+            listUsers.Columns.Add("RoleId");
+            listUsers.Columns.Add("Nickname");
+            /*listUsers.Columns.Add("Settings");*/
+
+            var users = adminChatDashboardService.GetAllUsers();
+            foreach (var user in users)
+            {
+                listUsers.Items.Add(new ListViewItem
+                    (new string[]
+                        {
+                            user.Id.ToString(),
+                            user.UserName.ToString(),
+                            user.EmailAdress.ToString(),
+                            user.Password.ToString(),
+                            user.Name.ToString(),
+                            user.LastName.ToString(),
+                            user.Blocked.ToString(),
+                            user.RoleId.ToString(),
+                            user.NickName.ToString(),
+                        }                
+                    )
+                );
+            }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminChatDashboard_Load(object sender, EventArgs e)
+        {        
+            
         }
     }
 }

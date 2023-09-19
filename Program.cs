@@ -19,8 +19,8 @@ namespace Chat
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignIn());
-            /*Application.Run(new Register());*/
+            /*Application.Run(new SignIn());*/
+            Application.Run(new AdminChatDashboard());
             /*Application.Run(new SettingsAccount());*/
 
         }
