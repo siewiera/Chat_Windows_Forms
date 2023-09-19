@@ -164,9 +164,11 @@
             // 
             // listUsers
             // 
-            this.listUsers.BackColor = System.Drawing.Color.Silver;
+            this.listUsers.Activation = System.Windows.Forms.ItemActivation.OneClick;
             resources.ApplyResources(this.listUsers, "listUsers");
-            this.listUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listUsers.AllowDrop = true;
+            this.listUsers.BackColor = System.Drawing.Color.Silver;
+            this.listUsers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listUsers.ForeColor = System.Drawing.Color.White;
             this.listUsers.HideSelection = false;
             this.listUsers.Items.AddRange(new System.Windows.Forms.ListViewItem[] {

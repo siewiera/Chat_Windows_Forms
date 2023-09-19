@@ -1,4 +1,5 @@
 ﻿using Chat.Services;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,12 +58,18 @@ namespace Chat
             settingsAccount.Show();
         }
 
-        private void usersButton_Click(object sender, EventArgs e)
+        public void test(object sender, EventArgs e, int i)
+        {
+            SettingsAccount settings = new SettingsAccount(2);
+            settings.Show();
+        }
+
+        private void usersButton_Click(object sender, EventArgs e, int i)
         {
 
-            ListViewItem entryListItem = listUsers.Items.Add("Settings");
+            /*ListViewItem entryListItem = listUsers.Items.Add("Settings");
             entryListItem.UseItemStyleForSubItems = false;
-            entryListItem.SubItems.Add("settings");
+            entryListItem.SubItems.Add("settings");*/
 
             listUsers.Columns.Add("Id");
             listUsers.Columns.Add("Username");
@@ -73,7 +80,12 @@ namespace Chat
             listUsers.Columns.Add("Blocked");
             listUsers.Columns.Add("RoleId");
             listUsers.Columns.Add("Nickname");
+            listUsers.Columns.Add("Settings");
+
+            
             /*listUsers.Columns.Add("Settings");*/
+
+           /* listUsers.MouseClick += new MouseEventHandler(test);*/
 
             var users = adminChatDashboardService.GetAllUsers();
             foreach (var user in users)
@@ -90,10 +102,18 @@ namespace Chat
                             user.Blocked.ToString(),
                             user.RoleId.ToString(),
                             user.NickName.ToString(),
+                            "Settings",
                         }                
                     )
+                    /*listUsers.Items.Add("Settings");*/
                 );
+                
+                
             }
+            /*listUsers.li = true;*/
+            /*listUsers.MouseClick += new MouseEventHandler(test);*/
+;
+            listUsers.ItemActivate += new EventHandler(test);
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
