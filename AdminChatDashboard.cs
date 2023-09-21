@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,62 +59,62 @@ namespace Chat
             settingsAccount.Show();
         }
 
-        public void test(object sender, EventArgs e, int i)
+        public void test(object sender, EventArgs e)
         {
-            SettingsAccount settings = new SettingsAccount(2);
+            SettingsAccount settings = new SettingsAccount(4);
             settings.Show();
         }
 
-        private void usersButton_Click(object sender, EventArgs e, int i)
+        private void usersButton_Click(object sender, EventArgs e)
         {
 
-            /*ListViewItem entryListItem = listUsers.Items.Add("Settings");
-            entryListItem.UseItemStyleForSubItems = false;
-            entryListItem.SubItems.Add("settings");*/
+            ImageList image = new ImageList();
+            image.ImageSize = new Size(50, 50);
+            Graphics theGraphics = Graphics.FromHwnd(this.Handle);
 
-            listUsers.Columns.Add("Id");
-            listUsers.Columns.Add("Username");
-            listUsers.Columns.Add("Email");
-            listUsers.Columns.Add("Password");
-            listUsers.Columns.Add("Name");
-            listUsers.Columns.Add("Lastname");
-            listUsers.Columns.Add("Blocked");
-            listUsers.Columns.Add("RoleId");
-            listUsers.Columns.Add("Nickname");
-            listUsers.Columns.Add("Settings");
+            listUsers.View = View.Details;
 
-            
-            /*listUsers.Columns.Add("Settings");*/
+            listUsers.Columns.Add("Id", -2, HorizontalAlignment.Center);
+            listUsers.Columns.Add("Username", -2, HorizontalAlignment.Center);
+            listUsers.Columns.Add("Email", -2, HorizontalAlignment.Center);
+            listUsers.Columns.Add("Password", -2, HorizontalAlignment.Center);
+            listUsers.Columns.Add("Name", -2, HorizontalAlignment.Center);
+            listUsers.Columns.Add("Lastname", -2, HorizontalAlignment.Center);
+            listUsers.Columns.Add("Blocked", -2, HorizontalAlignment.Center);
+            listUsers.Columns.Add("RoleId", -2, HorizontalAlignment.Center);
+            listUsers.Columns.Add("Nickname", -2, HorizontalAlignment.Center);
+            listUsers.Columns.Add("Settings", -2, HorizontalAlignment.Center);
 
-           /* listUsers.MouseClick += new MouseEventHandler(test);*/
+            string path = "C:/Users/BPX S Siewiera/source/repos/siewiera/Chat_Windows_Forms/image/button/save.png";
+            image.Images.Add(Image.FromFile(path));
 
             var users = adminChatDashboardService.GetAllUsers();
+
+            listUsers.SmallImageList = image;
+
             foreach (var user in users)
             {
-                listUsers.Items.Add(new ListViewItem
-                    (new string[]
-                        {
-                            user.Id.ToString(),
-                            user.UserName.ToString(),
-                            user.EmailAdress.ToString(),
-                            user.Password.ToString(),
-                            user.Name.ToString(),
-                            user.LastName.ToString(),
-                            user.Blocked.ToString(),
-                            user.RoleId.ToString(),
-                            user.NickName.ToString(),
-                            "Settings",
-                        }                
-                    )
-                    /*listUsers.Items.Add("Settings");*/
-                );
-                
-                
+                string[] users_data = new string[]
+                {
+                    user.Id.ToString(),
+                    user.UserName.ToString(),
+                    user.EmailAdress.ToString(),
+                    user.Password.ToString(),
+                    user.Name.ToString(),
+                    user.LastName.ToString(),
+                    user.Blocked.ToString(),
+                    user.RoleId.ToString(),
+                    user.NickName.ToString(),
+                };
+
+
+                listUsers.Items.Add(new ListViewItem(users_data, 0));
             }
-            /*listUsers.li = true;*/
-            /*listUsers.MouseClick += new MouseEventHandler(test);*/
-;
+            /*listUsers.Items.Add("", 0);
+            listUsers.EndUpdate();*/
             listUsers.ItemActivate += new EventHandler(test);
+            listUsers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            /*listUsers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);*/
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

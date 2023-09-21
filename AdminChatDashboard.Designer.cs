@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminChatDashboard));
             this.exit = new System.Windows.Forms.Button();
             this.minimize = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             this.messageButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.listUsers = new System.Windows.Forms.ListView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,6 +170,8 @@
             resources.ApplyResources(this.listUsers, "listUsers");
             this.listUsers.AllowDrop = true;
             this.listUsers.BackColor = System.Drawing.Color.Silver;
+            this.listUsers.BackgroundImage = global::Chat.Properties.Resources.black_1072366_1920;
+            this.listUsers.BackgroundImageTiled = true;
             this.listUsers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listUsers.ForeColor = System.Drawing.Color.White;
             this.listUsers.HideSelection = false;
@@ -177,6 +181,12 @@
             this.listUsers.UseCompatibleStateImageBehavior = false;
             this.listUsers.View = System.Windows.Forms.View.Details;
             this.listUsers.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.White;
+            this.imageList1.Images.SetKeyName(0, "check-red.png");
             // 
             // AdminChatDashboard
             // 
@@ -221,5 +231,6 @@
         private System.Windows.Forms.Button messageButton;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.ListView listUsers;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
