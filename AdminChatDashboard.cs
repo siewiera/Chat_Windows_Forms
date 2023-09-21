@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Chat.Services.SettingsAccountService;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Chat
@@ -69,11 +70,10 @@ namespace Chat
         {
 
             ImageList image = new ImageList();
-            image.ImageSize = new Size(50, 50);
+            image.ImageSize = new Size(32, 32);
             Graphics theGraphics = Graphics.FromHwnd(this.Handle);
 
             listUsers.View = View.Details;
-
             listUsers.Columns.Add("Id", -2, HorizontalAlignment.Center);
             listUsers.Columns.Add("Username", -2, HorizontalAlignment.Center);
             listUsers.Columns.Add("Email", -2, HorizontalAlignment.Center);
@@ -85,13 +85,15 @@ namespace Chat
             listUsers.Columns.Add("Nickname", -2, HorizontalAlignment.Center);
             listUsers.Columns.Add("Settings", -2, HorizontalAlignment.Center);
 
-            string path = "C:/Users/BPX S Siewiera/source/repos/siewiera/Chat_Windows_Forms/image/button/save.png";
+
+            /*string path = "C:/Users/BPX S Siewiera/source/repos/siewiera/Chat_Windows_Forms/image/button/save.png";*/
+            string path = Path.GetFullPath(@"..\..\image\button\edit.png");
             image.Images.Add(Image.FromFile(path));
 
             var users = adminChatDashboardService.GetAllUsers();
 
             listUsers.SmallImageList = image;
-
+            int i = 0;
             foreach (var user in users)
             {
                 string[] users_data = new string[]
@@ -106,14 +108,16 @@ namespace Chat
                     user.RoleId.ToString(),
                     user.NickName.ToString(),
                 };
-
-
                 listUsers.Items.Add(new ListViewItem(users_data, 0));
+                /*listUsers.Items.Add("", 0);*/
+                this.Controls.Add(listUsers);
             }
+            
+            
             /*listUsers.Items.Add("", 0);
             listUsers.EndUpdate();*/
             listUsers.ItemActivate += new EventHandler(test);
-            listUsers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listUsers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);          
             /*listUsers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);*/
         }
 
