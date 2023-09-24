@@ -348,6 +348,10 @@
     <Compile Include="Migrations\20230813190554_Adding_validation_to_column.designer.cs">
       <DependentUpon>20230813190554_Adding_validation_to_column.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20230924160951_update.cs" />
+    <Compile Include="Migrations\20230924160951_update.designer.cs">
+      <DependentUpon>20230924160951_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ChatDbContextModelSnapshot.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

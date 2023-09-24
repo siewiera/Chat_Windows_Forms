@@ -36,7 +36,7 @@ namespace Chat.Services
             }         
         }
 
-        public IEnumerable<Role> GetRole()
+        private IEnumerable<Role> GetRole()
         {
             var role = new List<Role>()
             {
@@ -57,7 +57,7 @@ namespace Chat.Services
             return role;
         }
 
-        public IEnumerable<Right> GetRight()
+        private IEnumerable<Right> GetRight()
         {
             var right = new List<Right>()
             {
@@ -80,6 +80,14 @@ namespace Chat.Services
             };
 
             return right;
+        }
+
+        public IList<Role> ListRole()
+        {
+            var role = _dbContext.Set<Role>()
+                .ToList();
+
+            return role;
         }
     }
 }

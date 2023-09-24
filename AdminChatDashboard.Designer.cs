@@ -168,16 +168,17 @@
             // 
             this.listUsers.Activation = System.Windows.Forms.ItemActivation.OneClick;
             resources.ApplyResources(this.listUsers, "listUsers");
-            this.listUsers.AllowDrop = true;
-            this.listUsers.BackColor = System.Drawing.Color.Silver;
+            this.listUsers.AutoArrange = false;
+            this.listUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.listUsers.BackgroundImage = global::Chat.Properties.Resources.black_1072366_1920;
-            this.listUsers.BackgroundImageTiled = true;
-            this.listUsers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listUsers.ForeColor = System.Drawing.Color.White;
+            this.listUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.listUsers.FullRowSelect = true;
             this.listUsers.HideSelection = false;
-            this.listUsers.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            ((System.Windows.Forms.ListViewItem)(resources.GetObject("listUsers.Items")))});
+            this.listUsers.MultiSelect = false;
             this.listUsers.Name = "listUsers";
+            this.listUsers.ShowGroups = false;
+            this.listUsers.ShowItemToolTips = true;
             this.listUsers.UseCompatibleStateImageBehavior = false;
             this.listUsers.View = System.Windows.Forms.View.Details;
             this.listUsers.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);

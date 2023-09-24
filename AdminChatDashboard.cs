@@ -17,7 +17,8 @@ namespace Chat
 {
     public partial class AdminChatDashboard : Form
     {
-        AdminChatDashboardService adminChatDashboardService = new AdminChatDashboardService(); 
+        private AdminChatDashboardService adminChatDashboardService = new AdminChatDashboardService();
+        private ChatService _chatService = new ChatService();
         public AdminChatDashboard()
         {
             InitializeComponent();
@@ -60,40 +61,37 @@ namespace Chat
             settingsAccount.Show();
         }
 
-        public void test(object sender, EventArgs e)
+        public void settingsUserAccount(object sender, EventArgs e)
         {
-            SettingsAccount settings = new SettingsAccount(4);
+            string id = listUsers.SelectedItems[0].Text;
+            SettingsAccount settings = new SettingsAccount(Int32.Parse(id));
             settings.Show();
         }
 
         private void usersButton_Click(object sender, EventArgs e)
         {
-
-            ImageList image = new ImageList();
-            image.ImageSize = new Size(32, 32);
-            Graphics theGraphics = Graphics.FromHwnd(this.Handle);
-
             listUsers.View = View.Details;
             listUsers.Columns.Add("Id", -2, HorizontalAlignment.Center);
-            listUsers.Columns.Add("Username", -2, HorizontalAlignment.Center);
-            listUsers.Columns.Add("Email", -2, HorizontalAlignment.Center);
-            listUsers.Columns.Add("Password", -2, HorizontalAlignment.Center);
-            listUsers.Columns.Add("Name", -2, HorizontalAlignment.Center);
-            listUsers.Columns.Add("Lastname", -2, HorizontalAlignment.Center);
+            listUsers.Columns.Add("Username", 100, HorizontalAlignment.Center);
+            listUsers.Columns.Add("Email", 120, HorizontalAlignment.Center);
+            listUsers.Columns.Add("Password", 120, HorizontalAlignment.Center);
+            listUsers.Columns.Add("Name", 100, HorizontalAlignment.Center);
+            listUsers.Columns.Add("Lastname", 100, HorizontalAlignment.Center);
             listUsers.Columns.Add("Blocked", -2, HorizontalAlignment.Center);
             listUsers.Columns.Add("RoleId", -2, HorizontalAlignment.Center);
             listUsers.Columns.Add("Nickname", -2, HorizontalAlignment.Center);
-            listUsers.Columns.Add("Settings", -2, HorizontalAlignment.Center);
+
+            listUsers.Font = new Font("Comic Sans MS", 10, FontStyle.Bold);
 
 
-            /*string path = "C:/Users/BPX S Siewiera/source/repos/siewiera/Chat_Windows_Forms/image/button/save.png";*/
+            /*ImageList image = new ImageList();
+            image.ImageSize = new Size(10, 10);
             string path = Path.GetFullPath(@"..\..\image\button\edit.png");
             image.Images.Add(Image.FromFile(path));
+            listUsers.SmallImageList = image;*/
 
+            var roles = _chatService.ListRole();
             var users = adminChatDashboardService.GetAllUsers();
-
-            listUsers.SmallImageList = image;
-            int i = 0;
             foreach (var user in users)
             {
                 string[] users_data = new string[]
@@ -108,17 +106,25 @@ namespace Chat
                     user.RoleId.ToString(),
                     user.NickName.ToString(),
                 };
-                listUsers.Items.Add(new ListViewItem(users_data, 0));
-                /*listUsers.Items.Add("", 0);*/
-                this.Controls.Add(listUsers);
+
+                ListViewItem list = new ListViewItem(users_data);
+                list.Font = new Font("Comic Sans MS", 10, FontStyle.Italic);
+
+                foreach (var role in roles.Where(i => i.Id == user.RoleId))
+                {
+                    if (role.Name == "Chat_Admin") list.ForeColor = Color.Green;
+                    else if (role.Name == "Master_Admin") list.ForeColor = Color.YellowGreen;
+                    else list.ForeColor = Color.White;
+                }
+                listUsers.Items.Add(list);          
             }
+
+            listUsers.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
+            listUsers.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.HeaderSize);
+            listUsers.AutoResizeColumn(7, ColumnHeaderAutoResizeStyle.HeaderSize);
+            listUsers.AutoResizeColumn(8, ColumnHeaderAutoResizeStyle.ColumnContent);
             
-            
-            /*listUsers.Items.Add("", 0);
-            listUsers.EndUpdate();*/
-            listUsers.ItemActivate += new EventHandler(test);
-            listUsers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);          
-            /*listUsers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);*/
+            listUsers.ItemActivate += new EventHandler(settingsUserAccount);
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

@@ -16,6 +16,7 @@ namespace Chat.Services
     internal class RegistrationService
     {
         private ChatDbContext _dbContext = new ChatDbContext();
+        private ChatService _chatService = new ChatService();
         public RegistrationService(){}
 
         private bool CheckEmailExists(string email)
@@ -66,6 +67,15 @@ namespace Chat.Services
 
         private void AddUser(string login, string email, string password) 
         {
+            var roles = _chatService.ListRole();
+            int idRoleUser = 0;
+
+            foreach (var role in roles)
+            { 
+                if(role.Name == "User") idRoleUser = role.Id;
+            }
+            if (roles.Where(e => e.Id == idRoleUser).Count() == 0) return;
+
             var user = new User()
             {
                 NickName = login.Remove(3) + DateTime.Now.ToString("yyyyMMddHHmmss"),
@@ -75,7 +85,7 @@ namespace Chat.Services
                 Name = "",
                 LastName = "",
                 Blocked = false,
-                RoleId = 9,
+                RoleId = idRoleUser,
             };
 
             _dbContext.Users.AddRange(user);
