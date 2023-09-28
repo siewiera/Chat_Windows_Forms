@@ -42,7 +42,14 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.listUsers = new System.Windows.Forms.ListView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.userFilterBox = new System.Windows.Forms.ComboBox();
+            this.usersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.chatDbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userFilterIcon = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chatDbDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // exit
@@ -168,11 +175,12 @@
             // 
             this.listUsers.Activation = System.Windows.Forms.ItemActivation.OneClick;
             resources.ApplyResources(this.listUsers, "listUsers");
+            this.listUsers.AllowColumnReorder = true;
             this.listUsers.AutoArrange = false;
             this.listUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.listUsers.BackgroundImage = global::Chat.Properties.Resources.black_1072366_1920;
             this.listUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.listUsers.ForeColor = System.Drawing.Color.Black;
             this.listUsers.FullRowSelect = true;
             this.listUsers.HideSelection = false;
             this.listUsers.MultiSelect = false;
@@ -181,13 +189,43 @@
             this.listUsers.ShowItemToolTips = true;
             this.listUsers.UseCompatibleStateImageBehavior = false;
             this.listUsers.View = System.Windows.Forms.View.Details;
-            this.listUsers.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.White;
             this.imageList1.Images.SetKeyName(0, "check-red.png");
+            // 
+            // userFilterBox
+            // 
+            this.userFilterBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.userFilterBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.userFilterBox.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.userFilterBox, "userFilterBox");
+            this.userFilterBox.ForeColor = System.Drawing.Color.White;
+            this.userFilterBox.Name = "userFilterBox";
+            this.userFilterBox.Sorted = true;
+            this.userFilterBox.SelectedIndexChanged += new System.EventHandler(this.userFilterBox_SelectedIndexChanged);
+            // 
+            // userFilterIcon
+            // 
+            resources.ApplyResources(this.userFilterIcon, "userFilterIcon");
+            this.userFilterIcon.BackColor = System.Drawing.Color.Transparent;
+            this.userFilterIcon.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.userFilterIcon.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.userFilterIcon.FlatAppearance.BorderSize = 0;
+            this.userFilterIcon.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.userFilterIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.userFilterIcon.ForeColor = System.Drawing.Color.Maroon;
+            this.userFilterIcon.Name = "userFilterIcon";
+            this.userFilterIcon.UseCompatibleTextRendering = true;
+            this.userFilterIcon.UseVisualStyleBackColor = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             // 
             // AdminChatDashboard
             // 
@@ -196,6 +234,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.CancelButton = this.exit;
             this.ControlBox = false;
+            this.Controls.Add(this.userFilterIcon);
+            this.Controls.Add(this.userFilterBox);
             this.Controls.Add(this.listUsers);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.messageButton);
@@ -215,6 +255,8 @@
             this.Name = "AdminChatDashboard";
             this.Load += new System.EventHandler(this.AdminChatDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chatDbDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,7 +273,12 @@
         private System.Windows.Forms.Button roleButton;
         private System.Windows.Forms.Button messageButton;
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.ListView listUsers;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.BindingSource chatDbDataSetBindingSource;
+        private System.Windows.Forms.BindingSource usersBindingSource1;
+        public System.Windows.Forms.ComboBox userFilterBox;
+        public System.Windows.Forms.ListView listUsers;
+        private System.Windows.Forms.Button userFilterIcon;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

@@ -17,8 +17,8 @@ namespace Chat
 {
     public partial class AdminChatDashboard : Form
     {
-        private AdminChatDashboardService adminChatDashboardService = new AdminChatDashboardService();
         private ChatService _chatService = new ChatService();
+        private AdminChatDashboardService adminChatDashboardService = new AdminChatDashboardService();
         public AdminChatDashboard()
         {
             InitializeComponent();
@@ -68,73 +68,109 @@ namespace Chat
             settings.Show();
         }
 
+        private void AddOptionsToUserFilterBox()
+        {
+            var users = adminChatDashboardService.GetAllUsers();
+            string option;
+            foreach (var user in users)
+            {
+                if(user.Name == "") option = user.UserName;
+                else option = $"{user.Name} {user.LastName} ({user.UserName})";
+                userFilterBox.Items.Add(option);
+                userFilterBox.TabIndex = user.Id;
+            }
+        }
+
+        private void ChangingVisibiltyModules(string module,  bool visible = true)
+        {
+            switch (module) 
+            {
+                case "Channels":
+                    break;
+                case "Users":
+                    listUsers.Visible = visible;
+                    userFilterBox.Visible = visible;
+                    userFilterIcon.Visible = visible;
+                    break;
+                case "Roles":
+                    break;
+                case "Message":
+                    break;
+            }
+            
+        }
+
         private void usersButton_Click(object sender, EventArgs e)
         {
-            listUsers.View = View.Details;
-            listUsers.Columns.Add("Id", -2, HorizontalAlignment.Center);
-            listUsers.Columns.Add("Username", 100, HorizontalAlignment.Center);
-            listUsers.Columns.Add("Email", 120, HorizontalAlignment.Center);
-            listUsers.Columns.Add("Password", 120, HorizontalAlignment.Center);
-            listUsers.Columns.Add("Name", 100, HorizontalAlignment.Center);
-            listUsers.Columns.Add("Lastname", 100, HorizontalAlignment.Center);
-            listUsers.Columns.Add("Blocked", -2, HorizontalAlignment.Center);
-            listUsers.Columns.Add("RoleId", -2, HorizontalAlignment.Center);
-            listUsers.Columns.Add("Nickname", -2, HorizontalAlignment.Center);
+
+            if (listUsers.Visible) return;
+
+            ChangingVisibiltyModules("Users", true);
+            AddOptionsToUserFilterBox();
+
+            listUsers.Columns.Add("Id", -2, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Username", 100, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Email", 120, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Password", 120, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Name", 100, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Lastname", 100, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Blocked", -2, HorizontalAlignment.Left);
+            listUsers.Columns.Add("RoleId", -2, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Nickname", -2, HorizontalAlignment.Left);
 
             listUsers.Font = new Font("Comic Sans MS", 10, FontStyle.Bold);
-
 
             /*ImageList image = new ImageList();
             image.ImageSize = new Size(10, 10);
             string path = Path.GetFullPath(@"..\..\image\button\edit.png");
             image.Images.Add(Image.FromFile(path));
-            listUsers.SmallImageList = image;*/
+            adminChat.listUsers.SmallImageList = image;*/
 
             var roles = _chatService.ListRole();
             var users = adminChatDashboardService.GetAllUsers();
             foreach (var user in users)
             {
+                string roleName = roles.Where(i => i.Id == user.RoleId).First().Name;
                 string[] users_data = new string[]
                 {
                     user.Id.ToString(),
-                    user.UserName.ToString(),
-                    user.EmailAdress.ToString(),
-                    user.Password.ToString(),
-                    user.Name.ToString(),
-                    user.LastName.ToString(),
+                    user.UserName,
+                    user.EmailAdress,
+                    user.Password,
+                    user.Name,
+                    user.LastName,
                     user.Blocked.ToString(),
-                    user.RoleId.ToString(),
-                    user.NickName.ToString(),
+                    roleName,
+                    user.NickName,
                 };
 
                 ListViewItem list = new ListViewItem(users_data);
                 list.Font = new Font("Comic Sans MS", 10, FontStyle.Italic);
 
-                foreach (var role in roles.Where(i => i.Id == user.RoleId))
-                {
-                    if (role.Name == "Chat_Admin") list.ForeColor = Color.Green;
-                    else if (role.Name == "Master_Admin") list.ForeColor = Color.YellowGreen;
-                    else list.ForeColor = Color.White;
-                }
-                listUsers.Items.Add(list);          
+                if (roleName == "Chat_Admin") list.ForeColor = Color.Green;
+                else if (roleName == "Master_Admin") list.ForeColor = Color.YellowGreen;
+                else list.ForeColor = Color.White;
+
+                listUsers.Items.Add(list);
             }
 
             listUsers.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
             listUsers.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.HeaderSize);
             listUsers.AutoResizeColumn(7, ColumnHeaderAutoResizeStyle.HeaderSize);
             listUsers.AutoResizeColumn(8, ColumnHeaderAutoResizeStyle.ColumnContent);
-            
+
             listUsers.ItemActivate += new EventHandler(settingsUserAccount);
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void AdminChatDashboard_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void AdminChatDashboard_Load(object sender, EventArgs e)
-        {        
-            
+        private void userFilterBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
