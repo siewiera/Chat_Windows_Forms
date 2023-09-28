@@ -100,32 +100,8 @@ namespace Chat
             
         }
 
-        private void usersButton_Click(object sender, EventArgs e)
+        private void LoadDataIntoTableUser()
         {
-
-            if (listUsers.Visible) return;
-
-            ChangingVisibiltyModules("Users", true);
-            AddOptionsToUserFilterBox();
-
-            listUsers.Columns.Add("Id", -2, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Username", 100, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Email", 120, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Password", 120, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Name", 100, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Lastname", 100, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Blocked", -2, HorizontalAlignment.Left);
-            listUsers.Columns.Add("RoleId", -2, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Nickname", -2, HorizontalAlignment.Left);
-
-            listUsers.Font = new Font("Comic Sans MS", 10, FontStyle.Bold);
-
-            /*ImageList image = new ImageList();
-            image.ImageSize = new Size(10, 10);
-            string path = Path.GetFullPath(@"..\..\image\button\edit.png");
-            image.Images.Add(Image.FromFile(path));
-            adminChat.listUsers.SmallImageList = image;*/
-
             var roles = _chatService.ListRole();
             var users = adminChatDashboardService.GetAllUsers();
             foreach (var user in users)
@@ -153,6 +129,35 @@ namespace Chat
 
                 listUsers.Items.Add(list);
             }
+        }
+
+        private void usersButton_Click(object sender, EventArgs e)
+        {
+
+            if (listUsers.Visible) return;
+
+            ChangingVisibiltyModules("Users", true);
+            AddOptionsToUserFilterBox();
+
+            listUsers.Columns.Add("Id", -2, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Username", 100, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Email", 120, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Password", 120, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Name", 100, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Lastname", 100, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Blocked", -2, HorizontalAlignment.Left);
+            listUsers.Columns.Add("RoleId", -2, HorizontalAlignment.Left);
+            listUsers.Columns.Add("Nickname", -2, HorizontalAlignment.Left);
+
+            listUsers.Font = new Font("Comic Sans MS", 10, FontStyle.Bold);
+
+            /*ImageList image = new ImageList();
+            image.ImageSize = new Size(10, 10);
+            string path = Path.GetFullPath(@"..\..\image\button\edit.png");
+            image.Images.Add(Image.FromFile(path));
+            adminChat.listUsers.SmallImageList = image;*/
+
+            LoadDataIntoTableUser();
 
             listUsers.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
             listUsers.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.HeaderSize);
