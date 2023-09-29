@@ -19,7 +19,7 @@ namespace Chat.Services
             _dbContext = new ChatDbContext();
         }
 
-        public IList<User> GetAllUsers() 
+        public IEnumerable<User> GetAllUsers() 
         {    
             var users = _dbContext.Set<User>()
                 .ToList();

@@ -72,12 +72,13 @@ namespace Chat
         {
             var users = adminChatDashboardService.GetAllUsers();
             string option;
+            userFilterBox.Items.Add("-");
             foreach (var user in users)
             {
-                if(user.Name == "") option = user.UserName;
-                else option = $"{user.Name} {user.LastName} ({user.UserName})";
+                /*if(user.Name == "") option = user.UserName;
+                else option = $"{user.Name} {user.LastName} ({user.UserName})";*/
+                option = user.UserName;
                 userFilterBox.Items.Add(option);
-                userFilterBox.TabIndex = user.Id;
             }
         }
 
@@ -100,10 +101,11 @@ namespace Chat
             
         }
 
-        private void LoadDataIntoTableUser()
+        private void LoadDataIntoTableUser(int id = -1)
         {
             var roles = _chatService.ListRole();
             var users = adminChatDashboardService.GetAllUsers();
+            if (id > 0) users = adminChatDashboardService.GetAllUsers().Where(e => e.Id == id);
             foreach (var user in users)
             {
                 string roleName = roles.Where(i => i.Id == user.RoleId).First().Name;
@@ -123,13 +125,20 @@ namespace Chat
                 ListViewItem list = new ListViewItem(users_data);
                 list.Font = new Font("Comic Sans MS", 10, FontStyle.Italic);
 
-                if (roleName == "Chat_Admin") list.ForeColor = Color.Green;
+                if (roleName == "Chat_Admin") list.ForeColor = Color.LightGreen;
                 else if (roleName == "Master_Admin") list.ForeColor = Color.YellowGreen;
-                else list.ForeColor = Color.White;
+                else list.ForeColor = Color.WhiteSmoke;
 
                 listUsers.Items.Add(list);
             }
         }
+
+        private void ClearListUser()
+        { 
+            listUsers.Items.Clear();
+        }
+
+        
 
         private void usersButton_Click(object sender, EventArgs e)
         {
@@ -172,10 +181,29 @@ namespace Chat
         {
 
         }
+        private void FilteringTableUsers()
+        {
+            string selectedVal = userFilterBox
+                .SelectedItem
+                .ToString();
+
+            ClearListUser();
+            if (selectedVal == "-" || selectedVal == "") LoadDataIntoTableUser();
+            else
+            {
+                int selectedUserId = adminChatDashboardService
+                    .GetAllUsers()
+                    .Where(e => e.UserName == selectedVal)
+                    .First()
+                    .Id;
+
+                LoadDataIntoTableUser(selectedUserId);
+            }
+        }
 
         private void userFilterBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            FilteringTableUsers();
         }
     }
 }

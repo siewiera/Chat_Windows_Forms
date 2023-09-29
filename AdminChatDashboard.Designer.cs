@@ -44,12 +44,16 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.userFilterBox = new System.Windows.Forms.ComboBox();
             this.usersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.chatDbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userFilterIcon = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.zToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chatDbDataSetBindingSource)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // exit
@@ -178,7 +182,7 @@
             this.listUsers.AllowColumnReorder = true;
             this.listUsers.AutoArrange = false;
             this.listUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.listUsers.BackgroundImage = global::Chat.Properties.Resources.black_1072366_1920;
+            this.listUsers.BackgroundImageTiled = true;
             this.listUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listUsers.ForeColor = System.Drawing.Color.Black;
             this.listUsers.FullRowSelect = true;
@@ -200,7 +204,7 @@
             // 
             this.userFilterBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.userFilterBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.userFilterBox.BackColor = System.Drawing.Color.Black;
+            this.userFilterBox.BackColor = System.Drawing.Color.Gray;
             resources.ApplyResources(this.userFilterBox, "userFilterBox");
             this.userFilterBox.ForeColor = System.Drawing.Color.White;
             this.userFilterBox.Name = "userFilterBox";
@@ -224,8 +228,34 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.zToolStripMenuItem,
+            this.xToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            // 
+            // zToolStripMenuItem
+            // 
+            this.zToolStripMenuItem.Name = "zToolStripMenuItem";
+            resources.ApplyResources(this.zToolStripMenuItem, "zToolStripMenuItem");
+            // 
+            // xToolStripMenuItem
+            // 
+            this.xToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cToolStripMenuItem,
+            this.aToolStripMenuItem});
+            this.xToolStripMenuItem.Name = "xToolStripMenuItem";
+            resources.ApplyResources(this.xToolStripMenuItem, "xToolStripMenuItem");
+            // 
+            // cToolStripMenuItem
+            // 
+            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
+            resources.ApplyResources(this.cToolStripMenuItem, "cToolStripMenuItem");
+            // 
+            // aToolStripMenuItem
+            // 
+            this.aToolStripMenuItem.Name = "aToolStripMenuItem";
+            resources.ApplyResources(this.aToolStripMenuItem, "aToolStripMenuItem");
             // 
             // AdminChatDashboard
             // 
@@ -256,7 +286,7 @@
             this.Load += new System.EventHandler(this.AdminChatDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chatDbDataSetBindingSource)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,11 +304,15 @@
         private System.Windows.Forms.Button messageButton;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.BindingSource chatDbDataSetBindingSource;
         private System.Windows.Forms.BindingSource usersBindingSource1;
         public System.Windows.Forms.ComboBox userFilterBox;
         public System.Windows.Forms.ListView listUsers;
         private System.Windows.Forms.Button userFilterIcon;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem zToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
