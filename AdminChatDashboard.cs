@@ -181,6 +181,7 @@ namespace Chat
         {
 
         }
+
         private void FilteringTableUsers()
         {
             string selectedVal = userFilterBox
