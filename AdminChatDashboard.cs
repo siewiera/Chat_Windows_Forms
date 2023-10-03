@@ -19,6 +19,7 @@ namespace Chat
     {
         private ChatService _chatService = new ChatService();
         private AdminChatDashboardService adminChatDashboardService = new AdminChatDashboardService();
+        private UC_Roles uc_roles = new UC_Roles();
         public AdminChatDashboard()
         {
             InitializeComponent();
@@ -84,16 +85,44 @@ namespace Chat
 
         private void ChangingVisibiltyModules(string module,  bool visible = true)
         {
+            chanelButton.ForeColor = Color.White;
+            chanelButton.FlatAppearance.BorderColor = Color.White;
+
+            usersButton.ForeColor = Color.White;
+            usersButton.FlatAppearance.BorderColor = Color.White;
+
+            roleButton.ForeColor = Color.White;
+            roleButton.FlatAppearance.BorderColor = Color.White;
+
+            messageButton.ForeColor = Color.White;
+            messageButton.FlatAppearance.BorderColor = Color.White;
+
+            this.panelUsers.Controls.Remove(uc_roles);
+
+            /*panelRoles.Visible = false;*/
+            panelUsers.Visible = false;
+            /*panelUsers.Visible = visible;
+            panelUsers.Visible = visible;*/
+
             switch (module) 
             {
                 case "Channels":
                     break;
                 case "Users":
-                    listUsers.Visible = visible;
-                    userFilterBox.Visible = visible;
-                    userFilterIcon.Visible = visible;
+                    panelUsers.Visible = visible;
+                    if (visible == true)
+                    {
+                        usersButton.ForeColor = Color.MediumSpringGreen;
+                        usersButton.FlatAppearance.BorderColor = Color.MediumSpringGreen;
+                    }
                     break;
                 case "Roles":
+                    panelUsers.Visible = visible;
+                    if (visible == true)
+                    {
+                        roleButton.ForeColor = Color.MediumSpringGreen;
+                        roleButton.FlatAppearance.BorderColor = Color.MediumSpringGreen;
+                    }
                     break;
                 case "Message":
                     break;
@@ -138,12 +167,10 @@ namespace Chat
             listUsers.Items.Clear();
         }
 
-        
-
         private void usersButton_Click(object sender, EventArgs e)
         {
 
-            if (listUsers.Visible) return;
+            if (panelUsers.Visible) return;
 
             ChangingVisibiltyModules("Users", true);
             AddOptionsToUserFilterBox();
@@ -179,7 +206,11 @@ namespace Chat
 
         private void AdminChatDashboard_Load(object sender, EventArgs e)
         {
+            int idLogged = GlobalVariables.Instance.globalId;
+            if (idLogged == 0) idLogged = 4;
+            string emailLogged = adminChatDashboardService.GetAllUsers().Where(a => a.Id == idLogged).First().EmailAdress;
 
+            labelLoggedUserEmail.Text = emailLogged;
         }
 
         private void FilteringTableUsers()
@@ -205,6 +236,14 @@ namespace Chat
         private void userFilterBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             FilteringTableUsers();
+        }
+
+        private void roleButton_Click(object sender, EventArgs e)
+        {
+
+            ChangingVisibiltyModules("Roles", true);
+            
+            this.panelUsers.Controls.Add(uc_roles);
         }
     }
 }

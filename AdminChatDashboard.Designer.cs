@@ -40,17 +40,16 @@
             this.roleButton = new System.Windows.Forms.Button();
             this.messageButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.listUsers = new System.Windows.Forms.ListView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.userFilterBox = new System.Windows.Forms.ComboBox();
             this.usersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.userFilterIcon = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.zToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelUsers = new System.Windows.Forms.Panel();
+            this.labelLoggedUserEmail = new System.Windows.Forms.Label();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -156,6 +155,7 @@
             this.roleButton.ForeColor = System.Drawing.Color.White;
             this.roleButton.Name = "roleButton";
             this.roleButton.UseVisualStyleBackColor = false;
+            this.roleButton.Click += new System.EventHandler(this.roleButton_Click);
             // 
             // messageButton
             // 
@@ -175,55 +175,11 @@
             this.titleLabel.ForeColor = System.Drawing.Color.Silver;
             this.titleLabel.Name = "titleLabel";
             // 
-            // listUsers
-            // 
-            this.listUsers.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            resources.ApplyResources(this.listUsers, "listUsers");
-            this.listUsers.AllowColumnReorder = true;
-            this.listUsers.AutoArrange = false;
-            this.listUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.listUsers.BackgroundImageTiled = true;
-            this.listUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listUsers.ForeColor = System.Drawing.Color.Black;
-            this.listUsers.FullRowSelect = true;
-            this.listUsers.HideSelection = false;
-            this.listUsers.MultiSelect = false;
-            this.listUsers.Name = "listUsers";
-            this.listUsers.ShowGroups = false;
-            this.listUsers.ShowItemToolTips = true;
-            this.listUsers.UseCompatibleStateImageBehavior = false;
-            this.listUsers.View = System.Windows.Forms.View.Details;
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.White;
             this.imageList1.Images.SetKeyName(0, "check-red.png");
-            // 
-            // userFilterBox
-            // 
-            this.userFilterBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.userFilterBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.userFilterBox.BackColor = System.Drawing.Color.Gray;
-            resources.ApplyResources(this.userFilterBox, "userFilterBox");
-            this.userFilterBox.ForeColor = System.Drawing.Color.White;
-            this.userFilterBox.Name = "userFilterBox";
-            this.userFilterBox.Sorted = true;
-            this.userFilterBox.SelectedIndexChanged += new System.EventHandler(this.userFilterBox_SelectedIndexChanged);
-            // 
-            // userFilterIcon
-            // 
-            resources.ApplyResources(this.userFilterIcon, "userFilterIcon");
-            this.userFilterIcon.BackColor = System.Drawing.Color.Transparent;
-            this.userFilterIcon.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.userFilterIcon.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.userFilterIcon.FlatAppearance.BorderSize = 0;
-            this.userFilterIcon.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.userFilterIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.userFilterIcon.ForeColor = System.Drawing.Color.Maroon;
-            this.userFilterIcon.Name = "userFilterIcon";
-            this.userFilterIcon.UseCompatibleTextRendering = true;
-            this.userFilterIcon.UseVisualStyleBackColor = false;
             // 
             // contextMenuStrip1
             // 
@@ -257,6 +213,25 @@
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
             resources.ApplyResources(this.aToolStripMenuItem, "aToolStripMenuItem");
             // 
+            // panelUsers
+            // 
+            resources.ApplyResources(this.panelUsers, "panelUsers");
+            this.panelUsers.BackColor = System.Drawing.Color.Transparent;
+            this.panelUsers.Name = "panelUsers";
+            // 
+            // labelLoggedUserEmail
+            // 
+            resources.ApplyResources(this.labelLoggedUserEmail, "labelLoggedUserEmail");
+            this.labelLoggedUserEmail.BackColor = System.Drawing.Color.Transparent;
+            this.labelLoggedUserEmail.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelLoggedUserEmail.Name = "labelLoggedUserEmail";
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
+            // 
             // AdminChatDashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -264,9 +239,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.CancelButton = this.exit;
             this.ControlBox = false;
-            this.Controls.Add(this.userFilterIcon);
-            this.Controls.Add(this.userFilterBox);
-            this.Controls.Add(this.listUsers);
+            this.Controls.Add(this.labelLoggedUserEmail);
+            this.Controls.Add(this.panelUsers);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.messageButton);
             this.Controls.Add(this.roleButton);
@@ -305,14 +279,13 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.BindingSource usersBindingSource1;
-        public System.Windows.Forms.ComboBox userFilterBox;
-        public System.Windows.Forms.ListView listUsers;
-        private System.Windows.Forms.Button userFilterIcon;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem zToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Panel panelUsers;
+        private System.Windows.Forms.Label labelLoggedUserEmail;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     }
 }
