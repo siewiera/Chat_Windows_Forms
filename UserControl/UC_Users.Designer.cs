@@ -48,10 +48,10 @@
             this.userFilterIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
             this.userFilterIcon.ForeColor = System.Drawing.Color.Maroon;
             this.userFilterIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.userFilterIcon.Location = new System.Drawing.Point(3, 65);
+            this.userFilterIcon.Location = new System.Drawing.Point(58, 156);
             this.userFilterIcon.Margin = new System.Windows.Forms.Padding(0);
             this.userFilterIcon.Name = "userFilterIcon";
-            this.userFilterIcon.Size = new System.Drawing.Size(47, 39);
+            this.userFilterIcon.Size = new System.Drawing.Size(42, 36);
             this.userFilterIcon.TabIndex = 55;
             this.userFilterIcon.UseCompatibleTextRendering = true;
             this.userFilterIcon.UseVisualStyleBackColor = false;
@@ -71,12 +71,13 @@
             this.listUsers.FullRowSelect = true;
             this.listUsers.HideSelection = false;
             this.listUsers.LabelWrap = false;
-            this.listUsers.Location = new System.Drawing.Point(3, 121);
+            this.listUsers.Location = new System.Drawing.Point(58, 217);
+            this.listUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listUsers.MultiSelect = false;
             this.listUsers.Name = "listUsers";
             this.listUsers.ShowGroups = false;
             this.listUsers.ShowItemToolTips = true;
-            this.listUsers.Size = new System.Drawing.Size(819, 550);
+            this.listUsers.Size = new System.Drawing.Size(728, 440);
             this.listUsers.TabIndex = 53;
             this.listUsers.UseCompatibleStateImageBehavior = false;
             this.listUsers.View = System.Windows.Forms.View.Details;
@@ -89,25 +90,28 @@
             this.userFilterBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.userFilterBox.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.userFilterBox.ForeColor = System.Drawing.Color.White;
-            this.userFilterBox.Location = new System.Drawing.Point(65, 74);
+            this.userFilterBox.Location = new System.Drawing.Point(115, 162);
+            this.userFilterBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userFilterBox.Name = "userFilterBox";
-            this.userFilterBox.Size = new System.Drawing.Size(324, 30);
+            this.userFilterBox.Size = new System.Drawing.Size(288, 30);
             this.userFilterBox.Sorted = true;
             this.userFilterBox.TabIndex = 54;
             // 
             // UC_Users
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.userFilterIcon);
             this.Controls.Add(this.listUsers);
             this.Controls.Add(this.userFilterBox);
-            this.MaximumSize = new System.Drawing.Size(846, 691);
-            this.MinimumSize = new System.Drawing.Size(846, 691);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UC_Users";
-            this.Size = new System.Drawing.Size(846, 691);
+            this.Size = new System.Drawing.Size(986, 824);
+            this.Load += new System.EventHandler(this.UC_Users_Load);
             this.ResumeLayout(false);
 
         }

@@ -47,7 +47,7 @@
             this.xToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelUsers = new System.Windows.Forms.Panel();
+            this.panelAdmin = new System.Windows.Forms.Panel();
             this.labelLoggedUserEmail = new System.Windows.Forms.Label();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -213,11 +213,11 @@
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
             resources.ApplyResources(this.aToolStripMenuItem, "aToolStripMenuItem");
             // 
-            // panelUsers
+            // panelAdmin
             // 
-            resources.ApplyResources(this.panelUsers, "panelUsers");
-            this.panelUsers.BackColor = System.Drawing.Color.Transparent;
-            this.panelUsers.Name = "panelUsers";
+            resources.ApplyResources(this.panelAdmin, "panelAdmin");
+            this.panelAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.panelAdmin.Name = "panelAdmin";
             // 
             // labelLoggedUserEmail
             // 
@@ -240,7 +240,7 @@
             this.CancelButton = this.exit;
             this.ControlBox = false;
             this.Controls.Add(this.labelLoggedUserEmail);
-            this.Controls.Add(this.panelUsers);
+            this.Controls.Add(this.panelAdmin);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.messageButton);
             this.Controls.Add(this.roleButton);
@@ -284,7 +284,7 @@
         private System.Windows.Forms.ToolStripMenuItem xToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
-        private System.Windows.Forms.Panel panelUsers;
+        private System.Windows.Forms.Panel panelAdmin;
         private System.Windows.Forms.Label labelLoggedUserEmail;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     }

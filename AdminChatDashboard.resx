@@ -30581,7 +30581,7 @@
     <value>201, 13</value>
   </data>
   <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>341, 69</value>
+    <value>282, 58</value>
   </data>
   <data name="titleLabel.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
@@ -30612,25 +30612,25 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADQ
-        BQAAAk1TRnQBSQFMAwEBAAGQAQABkAEAASABAAEgAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABgAMA
-        ASADAAEBAQABIAYAAUD/AP8A/wD/AP8A/wBQAAMjATMDCwEO/wD1AAMyAU8CIQGwAfsDRAF5/wDxAAMq
-        AUACOQGUAfcCAAL/AlcBWgHC/wDtAAMjATICVAF2AfECAAL/AgAC/wIhAbAB+wMMARD/AOUAAxoBJAJW
+        BQAAAk1TRnQBSQFMAwEBAAGYAQABmAEAASABAAEgAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABgAMA
+        ASADAAEBAQABIAYAAUD/AP8A/wD/AP8A/wBQAAMjATMDCwEO/wD1AAMyAU8CIQGrAfsDRAF5/wDxAAMq
+        AUACOgGPAfcCAAL/AlcBWgHC/wDtAAMjATICVAF1AfECAAL/AgAC/wIhAasB+wMMARD/AOUAAxoBJAJW
         AWkB6AIAAv8CAAL/AgAC/wIAAv8DOQFf/wDhAAMUARsCVwFjAd8CAAL/AgAC/wIAAv8CAAL/AgAC/wNZ
-        Abv/AN0AAw8BFAJcAWEB1gIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wIkAb4B/QIVARYBHf8A1QADCAEK
+        Abv/AN0AAw8BFAJcAWEB1gIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wImAb4B/QIVARYBHf8A1QADCAEK
         AlsBXQHFAgAC/wIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8DSQGG/wDRAAMGAQcCVwFZAbwCAAL/
-        AgAC/wIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8CWgFuAewDBwEJ/wDJAAMCAQMCUwFVAaoCAAL/
+        AgAC/wIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8CWgFtAewDBwEJ/wDJAAMCAQMCUwFVAaoCAAL/
         AgAC/wIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wNAAW//AMUABAECUAFRAZwCAAL/
-        AgAC/wIAAv8CAAL/AgAC/wIAAv8DVQGtAl0BYQHRAgAC/wIAAv8CAAL/AgAC/wJcAWcB5wMIAQr/AMEA
+        AgAC/wIAAv8CAAL/AgAC/wIAAv8DVQGtAl0BYQHRAgAC/wIAAv8CAAL/AgAC/wJcAWUB5wMIAQr/AMEA
         A0oBiQIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wJaAV0BxwMHAQkDMAFKAgAC/wIAAv8CAAL/AgAC/wIA
         Av8DRQF8/wC9AAI/AUABbgIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wJbAWEB3gMSARcIAAJTAVQBqQIA
-        Av8CAAL/AgAC/wIAAv8CNgGGAfYDGAEh/wC1AAM5AV4CEgHKAf4CAAL/AgAC/wIAAv8CAAL/AgAC/wJY
-        AW0B7QMcAScMAAMNARECWQFlAeMCAAL/AgAC/wIAAv8CAAL/A1YBsP8AsQAEAQJYAW0B7QIAAv8CAAL/
-        AgAC/wIAAv8CAAL/Ak0BfgHzAykBPRQAAy0BRQIkAb4B/AIAAv8CAAL/AgAC/wIAAv8CMAExAUz/ALEA
+        Av8CAAL/AgAC/wIAAv8CNwGBAfYDGAEh/wC1AAM5AV4CEwHHAf4CAAL/AgAC/wIAAv8CAAL/AgAC/wJa
+        AWoB7QMcAScMAAMNARECWQFlAeMCAAL/AgAC/wIAAv8CAAL/A1YBsP8AsQAEAQJaAWoB7QIAAv8CAAL/
+        AgAC/wIAAv8CAAL/Ak0BegHzAykBPRQAAy0BRQImAbwB/AIAAv8CAAL/AgAC/wIAAv8CMAExAUz/ALEA
         AwYBCAMNAREDDQERAw0BEQMNAREDDQERAwYBCBwAAz8BbAIAAv8CAAL/AgAC/wIAAv8CXgFlAeIDDgES
         /wDpAAJLAUwBjwIAAv8CAAL/AgAC/wIAAv8DVgGwBAH/AOUABAEDTAGOAgAC/wIAAv8CAAL/AgAC/wM/
-        AW3/AO0AA0gBhAIAAv8CAAL/AgAC/wI5AZsB+AMnATr/AO0AAkEBQgFyAiQBvgH8AgAC/wIAAv8CVAFn
+        AW3/AO0AA0gBhAIAAv8CAAL/AgAC/wI5AZkB+AMnATr/AO0AAkEBQgFyAiYBvAH8AgAC/wIAAv8CVAFn
         AeoDGQEi/wDtAAMrAUECVgFpAegCAAL/AgAC/wJcAWEB1gMNARH/AO0AAxEBFgNZAbsCAAL/AgAC/wJd
-        AWABzgMNARH/AO0AAwMBBAJGAUcBgQIcAakB+gIAAv8CWgFdAccDDAEQ/wDxAAMgAS0CXQFfAckCAAL/
+        AWABzgMNARH/AO0AAwMBBAJGAUcBgQIcAacB+gIAAv8CWgFdAccDDAEQ/wDxAAMgAS0CXQFfAckCAAL/
         AlsBXwHTAxUBHP8A8QAEAgM5AV8CWwFjAeQCWQFlAd3/APkAAwkBCwMqAUD/AP8A/wD/AP8A/wD/AI8A
         AUIBTQE+BwABPgMAASgDAAGAAwABIAMAAQEBAAEBBgABAhYAA/8BAAT/DAAE/wwABP8MAAH/AfwC/wwA
         Af8B+AL/DAAB/wHwAv8MAAH/AeABfwH/DAAB/wHAAX8B/wwAAf8BgAF/Af8MAAH/AQABPwH/DAAB/gEA
@@ -30646,31 +30646,31 @@
     <value>462, 158</value>
   </metadata>
   <data name="zToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 32</value>
+    <value>85, 24</value>
   </data>
   <data name="zToolStripMenuItem.Text" xml:space="preserve">
     <value>z</value>
   </data>
   <data name="cToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 34</value>
+    <value>100, 26</value>
   </data>
   <data name="cToolStripMenuItem.Text" xml:space="preserve">
     <value>c</value>
   </data>
   <data name="aToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 34</value>
+    <value>100, 26</value>
   </data>
   <data name="aToolStripMenuItem.Text" xml:space="preserve">
     <value>a</value>
   </data>
   <data name="xToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 32</value>
+    <value>85, 24</value>
   </data>
   <data name="xToolStripMenuItem.Text" xml:space="preserve">
     <value>x</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 68</value>
+    <value>86, 52</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
     <value>contextMenuStrip1</value>
@@ -30678,34 +30678,34 @@
   <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="panelUsers.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="panelAdmin.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="panelUsers.AutoSize" type="System.Boolean, mscorlib">
+  <data name="panelAdmin.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="panelUsers.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="panelAdmin.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="panelUsers.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="panelAdmin.Location" type="System.Drawing.Point, System.Drawing">
     <value>263, 117</value>
   </data>
-  <data name="panelUsers.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="panelAdmin.Size" type="System.Drawing.Size, System.Drawing">
     <value>846, 691</value>
   </data>
-  <data name="panelUsers.TabIndex" type="System.Int32, mscorlib">
+  <data name="panelAdmin.TabIndex" type="System.Int32, mscorlib">
     <value>52</value>
   </data>
-  <data name="&gt;&gt;panelUsers.Name" xml:space="preserve">
-    <value>panelUsers</value>
+  <data name="&gt;&gt;panelAdmin.Name" xml:space="preserve">
+    <value>panelAdmin</value>
   </data>
-  <data name="&gt;&gt;panelUsers.Type" xml:space="preserve">
+  <data name="&gt;&gt;panelAdmin.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panelUsers.Parent" xml:space="preserve">
+  <data name="&gt;&gt;panelAdmin.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;panelUsers.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panelAdmin.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="labelLoggedUserEmail.AutoSize" type="System.Boolean, mscorlib">
@@ -30727,7 +30727,7 @@
     <value>162, 0</value>
   </data>
   <data name="labelLoggedUserEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="labelLoggedUserEmail.TabIndex" type="System.Int32, mscorlib">
     <value>53</value>
