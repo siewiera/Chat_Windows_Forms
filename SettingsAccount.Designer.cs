@@ -423,6 +423,7 @@
             this.Controls.Add(this.picturePassword);
             this.Controls.Add(this.pictureNickname);
             this.Controls.Add(this.pictureName);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(0, 35);
@@ -454,7 +455,6 @@
         private System.Windows.Forms.Button minimize;
         private System.Windows.Forms.PictureBox pictureUsername;
         private System.Windows.Forms.TextBox usernameBox;
-        private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.TextBox lastNameBox;
@@ -466,5 +466,6 @@
         private System.Windows.Forms.CheckBox blockedChb;
         private System.Windows.Forms.TextBox idBox;
         private System.Windows.Forms.PictureBox pictureId;
+        public System.Windows.Forms.Button saveBtn;
     }
 }

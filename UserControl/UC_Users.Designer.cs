@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_Users));
             this.userFilterIcon = new System.Windows.Forms.Button();
-            this.listUsers = new System.Windows.Forms.ListView();
+            this.usersList = new System.Windows.Forms.ListView();
             this.userFilterBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -48,39 +48,43 @@
             this.userFilterIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
             this.userFilterIcon.ForeColor = System.Drawing.Color.Maroon;
             this.userFilterIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.userFilterIcon.Location = new System.Drawing.Point(58, 156);
+            this.userFilterIcon.Location = new System.Drawing.Point(0, 113);
             this.userFilterIcon.Margin = new System.Windows.Forms.Padding(0);
             this.userFilterIcon.Name = "userFilterIcon";
-            this.userFilterIcon.Size = new System.Drawing.Size(42, 36);
+            this.userFilterIcon.Size = new System.Drawing.Size(50, 43);
             this.userFilterIcon.TabIndex = 55;
             this.userFilterIcon.UseCompatibleTextRendering = true;
             this.userFilterIcon.UseVisualStyleBackColor = false;
+            this.userFilterIcon.UseWaitCursor = true;
+            this.userFilterIcon.Click += new System.EventHandler(this.userFilterIcon_Click);
             // 
-            // listUsers
+            // usersList
             // 
-            this.listUsers.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listUsers.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            this.listUsers.AllowColumnReorder = true;
-            this.listUsers.AutoArrange = false;
-            this.listUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.listUsers.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("listUsers.BackgroundImage")));
-            this.listUsers.BackgroundImageTiled = true;
-            this.listUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listUsers.Font = new System.Drawing.Font("Comic Sans MS", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.listUsers.ForeColor = System.Drawing.Color.Black;
-            this.listUsers.FullRowSelect = true;
-            this.listUsers.HideSelection = false;
-            this.listUsers.LabelWrap = false;
-            this.listUsers.Location = new System.Drawing.Point(58, 217);
-            this.listUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listUsers.MultiSelect = false;
-            this.listUsers.Name = "listUsers";
-            this.listUsers.ShowGroups = false;
-            this.listUsers.ShowItemToolTips = true;
-            this.listUsers.Size = new System.Drawing.Size(728, 440);
-            this.listUsers.TabIndex = 53;
-            this.listUsers.UseCompatibleStateImageBehavior = false;
-            this.listUsers.View = System.Windows.Forms.View.Details;
+            this.usersList.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.usersList.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.usersList.AllowColumnReorder = true;
+            this.usersList.AutoArrange = false;
+            this.usersList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.usersList.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("usersList.BackgroundImage")));
+            this.usersList.BackgroundImageTiled = true;
+            this.usersList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.usersList.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.usersList.Font = new System.Drawing.Font("Comic Sans MS", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.usersList.ForeColor = System.Drawing.Color.Black;
+            this.usersList.FullRowSelect = true;
+            this.usersList.HideSelection = false;
+            this.usersList.LabelWrap = false;
+            this.usersList.Location = new System.Drawing.Point(0, 182);
+            this.usersList.Margin = new System.Windows.Forms.Padding(0);
+            this.usersList.MultiSelect = false;
+            this.usersList.Name = "usersList";
+            this.usersList.ShowGroups = false;
+            this.usersList.ShowItemToolTips = true;
+            this.usersList.Size = new System.Drawing.Size(811, 528);
+            this.usersList.TabIndex = 53;
+            this.usersList.UseCompatibleStateImageBehavior = false;
+            this.usersList.UseWaitCursor = true;
+            this.usersList.View = System.Windows.Forms.View.Details;
             // 
             // userFilterBox
             // 
@@ -90,27 +94,31 @@
             this.userFilterBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.userFilterBox.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.userFilterBox.ForeColor = System.Drawing.Color.White;
-            this.userFilterBox.Location = new System.Drawing.Point(115, 162);
-            this.userFilterBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userFilterBox.Location = new System.Drawing.Point(73, 126);
+            this.userFilterBox.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.userFilterBox.Name = "userFilterBox";
-            this.userFilterBox.Size = new System.Drawing.Size(288, 30);
+            this.userFilterBox.Size = new System.Drawing.Size(345, 30);
             this.userFilterBox.Sorted = true;
             this.userFilterBox.TabIndex = 54;
+            this.userFilterBox.UseWaitCursor = true;
+            this.userFilterBox.SelectedIndexChanged += new System.EventHandler(this.userFilterBox_SelectedIndexChanged);
             // 
             // UC_Users
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.userFilterIcon);
-            this.Controls.Add(this.listUsers);
+            this.Controls.Add(this.usersList);
             this.Controls.Add(this.userFilterBox);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(0);
+            this.MaximumSize = new System.Drawing.Size(827, 717);
+            this.MinimumSize = new System.Drawing.Size(827, 717);
             this.Name = "UC_Users";
-            this.Size = new System.Drawing.Size(986, 824);
+            this.Size = new System.Drawing.Size(1241, 1076);
+            this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.UC_Users_Load);
             this.ResumeLayout(false);
 
@@ -119,7 +127,7 @@
         #endregion
 
         private System.Windows.Forms.Button userFilterIcon;
-        public System.Windows.Forms.ListView listUsers;
+        public System.Windows.Forms.ListView usersList;
         public System.Windows.Forms.ComboBox userFilterBox;
     }
 }

@@ -18,10 +18,12 @@ namespace Chat
     public partial class SettingsAccount : Form
     {      
         private SettingsAccountService settingsAccountService;
-        public SettingsAccount(int id)
+        private UC_Users myForm;
+        public SettingsAccount(int id, UC_Users myForm = null)
         {
             InitializeComponent();
             settingsAccountService = new SettingsAccountService(id);
+            this.myForm = myForm;
         }
 
         private void exit_Click(object sender, EventArgs e)
@@ -69,7 +71,7 @@ namespace Chat
             this.Close();
         }
 
-        private void saveBtn_Click(object sender, EventArgs e)
+        public void saveBtn_Click(object sender, EventArgs e)
         {
             int id = Int32.Parse(idBox.Text);
             string nickname = nicknameBox.Text;
@@ -82,9 +84,9 @@ namespace Chat
 
             bool check = settingsAccountService
                     .SavingUserData(id, nickname, username, email, password, name, lastname, blocked);
-
             if (check)
             {
+                if (myForm != null) myForm.UsersTableReload();
                 this.Close();
             }
         }

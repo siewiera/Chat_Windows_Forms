@@ -12,18 +12,39 @@ namespace Chat.Services
 {
     internal class AdminChatDashboardService
     {
-        private readonly ChatDbContext _dbContext;
         private  ChatService _chatService = new ChatService();
         public AdminChatDashboardService()
         {
-            _dbContext = new ChatDbContext();
         }
 
         public IEnumerable<User> GetAllUsers() 
-        {    
-            var users = _dbContext.Set<User>()
-                .ToList();
-            return users;
+        {
+            using (var _dbContext = new ChatDbContext())
+            {
+                var users = _dbContext.Set<User>()
+                                   .ToList();
+                return users;
+            }
+        }
+
+        public IEnumerable<Role> GetAllRoles()
+        {
+            using (var _dbContext = new ChatDbContext())
+            {
+                var roles = _dbContext.Set<Role>()
+                                   .ToList();
+                return roles;
+            }
+        }
+
+        public IEnumerable<RightRole> GetAllPermission()
+        {
+            using (var _dbContext = new ChatDbContext())
+            {
+                var permissions = _dbContext.Set<RightRole>()
+                                   .ToList();
+                return permissions;
+            }
         }
     }
 }

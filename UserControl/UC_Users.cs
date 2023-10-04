@@ -13,7 +13,6 @@ namespace Chat
 {
     public partial class UC_Users : UserControl
     {
-        private ChatService _chatService = new ChatService();
         private AdminChatDashboardService adminChatDashboardService = new AdminChatDashboardService();
 
         public UC_Users()
@@ -23,20 +22,19 @@ namespace Chat
 
         public void settingsUserAccount(object sender, EventArgs e)
         {
-            string id = listUsers.SelectedItems[0].Text;
-            SettingsAccount settings = new SettingsAccount(Int32.Parse(id));
+            string id = usersList.SelectedItems[0].Text;
+            SettingsAccount settings = new SettingsAccount(Int32.Parse(id), this);
             settings.Show();
         }
 
         private void AddOptionsToUserFilterBox()
         {
+            userFilterBox.Items.Clear();
             var users = adminChatDashboardService.GetAllUsers();
             string option;
             userFilterBox.Items.Add("-");
             foreach (var user in users)
             {
-                /*if(user.Name == "") option = user.UserName;
-                else option = $"{user.Name} {user.LastName} ({user.UserName})";*/
                 option = user.UserName;
                 userFilterBox.Items.Add(option);
             }
@@ -44,7 +42,8 @@ namespace Chat
 
         private void LoadDataIntoTableUser(int id = -1)
         {
-            var roles = _chatService.ListRole();
+            ChatService _chatService = new ChatService();
+            var roles = _chatService.ListRole(); 
             var users = adminChatDashboardService.GetAllUsers();
             if (id > 0) users = adminChatDashboardService.GetAllUsers().Where(e => e.Id == id);
             foreach (var user in users)
@@ -70,13 +69,20 @@ namespace Chat
                 else if (roleName == "Master_Admin") list.ForeColor = Color.YellowGreen;
                 else list.ForeColor = Color.WhiteSmoke;
 
-                listUsers.Items.Add(list);
+                usersList.Items.Add(list);
             }
         }
 
         private void ClearListUser()
         {
-            listUsers.Items.Clear();
+            usersList.Items.Clear();
+        }
+
+        public void UsersTableReload()
+        {
+            ClearListUser();
+            LoadDataIntoTableUser();
+            AddOptionsToUserFilterBox();
         }
 
         private void FilteringTableUsers()
@@ -108,17 +114,17 @@ namespace Chat
         {  
             AddOptionsToUserFilterBox();
 
-            listUsers.Columns.Add("Id", -2, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Username", 100, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Email", 120, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Password", 120, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Name", 100, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Lastname", 100, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Blocked", -2, HorizontalAlignment.Left);
-            listUsers.Columns.Add("RoleId", -2, HorizontalAlignment.Left);
-            listUsers.Columns.Add("Nickname", -2, HorizontalAlignment.Left);
+            usersList.Columns.Add("Id", -2, HorizontalAlignment.Left);
+            usersList.Columns.Add("Username", 100, HorizontalAlignment.Left);
+            usersList.Columns.Add("Email", 120, HorizontalAlignment.Left);
+            usersList.Columns.Add("Password", 120, HorizontalAlignment.Left);
+            usersList.Columns.Add("Name", 100, HorizontalAlignment.Left);
+            usersList.Columns.Add("Lastname", 100, HorizontalAlignment.Left);
+            usersList.Columns.Add("Blocked", -2, HorizontalAlignment.Left);
+            usersList.Columns.Add("RoleId", -2, HorizontalAlignment.Left);
+            usersList.Columns.Add("Nickname", -2, HorizontalAlignment.Left);
 
-            listUsers.Font = new Font("Comic Sans MS", 10, FontStyle.Bold);
+            usersList.Font = new Font("Comic Sans MS", 10, FontStyle.Bold);
 
             /*ImageList image = new ImageList();
             image.ImageSize = new Size(10, 10);
@@ -128,12 +134,23 @@ namespace Chat
 
             LoadDataIntoTableUser();
 
-            listUsers.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
-            listUsers.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.HeaderSize);
-            listUsers.AutoResizeColumn(7, ColumnHeaderAutoResizeStyle.HeaderSize);
-            listUsers.AutoResizeColumn(8, ColumnHeaderAutoResizeStyle.ColumnContent);
+            usersList.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
+            usersList.AutoResizeColumn(6, ColumnHeaderAutoResizeStyle.HeaderSize);
+            usersList.AutoResizeColumn(7, ColumnHeaderAutoResizeStyle.HeaderSize);
+            usersList.AutoResizeColumn(8, ColumnHeaderAutoResizeStyle.ColumnContent);
 
-            listUsers.ItemActivate += new EventHandler(settingsUserAccount);
+            usersList.ItemActivate += new EventHandler(settingsUserAccount);
+        }
+
+        private void userFilterIcon_Click(object sender, EventArgs e)
+        {
+            userFilterBox.SelectedItem = "-";
+            UsersTableReload();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UsersTableReload();
         }
     }
 }

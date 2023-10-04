@@ -315,9 +315,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configure\Database.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="AdminChatDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -447,6 +444,7 @@
     <None Include="image\button\back_white.png" />
     <None Include="image\button\check-red.png" />
     <None Include="image\button\conversation6.png" />
+    <None Include="image\button\plus.png" />
     <Content Include="image\hide.png" />
     <Content Include="image\locked-computer.png" />
     <Content Include="image\mail.png" />

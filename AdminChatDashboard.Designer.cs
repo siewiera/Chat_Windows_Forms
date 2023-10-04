@@ -41,18 +41,9 @@
             this.messageButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.usersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.zToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelAdmin = new System.Windows.Forms.Panel();
             this.labelLoggedUserEmail = new System.Windows.Forms.Label();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // exit
@@ -181,38 +172,6 @@
             this.imageList1.TransparentColor = System.Drawing.Color.White;
             this.imageList1.Images.SetKeyName(0, "check-red.png");
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zToolStripMenuItem,
-            this.xToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
-            // 
-            // zToolStripMenuItem
-            // 
-            this.zToolStripMenuItem.Name = "zToolStripMenuItem";
-            resources.ApplyResources(this.zToolStripMenuItem, "zToolStripMenuItem");
-            // 
-            // xToolStripMenuItem
-            // 
-            this.xToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cToolStripMenuItem,
-            this.aToolStripMenuItem});
-            this.xToolStripMenuItem.Name = "xToolStripMenuItem";
-            resources.ApplyResources(this.xToolStripMenuItem, "xToolStripMenuItem");
-            // 
-            // cToolStripMenuItem
-            // 
-            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
-            resources.ApplyResources(this.cToolStripMenuItem, "cToolStripMenuItem");
-            // 
-            // aToolStripMenuItem
-            // 
-            this.aToolStripMenuItem.Name = "aToolStripMenuItem";
-            resources.ApplyResources(this.aToolStripMenuItem, "aToolStripMenuItem");
-            // 
             // panelAdmin
             // 
             resources.ApplyResources(this.panelAdmin, "panelAdmin");
@@ -225,12 +184,6 @@
             this.labelLoggedUserEmail.BackColor = System.Drawing.Color.Transparent;
             this.labelLoggedUserEmail.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.labelLoggedUserEmail.Name = "labelLoggedUserEmail";
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
             // 
             // AdminChatDashboard
             // 
@@ -259,8 +212,6 @@
             this.Name = "AdminChatDashboard";
             this.Load += new System.EventHandler(this.AdminChatDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,14 +229,7 @@
         private System.Windows.Forms.Button messageButton;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.BindingSource usersBindingSource1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem zToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem xToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
         private System.Windows.Forms.Panel panelAdmin;
         private System.Windows.Forms.Label labelLoggedUserEmail;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     }
 }

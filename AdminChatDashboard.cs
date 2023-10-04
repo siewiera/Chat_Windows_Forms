@@ -64,8 +64,6 @@ namespace Chat
             settingsAccount.Show();
         }
 
-        
-
         private void ChangingVisibiltyModules(string module,  bool visible = true)
         {
             chanelButton.ForeColor = Color.White;
@@ -82,11 +80,6 @@ namespace Chat
 
             panelAdmin.Controls.Remove(uc_roles);
             panelAdmin.Controls.Remove(uc_users);
-
-            /*panelRoles.Visible = false;*/
-            /*panelUsers.Visible = false;*/
-            /*panelUsers.Visible = visible;
-            panelUsers.Visible = visible;*/
 
             switch (module) 
             {
@@ -112,31 +105,24 @@ namespace Chat
                     break;
             }
             
-        }
-
-        
+        }  
 
         private void usersButton_Click(object sender, EventArgs e)
         {
-            /*if (uc_users.Visible) return;*/
             ChangingVisibiltyModules("Users", true);
         }
-
 
         private void AdminChatDashboard_Load(object sender, EventArgs e)
         {
             int idLogged = GlobalVariables.Instance.globalId;
-            if (idLogged == 0) idLogged = 13;
+            if (idLogged == 0) return;
             string emailLogged = adminChatDashboardService.GetAllUsers().Where(a => a.Id == idLogged).First().EmailAdress;
 
             labelLoggedUserEmail.Text = emailLogged;
         }
 
-        
-
         private void roleButton_Click(object sender, EventArgs e)
         {
-            /*if (uc_roles.Visible) return;*/
             ChangingVisibiltyModules("Roles", true); 
         }
     }
