@@ -78,7 +78,6 @@
             this.rolesListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.rolesListBox.Size = new System.Drawing.Size(243, 376);
             this.rolesListBox.TabIndex = 53;
-            this.rolesListBox.SelectedIndexChanged += new System.EventHandler(this.rolesListBox_SelectedIndexChanged);
             // 
             // rolesFilterIcon
             // 

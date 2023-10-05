@@ -117,10 +117,15 @@ namespace Chat
         public void GetAllPermissionFromRole(object sender, EventArgs e)
         {
             int id = Int32.Parse(rolesList.SelectedItems[0].Text);
-            var permission = adminChatDashboardService
-                .GetAllPermission()
-                .Where(p => p.RoleId == id)
-                .ToList();
+            var permissions = adminChatDashboardService
+                .GetAllPermission();
+                /*.Where(p => p.RoleId == id)
+                .ToList();*/
+            foreach(var permission in permissions)
+            {
+                Console.WriteLine(permission);
+            }
+            
         }
     }
 }

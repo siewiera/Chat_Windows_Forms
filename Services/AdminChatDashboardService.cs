@@ -1,4 +1,6 @@
 ﻿using Chat.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -37,12 +39,29 @@ namespace Chat.Services
             }
         }
 
-        public IEnumerable<RightRole> GetAllPermission()
+        public IEnumerable<> GetAllPermission()
         {
-            using (var _dbContext = new ChatDbContext())
+            using (ChatDbContext _dbContext = new ChatDbContext())
             {
-                var permissions = _dbContext.Set<RightRole>()
+                /*var permissions = _dbContext.Set<RightRole>()
+                    .Join(_dbContext.Set<Right>,
+                    rr => rr.RightId,
+                    (rr) => new { Name = rr.Name })
+                                   .ToList();*/
+                var permissions = (from rr in _dbContext.RightRoles
+                                   join r in _dbContext.Rights on rr.RightId equals r.Id
+                                   join ro in _dbContext.Rights on rr.RoleId equals ro.Id
+                                   orderby r.Name
+                                   select new
+                                   {
+                                       Id = rr.Id,
+                                       idRole = ro.Id,
+                                       nameRole = ro.Name,
+                                       idPermission = r.Id,
+                                       namePermission = r.Name
+                                   })
                                    .ToList();
+
                 return permissions;
             }
         }
