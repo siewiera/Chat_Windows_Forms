@@ -39,6 +39,7 @@
             this.userFilterIcon.BackColor = System.Drawing.Color.Transparent;
             this.userFilterIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("userFilterIcon.BackgroundImage")));
             this.userFilterIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.userFilterIcon.Cursor = System.Windows.Forms.Cursors.Default;
             this.userFilterIcon.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.userFilterIcon.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.userFilterIcon.FlatAppearance.BorderSize = 0;
@@ -55,7 +56,6 @@
             this.userFilterIcon.TabIndex = 55;
             this.userFilterIcon.UseCompatibleTextRendering = true;
             this.userFilterIcon.UseVisualStyleBackColor = false;
-            this.userFilterIcon.UseWaitCursor = true;
             this.userFilterIcon.Click += new System.EventHandler(this.userFilterIcon_Click);
             // 
             // usersList
@@ -68,7 +68,7 @@
             this.usersList.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("usersList.BackgroundImage")));
             this.usersList.BackgroundImageTiled = true;
             this.usersList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usersList.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.usersList.Cursor = System.Windows.Forms.Cursors.Default;
             this.usersList.Font = new System.Drawing.Font("Comic Sans MS", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.usersList.ForeColor = System.Drawing.Color.Black;
             this.usersList.FullRowSelect = true;
@@ -83,7 +83,6 @@
             this.usersList.Size = new System.Drawing.Size(811, 528);
             this.usersList.TabIndex = 53;
             this.usersList.UseCompatibleStateImageBehavior = false;
-            this.usersList.UseWaitCursor = true;
             this.usersList.View = System.Windows.Forms.View.Details;
             // 
             // userFilterBox
@@ -91,6 +90,7 @@
             this.userFilterBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.userFilterBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.userFilterBox.BackColor = System.Drawing.Color.Gray;
+            this.userFilterBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.userFilterBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.userFilterBox.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.userFilterBox.ForeColor = System.Drawing.Color.White;
@@ -100,7 +100,6 @@
             this.userFilterBox.Size = new System.Drawing.Size(345, 30);
             this.userFilterBox.Sorted = true;
             this.userFilterBox.TabIndex = 54;
-            this.userFilterBox.UseWaitCursor = true;
             this.userFilterBox.SelectedIndexChanged += new System.EventHandler(this.userFilterBox_SelectedIndexChanged);
             // 
             // UC_Users
@@ -117,7 +116,7 @@
             this.MaximumSize = new System.Drawing.Size(827, 717);
             this.MinimumSize = new System.Drawing.Size(827, 717);
             this.Name = "UC_Users";
-            this.Size = new System.Drawing.Size(1241, 1076);
+            this.Size = new System.Drawing.Size(827, 717);
             this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.UC_Users_Load);
             this.ResumeLayout(false);

@@ -6,9 +6,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Chat.Services.SettingsAccountService;
 
 namespace Chat
 {
@@ -118,14 +120,30 @@ namespace Chat
         {
             int id = Int32.Parse(rolesList.SelectedItems[0].Text);
             var permissions = adminChatDashboardService
-                .GetAllPermission();
-                /*.Where(p => p.RoleId == id)
-                .ToList();*/
-            foreach(var permission in permissions)
+                .GetAllPermission()
+                .Where(s => s.idRole == id);
+
+            rolesListBox.Items.Clear();
+            rolesListBox.Font = new Font("Comic Sans MS", 15, FontStyle.Italic);
+
+
+            foreach (var permission in permissions)
             {
-                Console.WriteLine(permission);
+               /* Console.WriteLine(permission.v);*/
+                if (permissions.Count() == 0) 
+                {
+                    rolesListBox.Items.Add("No permissions");
+                    rolesListBox.Font = new Font("Comic Sans MS", 10, FontStyle.Italic);
+                    /*rolesListBox.*/
+                }
+                else rolesListBox.Items.Add(permission.namePermission);
             }
             
+        }
+
+        private void AddPermissionBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

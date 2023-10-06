@@ -15,9 +15,16 @@ namespace Chat.Services
     internal class AdminChatDashboardService
     {
         private  ChatService _chatService = new ChatService();
-        public AdminChatDashboardService()
+        public AdminChatDashboardService(){}
+
+        public class Permissions
         {
-        }
+            public int id;
+            public int idRole;
+            public string nameRole;
+            public int idPermission;
+            public string namePermission;
+        };
 
         public IEnumerable<User> GetAllUsers() 
         {
@@ -39,31 +46,27 @@ namespace Chat.Services
             }
         }
 
-        public IEnumerable<> GetAllPermission()
+        public List<Permissions> GetAllPermission()
         {
-            using (ChatDbContext _dbContext = new ChatDbContext())
+            using (var _dbContext = new ChatDbContext())
             {
-                /*var permissions = _dbContext.Set<RightRole>()
-                    .Join(_dbContext.Set<Right>,
-                    rr => rr.RightId,
-                    (rr) => new { Name = rr.Name })
-                                   .ToList();*/
-                var permissions = (from rr in _dbContext.RightRoles
+                var query = (from rr in _dbContext.RightRoles
                                    join r in _dbContext.Rights on rr.RightId equals r.Id
-                                   join ro in _dbContext.Rights on rr.RoleId equals ro.Id
+                                   join ro in _dbContext.Roles on rr.RoleId equals ro.Id
                                    orderby r.Name
-                                   select new
+                                   select new Permissions
                                    {
-                                       Id = rr.Id,
+                                       id = rr.Id,
                                        idRole = ro.Id,
                                        nameRole = ro.Name,
                                        idPermission = r.Id,
                                        namePermission = r.Name
                                    })
                                    .ToList();
-
-                return permissions;
+                return query;
             }
         }
+
+        
     }
 }

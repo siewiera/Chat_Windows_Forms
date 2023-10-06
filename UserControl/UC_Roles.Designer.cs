@@ -36,6 +36,7 @@
             this.AddRoleBtn = new System.Windows.Forms.Button();
             this.AddPermissionBtn = new System.Windows.Forms.Button();
             this.rolesList = new System.Windows.Forms.ListView();
+            this.permissionLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // rolesFilterBox
@@ -66,17 +67,17 @@
             // 
             // rolesListBox
             // 
+            this.rolesListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.rolesListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.rolesListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rolesListBox.Enabled = false;
             this.rolesListBox.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rolesListBox.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.rolesListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.rolesListBox.FormattingEnabled = true;
             this.rolesListBox.ItemHeight = 34;
-            this.rolesListBox.Location = new System.Drawing.Point(515, 337);
+            this.rolesListBox.Location = new System.Drawing.Point(515, 375);
             this.rolesListBox.Name = "rolesListBox";
             this.rolesListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.rolesListBox.Size = new System.Drawing.Size(243, 376);
+            this.rolesListBox.Size = new System.Drawing.Size(243, 274);
             this.rolesListBox.TabIndex = 53;
             // 
             // rolesFilterIcon
@@ -101,7 +102,6 @@
             this.rolesFilterIcon.TabIndex = 56;
             this.rolesFilterIcon.UseCompatibleTextRendering = true;
             this.rolesFilterIcon.UseVisualStyleBackColor = false;
-            this.rolesFilterIcon.UseWaitCursor = true;
             this.rolesFilterIcon.Click += new System.EventHandler(this.rolesFilterIcon_Click);
             // 
             // AddRoleBtn
@@ -115,11 +115,10 @@
             this.AddRoleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddRoleBtn.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Bold);
             this.AddRoleBtn.ForeColor = System.Drawing.Color.LimeGreen;
-            this.AddRoleBtn.Image = global::Chat.Properties.Resources.plus;
             this.AddRoleBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AddRoleBtn.ImageKey = "(none)";
             this.AddRoleBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AddRoleBtn.Location = new System.Drawing.Point(515, 246);
+            this.AddRoleBtn.Location = new System.Drawing.Point(515, 223);
             this.AddRoleBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AddRoleBtn.Name = "AddRoleBtn";
             this.AddRoleBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -143,7 +142,7 @@
             this.AddPermissionBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AddPermissionBtn.ImageKey = "(none)";
             this.AddPermissionBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AddPermissionBtn.Location = new System.Drawing.Point(515, 106);
+            this.AddPermissionBtn.Location = new System.Drawing.Point(515, 656);
             this.AddPermissionBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AddPermissionBtn.Name = "AddPermissionBtn";
             this.AddPermissionBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -152,6 +151,7 @@
             this.AddPermissionBtn.Text = "Add permissions";
             this.AddPermissionBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddPermissionBtn.UseVisualStyleBackColor = false;
+            this.AddPermissionBtn.Click += new System.EventHandler(this.AddPermissionBtn_Click);
             // 
             // rolesList
             // 
@@ -176,11 +176,25 @@
             this.rolesList.UseCompatibleStateImageBehavior = false;
             this.rolesList.View = System.Windows.Forms.View.Details;
             // 
+            // permissionLabel
+            // 
+            this.permissionLabel.AutoSize = true;
+            this.permissionLabel.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.permissionLabel.ForeColor = System.Drawing.Color.Transparent;
+            this.permissionLabel.Location = new System.Drawing.Point(515, 330);
+            this.permissionLabel.MaximumSize = new System.Drawing.Size(243, 0);
+            this.permissionLabel.MinimumSize = new System.Drawing.Size(243, 0);
+            this.permissionLabel.Name = "permissionLabel";
+            this.permissionLabel.Size = new System.Drawing.Size(243, 42);
+            this.permissionLabel.TabIndex = 58;
+            this.permissionLabel.Text = "Permission";
+            // 
             // UC_Roles
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.permissionLabel);
             this.Controls.Add(this.rolesFilterIcon);
             this.Controls.Add(this.rolesListBox);
             this.Controls.Add(this.rolesNameBox);
@@ -208,5 +222,6 @@
         private System.Windows.Forms.TextBox rolesNameBox;
         private System.Windows.Forms.ListBox rolesListBox;
         private System.Windows.Forms.Button rolesFilterIcon;
+        private System.Windows.Forms.Label permissionLabel;
     }
 }
