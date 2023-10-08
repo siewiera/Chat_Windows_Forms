@@ -1,6 +1,7 @@
 ﻿using Chat.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -64,6 +65,38 @@ namespace Chat.Services
                                    })
                                    .ToList();
                 return query;
+            }
+        }
+
+        public bool existsRole(string nameRole, ChatDbContext _dbContext)
+        {
+            int countExistsRole;
+             
+            countExistsRole = _dbContext.Set<Role>()
+                .Where(s => s.Name == nameRole)
+                .Count();
+            
+            if (countExistsRole > 0) return false;
+            return true;
+        }
+
+        public void addingRole(string nameRole)
+        {        
+            using (var _dbContext = new ChatDbContext())
+            {
+                if (!existsRole(nameRole, _dbContext))
+                {
+                    MessageBox.Show($"Name role already exists!");
+                    return;
+                }
+
+                var role = new Role()
+                {
+                    Name = nameRole,
+                };
+
+                _dbContext.AddRange(role);
+                _dbContext.SaveChanges();
             }
         }
 

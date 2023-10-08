@@ -351,6 +351,12 @@
       <DependentUpon>20230924160951_update.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ChatDbContextModelSnapshot.cs" />
+    <Compile Include="Notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notification.Designer.cs">
+      <DependentUpon>Notification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -398,6 +404,9 @@
     <EmbeddedResource Include="AdminChatDashboard.resx">
       <DependentUpon>AdminChatDashboard.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notification.resx">
+      <DependentUpon>Notification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsAccount.resx">
       <DependentUpon>SettingsAccount.cs</DependentUpon>

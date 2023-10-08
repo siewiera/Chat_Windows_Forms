@@ -143,7 +143,39 @@ namespace Chat
 
         private void AddPermissionBtn_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void AddRoleBtn_Click(object sender, EventArgs e)
+        {
+            string nameRole = rolesNameBox.Text;
+            adminChatDashboardService.addingRole(nameRole);
+            RolesTableReload();
+            rolesNameBox.Text = "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Notification notification = new Notification();
+            notification.GetNotification("success", "test");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Notification notification = new Notification();
+            notification.GetNotification("info", "test");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Notification notification = new Notification();
+            notification.GetNotification("warning", "test");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Notification notification = new Notification();
+            notification.GetNotification("error", "test");
         }
     }
 }

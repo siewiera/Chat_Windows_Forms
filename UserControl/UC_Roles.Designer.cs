@@ -32,11 +32,15 @@
             this.rolesFilterBox = new System.Windows.Forms.ComboBox();
             this.rolesNameBox = new System.Windows.Forms.TextBox();
             this.rolesListBox = new System.Windows.Forms.ListBox();
+            this.permissionLabel = new System.Windows.Forms.Label();
             this.rolesFilterIcon = new System.Windows.Forms.Button();
             this.AddRoleBtn = new System.Windows.Forms.Button();
             this.AddPermissionBtn = new System.Windows.Forms.Button();
             this.rolesList = new System.Windows.Forms.ListView();
-            this.permissionLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rolesFilterBox
@@ -73,12 +77,25 @@
             this.rolesListBox.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.rolesListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.rolesListBox.FormattingEnabled = true;
-            this.rolesListBox.ItemHeight = 34;
+            this.rolesListBox.ItemHeight = 29;
             this.rolesListBox.Location = new System.Drawing.Point(515, 375);
             this.rolesListBox.Name = "rolesListBox";
             this.rolesListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.rolesListBox.Size = new System.Drawing.Size(243, 274);
+            this.rolesListBox.Size = new System.Drawing.Size(243, 263);
             this.rolesListBox.TabIndex = 53;
+            // 
+            // permissionLabel
+            // 
+            this.permissionLabel.AutoSize = true;
+            this.permissionLabel.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.permissionLabel.ForeColor = System.Drawing.Color.Transparent;
+            this.permissionLabel.Location = new System.Drawing.Point(515, 330);
+            this.permissionLabel.MaximumSize = new System.Drawing.Size(243, 0);
+            this.permissionLabel.MinimumSize = new System.Drawing.Size(243, 0);
+            this.permissionLabel.Name = "permissionLabel";
+            this.permissionLabel.Size = new System.Drawing.Size(243, 34);
+            this.permissionLabel.TabIndex = 58;
+            this.permissionLabel.Text = "Permission";
             // 
             // rolesFilterIcon
             // 
@@ -127,6 +144,7 @@
             this.AddRoleBtn.Text = "Add role";
             this.AddRoleBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddRoleBtn.UseVisualStyleBackColor = false;
+            this.AddRoleBtn.Click += new System.EventHandler(this.AddRoleBtn_Click);
             // 
             // AddPermissionBtn
             // 
@@ -176,24 +194,55 @@
             this.rolesList.UseCompatibleStateImageBehavior = false;
             this.rolesList.View = System.Windows.Forms.View.Details;
             // 
-            // permissionLabel
+            // button1
             // 
-            this.permissionLabel.AutoSize = true;
-            this.permissionLabel.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.permissionLabel.ForeColor = System.Drawing.Color.Transparent;
-            this.permissionLabel.Location = new System.Drawing.Point(515, 330);
-            this.permissionLabel.MaximumSize = new System.Drawing.Size(243, 0);
-            this.permissionLabel.MinimumSize = new System.Drawing.Size(243, 0);
-            this.permissionLabel.Name = "permissionLabel";
-            this.permissionLabel.Size = new System.Drawing.Size(243, 42);
-            this.permissionLabel.TabIndex = 58;
-            this.permissionLabel.Text = "Permission";
+            this.button1.Location = new System.Drawing.Point(173, 41);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 29);
+            this.button1.TabIndex = 59;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(254, 41);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 29);
+            this.button2.TabIndex = 60;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(335, 41);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 29);
+            this.button3.TabIndex = 61;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(416, 41);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 29);
+            this.button4.TabIndex = 62;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // UC_Roles
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.permissionLabel);
             this.Controls.Add(this.rolesFilterIcon);
             this.Controls.Add(this.rolesListBox);
@@ -223,5 +272,9 @@
         private System.Windows.Forms.ListBox rolesListBox;
         private System.Windows.Forms.Button rolesFilterIcon;
         private System.Windows.Forms.Label permissionLabel;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

@@ -21,7 +21,7 @@ namespace Chat
             Application.SetCompatibleTextRenderingDefault(false);
             /*Application.Run(new SignIn());*/
             Application.Run(new AdminChatDashboard());
-            /*Application.Run(new SettingsAccount());*/
+            /*Application.Run(new Notification());*/
 
         }
     }
