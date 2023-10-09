@@ -51,7 +51,7 @@
             this.rolesFilterBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rolesFilterBox.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.rolesFilterBox.ForeColor = System.Drawing.Color.White;
-            this.rolesFilterBox.Location = new System.Drawing.Point(68, 122);
+            this.rolesFilterBox.Location = new System.Drawing.Point(79, 96);
             this.rolesFilterBox.Name = "rolesFilterBox";
             this.rolesFilterBox.Size = new System.Drawing.Size(386, 30);
             this.rolesFilterBox.Sorted = true;
@@ -63,10 +63,10 @@
             this.rolesNameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(246)))));
             this.rolesNameBox.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel, ((byte)(238)));
             this.rolesNameBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(67)))), ((int)(((byte)(97)))));
-            this.rolesNameBox.Location = new System.Drawing.Point(515, 181);
+            this.rolesNameBox.Location = new System.Drawing.Point(498, 155);
             this.rolesNameBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rolesNameBox.Name = "rolesNameBox";
-            this.rolesNameBox.Size = new System.Drawing.Size(243, 33);
+            this.rolesNameBox.Size = new System.Drawing.Size(284, 33);
             this.rolesNameBox.TabIndex = 52;
             // 
             // rolesListBox
@@ -78,10 +78,10 @@
             this.rolesListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.rolesListBox.FormattingEnabled = true;
             this.rolesListBox.ItemHeight = 29;
-            this.rolesListBox.Location = new System.Drawing.Point(515, 375);
+            this.rolesListBox.Location = new System.Drawing.Point(498, 322);
             this.rolesListBox.Name = "rolesListBox";
             this.rolesListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.rolesListBox.Size = new System.Drawing.Size(243, 263);
+            this.rolesListBox.Size = new System.Drawing.Size(284, 263);
             this.rolesListBox.TabIndex = 53;
             // 
             // permissionLabel
@@ -89,11 +89,11 @@
             this.permissionLabel.AutoSize = true;
             this.permissionLabel.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.permissionLabel.ForeColor = System.Drawing.Color.Transparent;
-            this.permissionLabel.Location = new System.Drawing.Point(515, 330);
-            this.permissionLabel.MaximumSize = new System.Drawing.Size(243, 0);
-            this.permissionLabel.MinimumSize = new System.Drawing.Size(243, 0);
+            this.permissionLabel.Location = new System.Drawing.Point(498, 285);
+            this.permissionLabel.MaximumSize = new System.Drawing.Size(284, 0);
+            this.permissionLabel.MinimumSize = new System.Drawing.Size(284, 0);
             this.permissionLabel.Name = "permissionLabel";
-            this.permissionLabel.Size = new System.Drawing.Size(243, 34);
+            this.permissionLabel.Size = new System.Drawing.Size(284, 34);
             this.permissionLabel.TabIndex = 58;
             this.permissionLabel.Text = "Permission";
             // 
@@ -112,7 +112,7 @@
             this.rolesFilterIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
             this.rolesFilterIcon.ForeColor = System.Drawing.Color.Maroon;
             this.rolesFilterIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rolesFilterIcon.Location = new System.Drawing.Point(0, 109);
+            this.rolesFilterIcon.Location = new System.Drawing.Point(11, 83);
             this.rolesFilterIcon.Margin = new System.Windows.Forms.Padding(0);
             this.rolesFilterIcon.Name = "rolesFilterIcon";
             this.rolesFilterIcon.Size = new System.Drawing.Size(50, 43);
@@ -135,11 +135,11 @@
             this.AddRoleBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AddRoleBtn.ImageKey = "(none)";
             this.AddRoleBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AddRoleBtn.Location = new System.Drawing.Point(515, 223);
+            this.AddRoleBtn.Location = new System.Drawing.Point(498, 197);
             this.AddRoleBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AddRoleBtn.Name = "AddRoleBtn";
             this.AddRoleBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AddRoleBtn.Size = new System.Drawing.Size(243, 53);
+            this.AddRoleBtn.Size = new System.Drawing.Size(284, 53);
             this.AddRoleBtn.TabIndex = 18;
             this.AddRoleBtn.Text = "Add role";
             this.AddRoleBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -160,11 +160,11 @@
             this.AddPermissionBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AddPermissionBtn.ImageKey = "(none)";
             this.AddPermissionBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AddPermissionBtn.Location = new System.Drawing.Point(515, 656);
+            this.AddPermissionBtn.Location = new System.Drawing.Point(498, 630);
             this.AddPermissionBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AddPermissionBtn.Name = "AddPermissionBtn";
             this.AddPermissionBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AddPermissionBtn.Size = new System.Drawing.Size(243, 53);
+            this.AddPermissionBtn.Size = new System.Drawing.Size(284, 53);
             this.AddPermissionBtn.TabIndex = 17;
             this.AddPermissionBtn.Text = "Add permissions";
             this.AddPermissionBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -184,7 +184,7 @@
             this.rolesList.Font = new System.Drawing.Font("Comic Sans MS", 10F);
             this.rolesList.FullRowSelect = true;
             this.rolesList.HideSelection = false;
-            this.rolesList.Location = new System.Drawing.Point(0, 181);
+            this.rolesList.Location = new System.Drawing.Point(11, 155);
             this.rolesList.Margin = new System.Windows.Forms.Padding(0);
             this.rolesList.MaximumSize = new System.Drawing.Size(454, 528);
             this.rolesList.MinimumSize = new System.Drawing.Size(454, 528);
@@ -253,10 +253,10 @@
             this.Controls.Add(this.rolesList);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MaximumSize = new System.Drawing.Size(827, 717);
-            this.MinimumSize = new System.Drawing.Size(827, 717);
+            this.MaximumSize = new System.Drawing.Size(806, 690);
+            this.MinimumSize = new System.Drawing.Size(806, 690);
             this.Name = "UC_Roles";
-            this.Size = new System.Drawing.Size(827, 717);
+            this.Size = new System.Drawing.Size(806, 690);
             this.Load += new System.EventHandler(this.UC_Roles_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

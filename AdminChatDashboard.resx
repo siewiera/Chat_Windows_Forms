@@ -307,7 +307,7 @@
     <value>NoControl</value>
   </data>
   <data name="exit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1063, 13</value>
+    <value>1070, 0</value>
   </data>
   <data name="exit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -326,10 +326,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;exit.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;exit.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>2</value>
   </data>
   <data name="minimize.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -373,7 +373,7 @@
     <value>NoControl</value>
   </data>
   <data name="minimize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>978, 13</value>
+    <value>970, 0</value>
   </data>
   <data name="minimize.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -391,10 +391,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;minimize.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;minimize.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>3</value>
   </data>
   <data name="resize.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -412,7 +412,7 @@
     <value>NoControl</value>
   </data>
   <data name="resize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1022, 13</value>
+    <value>1024, 0</value>
   </data>
   <data name="resize.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -430,10 +430,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;resize.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;resize.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>5</value>
   </data>
   <data name="chanelButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3274,7 +3274,7 @@
     <value>NoControl</value>
   </data>
   <data name="chanelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 312</value>
+    <value>14, 303</value>
   </data>
   <data name="chanelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -3301,10 +3301,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;chanelButton.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;chanelButton.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="settingsButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -21358,7 +21358,7 @@
     <value>NoControl</value>
   </data>
   <data name="settingsButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 720</value>
+    <value>14, 711</value>
   </data>
   <data name="settingsButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -21385,10 +21385,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;settingsButton.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;settingsButton.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -21836,7 +21836,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 13</value>
+    <value>0, 0</value>
   </data>
   <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -21854,10 +21854,10 @@
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>11</value>
   </data>
   <data name="usersButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -24738,7 +24738,7 @@
     <value>NoControl</value>
   </data>
   <data name="usersButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 373</value>
+    <value>14, 364</value>
   </data>
   <data name="usersButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -24765,10 +24765,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;usersButton.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;usersButton.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>10</value>
   </data>
   <data name="roleButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -27646,7 +27646,7 @@
     <value>NoControl</value>
   </data>
   <data name="roleButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 434</value>
+    <value>14, 425</value>
   </data>
   <data name="roleButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -27673,10 +27673,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;roleButton.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;roleButton.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>8</value>
   </data>
   <data name="messageButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -30536,7 +30536,7 @@
     <value>NoControl</value>
   </data>
   <data name="messageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 495</value>
+    <value>14, 486</value>
   </data>
   <data name="messageButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -30563,10 +30563,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;messageButton.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;messageButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="titleLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -30578,10 +30578,10 @@
     <value>NoControl</value>
   </data>
   <data name="titleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>201, 13</value>
+    <value>169, 29</value>
   </data>
   <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>341, 69</value>
+    <value>282, 58</value>
   </data>
   <data name="titleLabel.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
@@ -30599,10 +30599,10 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;titleLabel.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;titleLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>54, 26</value>
@@ -30612,25 +30612,25 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADQ
-        BQAAAk1TRnQBSQFMAwEBAAGoAQABqAEAASABAAEgAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABgAMA
-        ASADAAEBAQABIAYAAUD/AP8A/wD/AP8A/wBQAAMjATMDCwEO/wD1AAMyAU8CIQGhAfsDRAF5/wDxAAMq
-        AUACPAGLAfcCAAL/AlcBWgHC/wDtAAMjATICVAFzAfECAAL/AgAC/wIhAaEB+wMMARD/AOUAAxoBJAJW
+        BQAAAk1TRnQBSQFMAwEBAAGwAQABsAEAASABAAEgAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABgAMA
+        ASADAAEBAQABIAYAAUD/AP8A/wD/AP8A/wBQAAMjATMDCwEO/wD1AAMyAU8CIQGdAfsDRAF5/wDxAAMq
+        AUACPQGKAfcCAAL/AlcBWgHC/wDtAAMjATICVAFyAfECAAL/AgAC/wIhAZ0B+wMMARD/AOUAAxoBJAJW
         AWkB6AIAAv8CAAL/AgAC/wIAAv8DOQFf/wDhAAMUARsCVwFjAd8CAAL/AgAC/wIAAv8CAAL/AgAC/wNZ
-        Abv/AN0AAw8BFAJcAWEB1gIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wIqAb4B/QIVARYBHf8A1QADCAEK
+        Abv/AN0AAw8BFAJcAWEB1gIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wIsAb4B/QIVARYBHf8A1QADCAEK
         AlsBXQHFAgAC/wIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8DSQGG/wDRAAMGAQcCVwFZAbwCAAL/
-        AgAC/wIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8CWgFrAewDBwEJ/wDJAAMCAQMCUwFVAaoCAAL/
+        AgAC/wIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8CWgFpAewDBwEJ/wDJAAMCAQMCUwFVAaoCAAL/
         AgAC/wIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wNAAW//AMUABAECUAFRAZwCAAL/
         AgAC/wIAAv8CAAL/AgAC/wIAAv8DVQGtAl0BYQHRAgAC/wIAAv8CAAL/AgAC/wJcAWUB5wMIAQr/AMEA
         A0oBiQIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wJaAV0BxwMHAQkDMAFKAgAC/wIAAv8CAAL/AgAC/wIA
         Av8DRQF8/wC9AAI/AUABbgIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wJbAWEB3gMSARcIAAJTAVQBqQIA
-        Av8CAAL/AgAC/wIAAv8COQF7AfYDGAEh/wC1AAM5AV4CFQHBAf4CAAL/AgAC/wIAAv8CAAL/AgAC/wJe
+        Av8CAAL/AgAC/wIAAv8CPAF6AfYDGAEh/wC1AAM5AV4CFgG+Af4CAAL/AgAC/wIAAv8CAAL/AgAC/wJe
         AWoB7QMcAScMAAMNARECWQFlAeMCAAL/AgAC/wIAAv8CAAL/A1YBsP8AsQAEAQJeAWoB7QIAAv8CAAL/
-        AgAC/wIAAv8CAAL/Ak0BcwHzAykBPRQAAy0BRQIqAbgB/AIAAv8CAAL/AgAC/wIAAv8CMAExAUz/ALEA
+        AgAC/wIAAv8CAAL/Ak0BcgHzAykBPRQAAy0BRQIrAbYB/AIAAv8CAAL/AgAC/wIAAv8CMAExAUz/ALEA
         AwYBCAMNAREDDQERAw0BEQMNAREDDQERAwYBCBwAAz8BbAIAAv8CAAL/AgAC/wIAAv8CXgFlAeIDDgES
         /wDpAAJLAUwBjwIAAv8CAAL/AgAC/wIAAv8DVgGwBAH/AOUABAEDTAGOAgAC/wIAAv8CAAL/AgAC/wM/
-        AW3/AO0AA0gBhAIAAv8CAAL/AgAC/wI5AZUB+AMnATr/AO0AAkEBQgFyAioBuAH8AgAC/wIAAv8CVAFn
+        AW3/AO0AA0gBhAIAAv8CAAL/AgAC/wI5AZMB+AMnATr/AO0AAkEBQgFyAisBtgH8AgAC/wIAAv8CVAFn
         AeoDGQEi/wDtAAMrAUECVgFpAegCAAL/AgAC/wJcAWEB1gMNARH/AO0AAxEBFgNZAbsCAAL/AgAC/wJd
-        AWABzgMNARH/AO0AAwMBBAJGAUcBgQIcAaMB+gIAAv8CWgFdAccDDAEQ/wDxAAMgAS0CXQFfAckCAAL/
+        AWABzgMNARH/AO0AAwMBBAJGAUcBgQIcAaEB+gIAAv8CWgFdAccDDAEQ/wDxAAMgAS0CXQFfAckCAAL/
         AlsBXwHTAxUBHP8A8QAEAgM5AV8CWwFjAeQCWQFlAd3/APkAAwkBCwMqAUD/AP8A/wD/AP8A/wD/AI8A
         AUIBTQE+BwABPgMAASgDAAGAAwABIAMAAQEBAAEBBgABAhYAA/8BAAT/DAAE/wwABP8MAAH/AfwC/wwA
         Af8B+AL/DAAB/wHwAv8MAAH/AeABfwH/DAAB/wHAAX8B/wwAAf8BgAF/Af8MAAH/AQABPwH/DAAB/gEA
@@ -30652,10 +30652,16 @@
     <value>Center</value>
   </data>
   <data name="panelAdmin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>281, 85</value>
+    <value>284, 90</value>
+  </data>
+  <data name="panelAdmin.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>806, 690</value>
+  </data>
+  <data name="panelAdmin.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>806, 690</value>
   </data>
   <data name="panelAdmin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>827, 717</value>
+    <value>806, 690</value>
   </data>
   <data name="panelAdmin.TabIndex" type="System.Int32, mscorlib">
     <value>52</value>
@@ -30667,7 +30673,7 @@
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panelAdmin.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;panelAdmin.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -30682,7 +30688,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelLoggedUserEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 167</value>
+    <value>3, 170</value>
   </data>
   <data name="labelLoggedUserEmail.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>162, 0</value>
@@ -30691,7 +30697,7 @@
     <value>162, 0</value>
   </data>
   <data name="labelLoggedUserEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="labelLoggedUserEmail.TabIndex" type="System.Int32, mscorlib">
     <value>53</value>
@@ -30709,21 +30715,15 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelLoggedUserEmail.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;labelLoggedUserEmail.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>81</value>
-  </metadata>
-  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+  <data name="panel1.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
-  <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="panel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEEMwQzAAD/4RNyRXhpZgAATU0AKgAAAAgACgEOAAIAAAAnAAAAhgESAAMAAAAB
         AAEAAAEaAAUAAAABAAAArgEbAAUAAAABAAAAtgEoAAMAAAABAAIAAAExAAIAAAAmAAAAvgEyAAIAAAAU
@@ -44104,6 +44104,42 @@
         0uKWgBNtGKWigBlFPooA/9k=
 </value>
   </data>
+  <data name="panel1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1104, 798</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>81</value>
+  </metadata>
+  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
@@ -45244,6 +45280,9 @@
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
+  </data>
+  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

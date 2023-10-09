@@ -137,8 +137,7 @@ namespace Chat
                     /*rolesListBox.*/
                 }
                 else rolesListBox.Items.Add(permission.namePermission);
-            }
-            
+            }         
         }
 
         private void AddPermissionBtn_Click(object sender, EventArgs e)

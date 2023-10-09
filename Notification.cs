@@ -35,7 +35,7 @@ namespace Chat
             switch (typeLower)
             {
                 case "success":
-                    string path = @"..\..\image\notification\success.png";
+                    string path = @"..\..\image\notification\success2.png";
                     string icon = @"..\..\image\icon\check.ico";
                     Color color = Color.LimeGreen;
                     Color colorTitle = Color.Lime;
@@ -45,7 +45,7 @@ namespace Chat
                     break;
 
                 case "error":
-                    path = @"..\..\image\notification\error.png";
+                    path = @"..\..\image\notification\error2.png";
                     icon = @"..\..\image\icon\error.ico";
                     color = Color.FromArgb(192, 0, 0);
                     colorTitle = Color.Red;
@@ -55,17 +55,17 @@ namespace Chat
                     break;
 
                 case "info":
-                    path = @"..\..\image\notification\info.png";
+                    path = @"..\..\image\notification\info2.png";
                     icon = @"..\..\image\icon\information.ico";
-                    color = Color.DodgerBlue;
-                    colorTitle = Color.Blue;
+                    color = Color.RoyalBlue;
+                    colorTitle = Color.DodgerBlue;
                     textTitle = "Info!";
 
                     NotificationStyling(color, colorTitle, path, icon, textTitle, textContent);
                     break;
 
                 case "warning":
-                    path = @"..\..\image\notification\warning.png";
+                    path = @"..\..\image\notification\warning2.png";
                     icon = @"..\..\image\icon\warning.ico";
                     color = Color.FromArgb(255, 128, 0);
                     colorTitle = Color.Orange;
@@ -93,10 +93,11 @@ namespace Chat
             bitmap = new Bitmap(image);
             notifiImageBox.BackgroundImage = (Image) bitmap;
 
+            char[] chars = { '!' };
             this.Icon = new Icon(icon);
-            this.Text = textTitle;
+            this.Text = textTitle.TrimEnd(chars).ToLower();
 
-            /*this.FormBorderStyle = FormBorderStyle;*/
+            this.BackColor = color;
         }
 
         public void GetNotification(string type, string textContent)

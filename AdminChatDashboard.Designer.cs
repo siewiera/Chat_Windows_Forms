@@ -43,7 +43,9 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelAdmin = new System.Windows.Forms.Panel();
             this.labelLoggedUserEmail = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // exit
@@ -185,25 +187,32 @@
             this.labelLoggedUserEmail.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.labelLoggedUserEmail.Name = "labelLoggedUserEmail";
             // 
+            // panel1
+            // 
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.labelLoggedUserEmail);
+            this.panel1.Controls.Add(this.panelAdmin);
+            this.panel1.Controls.Add(this.exit);
+            this.panel1.Controls.Add(this.minimize);
+            this.panel1.Controls.Add(this.titleLabel);
+            this.panel1.Controls.Add(this.resize);
+            this.panel1.Controls.Add(this.messageButton);
+            this.panel1.Controls.Add(this.chanelButton);
+            this.panel1.Controls.Add(this.roleButton);
+            this.panel1.Controls.Add(this.settingsButton);
+            this.panel1.Controls.Add(this.usersButton);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Name = "panel1";
+            // 
             // AdminChatDashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.exit;
             this.ControlBox = false;
-            this.Controls.Add(this.labelLoggedUserEmail);
-            this.Controls.Add(this.panelAdmin);
-            this.Controls.Add(this.titleLabel);
-            this.Controls.Add(this.messageButton);
-            this.Controls.Add(this.roleButton);
-            this.Controls.Add(this.usersButton);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.settingsButton);
-            this.Controls.Add(this.chanelButton);
-            this.Controls.Add(this.resize);
-            this.Controls.Add(this.minimize);
-            this.Controls.Add(this.exit);
+            this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -212,8 +221,9 @@
             this.Name = "AdminChatDashboard";
             this.Load += new System.EventHandler(this.AdminChatDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -231,5 +241,6 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Panel panelAdmin;
         private System.Windows.Forms.Label labelLoggedUserEmail;
+        private System.Windows.Forms.Panel panel1;
     }
 }
