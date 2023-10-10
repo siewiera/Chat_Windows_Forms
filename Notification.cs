@@ -21,15 +21,15 @@ namespace Chat
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
-        private void NotificationType(string type, string textContent)
+        private void NotificationType(string type, string textContent, bool yesNoBtn)
         {
             string typeLower = type.ToLower();
             switch (typeLower)
@@ -41,7 +41,7 @@ namespace Chat
                     Color colorTitle = Color.Lime;
                     string textTitle = "Success!";
 
-                    NotificationStyling(color, colorTitle, path, icon, textTitle, textContent);
+                    NotificationStyling(color, colorTitle, path, icon, textTitle, textContent, yesNoBtn);
                     break;
 
                 case "error":
@@ -51,7 +51,7 @@ namespace Chat
                     colorTitle = Color.Red;
                     textTitle = "Error!";
 
-                    NotificationStyling(color, colorTitle, path, icon, textTitle, textContent);
+                    NotificationStyling(color, colorTitle, path, icon, textTitle, textContent, yesNoBtn);
                     break;
 
                 case "info":
@@ -61,7 +61,7 @@ namespace Chat
                     colorTitle = Color.DodgerBlue;
                     textTitle = "Info!";
 
-                    NotificationStyling(color, colorTitle, path, icon, textTitle, textContent);
+                    NotificationStyling(color, colorTitle, path, icon, textTitle, textContent, yesNoBtn);
                     break;
 
                 case "warning":
@@ -71,7 +71,7 @@ namespace Chat
                     colorTitle = Color.Orange;
                     textTitle = "Warning!";
 
-                    NotificationStyling(color, colorTitle, path, icon, textTitle, textContent);
+                    NotificationStyling(color, colorTitle, path, icon, textTitle, textContent, yesNoBtn);
                     break;
 
                 default: this.Close();
@@ -79,7 +79,8 @@ namespace Chat
             }
         }
         private Bitmap bitmap;
-        private void NotificationStyling(Color color, Color colorTitle, string image, string icon, string textTitle, string textContent)
+        private void NotificationStyling(Color color, Color colorTitle, string image, 
+            string icon, string textTitle, string textContent, bool yesNoBtn)
         {
             notifTitlelabel.ForeColor = colorTitle;
             notifTitlelabel.Text = textTitle;
@@ -98,12 +99,34 @@ namespace Chat
             this.Text = textTitle.TrimEnd(chars).ToLower();
 
             this.BackColor = color;
+
+            if (yesNoBtn)
+            {
+                this.Controls.Remove(notifiOkBtn);
+                notifiOkBtn.Dispose();
+
+                Button yesBtn = new Button();
+                Button noBtn = new Button();
+
+                yesBtn.Text = "Yes";
+                /*yesBtn.ForeColor = Color.LimeGreen;
+                yesBtn.FlatAppearance.BorderColor = Color.White;*/
+                yesBtn.Location = new Point(102, 100);
+                yesBtn.Size = new Size(175, 49);
+
+                yesBtn.Click += new EventHandler(exit_Click);
+                /*noBtn.ForeColor = Color.Red;
+                noBtn.FlatAppearance.BorderColor = Color.White;
+                noBtn.PointToScreen(new Point(33, 180));
+                noBtn.Size = new Size(175, 49);*/
+                notificationPanel.Controls.Add(yesBtn);
+            }
         }
 
-        public void GetNotification(string type, string textContent)
+        public void GetNotification(string type, string textContent, bool yesNoBtn = false)
         { 
             this.Show();
-            NotificationType(type, textContent);
+            NotificationType(type, textContent, yesNoBtn);
         }
     }
 }

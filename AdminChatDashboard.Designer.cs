@@ -209,7 +209,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.Purple;
             this.CancelButton = this.exit;
             this.ControlBox = false;
             this.Controls.Add(this.panel1);

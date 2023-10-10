@@ -15,7 +15,7 @@ namespace Chat.Services
 {
     internal class AdminChatDashboardService
     {
-        private  ChatService _chatService = new ChatService();
+        private  Notification notification = new Notification();
         public AdminChatDashboardService(){}
 
         public class Permissions
@@ -66,40 +66,6 @@ namespace Chat.Services
                                    .ToList();
                 return query;
             }
-        }
-
-        public bool existsRole(string nameRole, ChatDbContext _dbContext)
-        {
-            int countExistsRole;
-             
-            countExistsRole = _dbContext.Set<Role>()
-                .Where(s => s.Name == nameRole)
-                .Count();
-            
-            if (countExistsRole > 0) return false;
-            return true;
-        }
-
-        public void addingRole(string nameRole)
-        {        
-            using (var _dbContext = new ChatDbContext())
-            {
-                if (!existsRole(nameRole, _dbContext))
-                {
-                    MessageBox.Show($"Name role already exists!");
-                    return;
-                }
-
-                var role = new Role()
-                {
-                    Name = nameRole,
-                };
-
-                _dbContext.AddRange(role);
-                _dbContext.SaveChanges();
-            }
-        }
-
-        
+        }       
     }
 }

@@ -369,6 +369,7 @@
     <Compile Include="Services\RegistrationService.cs" />
     <Compile Include="Services\SettingsAccountService.cs" />
     <Compile Include="Services\SignInService.cs" />
+    <Compile Include="Services\UC_RolesService.cs" />
     <Compile Include="SettingsAccount.cs">
       <SubType>Form</SubType>
     </Compile>

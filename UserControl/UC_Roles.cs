@@ -17,6 +17,8 @@ namespace Chat
     public partial class UC_Roles : UserControl
     {
         private AdminChatDashboardService adminChatDashboardService = new AdminChatDashboardService();
+        private UC_RolesService rolesService = new UC_RolesService();
+        private Notification notification = new Notification();
         public UC_Roles()
         {
             InitializeComponent();
@@ -114,6 +116,7 @@ namespace Chat
             rolesList.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
 
             rolesList.ItemActivate += new EventHandler(GetAllPermissionFromRole);
+            rolesList.ItemActivate += new EventHandler(rolesList_SelectedIndexChanged);
         }
 
         public void GetAllPermissionFromRole(object sender, EventArgs e)
@@ -148,33 +151,59 @@ namespace Chat
         private void AddRoleBtn_Click(object sender, EventArgs e)
         {
             string nameRole = rolesNameBox.Text;
-            adminChatDashboardService.addingRole(nameRole);
+            rolesService.addingRole(nameRole);
             RolesTableReload();
             rolesNameBox.Text = "";
         }
 
+        private void editRoleBtn_Click(object sender, EventArgs e)
+        {
+            if (editPanel.Visible) editPanel.Hide();
+            else editPanel.Show();
+        }
+
+        private void saveEditBtn_Click(object sender, EventArgs e)
+        {
+            string newRoleName = rolesEditNameBox.Text;           
+            if (rolesList.SelectedItems.Count <= 0)
+            {
+                notification.GetNotification("Error", "Select the role name to edit!");
+                return;
+            }
+            string idRole = rolesList.SelectedItems[0].Text;  
+            rolesService.EditNameRole(Int32.Parse(idRole), newRoleName);
+            RolesTableReload();
+        }
+
+        private void rolesList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string oldNameRole = rolesList.SelectedItems[0].SubItems[1].Text;
+            rolesEditNameBox.Text = oldNameRole;
+        }
+
+        private void removeRoleBtn_Click(object sender, EventArgs e)
+        {
+            notification.GetNotification("warning", "test");
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Notification notification = new Notification();
-            notification.GetNotification("success", "test");
+            notification.GetNotification("error", "test");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Notification notification = new Notification();
-            notification.GetNotification("info", "test");
+            notification.GetNotification("warning", "test");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Notification notification = new Notification();
-            notification.GetNotification("warning", "test");
+            notification.GetNotification("info", "test");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Notification notification = new Notification();
-            notification.GetNotification("error", "test");
+            notification.GetNotification("success", "test");
         }
     }
 }
