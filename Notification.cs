@@ -125,7 +125,7 @@ namespace Chat
 
         public void GetNotification(string type, string textContent, bool yesNoBtn = false)
         { 
-            this.Show();
+            this.ShowDialog();
             NotificationType(type, textContent, yesNoBtn);
         }
     }
