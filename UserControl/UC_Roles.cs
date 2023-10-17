@@ -183,27 +183,27 @@ namespace Chat
 
         private void removeRoleBtn_Click(object sender, EventArgs e)
         {
-            notification.GetNotification("warning", "test");
+            notification.GetNotification("warning", "test", true);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            notification.GetNotification("error", "test");
+            notification.GetNotification("error", "test", true);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            notification.GetNotification("warning", "test");
+            notification.GetNotification("warning", "test", true);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            notification.GetNotification("info", "test");
+            notification.GetNotification("info", "test", true);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            notification.GetNotification("success", "test");
+            notification.GetNotification("success", "test", true);
         }
     }
 }

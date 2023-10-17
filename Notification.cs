@@ -19,6 +19,8 @@ namespace Chat
             InitializeComponent();
         }
 
+        private Bitmap bitmap;
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -78,7 +80,7 @@ namespace Chat
                     break;
             }
         }
-        private Bitmap bitmap;
+        
         private void NotificationStyling(Color color, Color colorTitle, string image, 
             string icon, string textTitle, string textContent, bool yesNoBtn)
         {
@@ -108,18 +110,50 @@ namespace Chat
                 Button yesBtn = new Button();
                 Button noBtn = new Button();
 
-                yesBtn.Text = "Yes";
-                /*yesBtn.ForeColor = Color.LimeGreen;
-                yesBtn.FlatAppearance.BorderColor = Color.White;*/
-                yesBtn.Location = new Point(102, 100);
-                yesBtn.Size = new Size(175, 49);
 
+                Color colorGreen = Color.LimeGreen;
+                Color colorTitleGreen = Color.Lime;
+                Color colorRed = Color.FromArgb(192, 0, 0);
+                Color colorTitleRed = Color.Red;
+
+                yesBtn.Text = "Yes";
+                yesBtn.BackColor = Color.Transparent;
+                yesBtn.BackgroundImageLayout = ImageLayout.None;
+                yesBtn.FlatAppearance.BorderColor = colorGreen;
+                yesBtn.FlatAppearance.BorderSize = 2;
+                yesBtn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                yesBtn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                yesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                yesBtn.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+                yesBtn.ForeColor = colorTitleGreen;
+                yesBtn.Location = new Point(182, 110);
+                yesBtn.Margin = new Padding(0);
+                yesBtn.Name = "notifiOkBtn";
+                yesBtn.Size = new Size(120, 35);
+                yesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+                yesBtn.UseVisualStyleBackColor = false;
                 yesBtn.Click += new EventHandler(exit_Click);
-                /*noBtn.ForeColor = Color.Red;
-                noBtn.FlatAppearance.BorderColor = Color.White;
-                noBtn.PointToScreen(new Point(33, 180));
-                noBtn.Size = new Size(175, 49);*/
+
+                noBtn.Text = "No";
+                noBtn.BackColor = Color.Transparent;
+                noBtn.BackgroundImageLayout = ImageLayout.None;
+                noBtn.FlatAppearance.BorderColor = colorRed;
+                noBtn.FlatAppearance.BorderSize = 2;
+                noBtn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                noBtn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                noBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                noBtn.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+                noBtn.ForeColor = colorTitleRed;
+                noBtn.Location = new Point(10, 110);
+                noBtn.Margin = new Padding(0);
+                noBtn.Name = "notifiOkBtn";
+                noBtn.Size = new Size(120, 35);
+                noBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+                noBtn.UseVisualStyleBackColor = false;
+                noBtn.Click += new EventHandler(exit_Click);
+
                 notificationPanel.Controls.Add(yesBtn);
+                notificationPanel.Controls.Add(noBtn);
             }
         }
 
