@@ -15,7 +15,6 @@ namespace Chat.Services
 {
     internal class AdminChatDashboardService
     {
-        private  Notification notification = new Notification();
         public AdminChatDashboardService(){}
 
         public class Permissions

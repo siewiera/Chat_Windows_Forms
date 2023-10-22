@@ -183,7 +183,8 @@ namespace Chat
 
         private void removeRoleBtn_Click(object sender, EventArgs e)
         {
-            notification.GetNotification("warning", "test", true);
+            bool check = notification.GetNotification("warning", "test", true);
+            Console.WriteLine(check);
         }
 
         private void button1_Click(object sender, EventArgs e)

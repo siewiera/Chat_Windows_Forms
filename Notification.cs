@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 
 namespace Chat
@@ -20,20 +21,22 @@ namespace Chat
         }
 
         private Bitmap bitmap;
+        public bool check;
 
-        private void button1_Click(object sender, EventArgs e)
+        private void notifiOkBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void exit_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
-        private void NotificationType(string type, string textContent, bool yesNoBtn)
+        private bool NotificationType(string type, string textContent, bool yesNoBtn)
         {
             string typeLower = type.ToLower();
+            bool check_;
             switch (typeLower)
             {
                 case "success":
@@ -43,7 +46,7 @@ namespace Chat
                     Color colorTitle = Color.Lime;
                     string textTitle = "Success!";
 
-                    NotificationStyling(color, colorTitle, path, icon, textTitle, textContent, yesNoBtn);
+                    check_ = NotificationStyling(color, colorTitle, path, icon, textTitle, textContent, yesNoBtn);
                     break;
 
                 case "error":
@@ -53,7 +56,7 @@ namespace Chat
                     colorTitle = Color.Red;
                     textTitle = "Error!";
 
-                    NotificationStyling(color, colorTitle, path, icon, textTitle, textContent, yesNoBtn);
+                    check_ = NotificationStyling(color, colorTitle, path, icon, textTitle, textContent, yesNoBtn);
                     break;
 
                 case "info":
@@ -63,7 +66,7 @@ namespace Chat
                     colorTitle = Color.DodgerBlue;
                     textTitle = "Info!";
 
-                    NotificationStyling(color, colorTitle, path, icon, textTitle, textContent, yesNoBtn);
+                    check_ = NotificationStyling(color, colorTitle, path, icon, textTitle, textContent, yesNoBtn);
                     break;
 
                 case "warning":
@@ -73,15 +76,54 @@ namespace Chat
                     colorTitle = Color.Orange;
                     textTitle = "Warning!";
 
-                    NotificationStyling(color, colorTitle, path, icon, textTitle, textContent, yesNoBtn);
+                    check_ = NotificationStyling(color, colorTitle, path, icon, textTitle, textContent, yesNoBtn);
                     break;
 
-                default: this.Close();
+                default: 
+                    this.Close();
+                    check_ = false;
                     break;
             }
+
+            return check_;
         }
-        
-        private void NotificationStyling(Color color, Color colorTitle, string image, 
+
+        private void GeneratingButtons(Button button, string textButton, Color borderColor, Color textColor,
+            System.Drawing.Point point, string nameButton, System.Drawing.Size sizeButton, EventHandler ev)
+        {
+            button.Text = textButton;
+            button.BackColor = Color.Transparent;
+            button.BackgroundImageLayout = ImageLayout.None;
+            button.FlatAppearance.BorderColor = borderColor;
+            button.FlatAppearance.BorderSize = 2;
+            button.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button.FlatStyle = FlatStyle.Flat;
+            button.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(238)));
+            button.ForeColor = textColor;
+            button.Location = point;
+            button.Margin = new Padding(0);
+            button.Name = nameButton;
+            button.Size = sizeButton;
+            button.TextImageRelation = TextImageRelation.TextBeforeImage;
+            button.UseVisualStyleBackColor = false;           
+            button.Click += ev;
+
+            notificationPanel.Controls.Add(button);
+        }
+
+        private void yes_Click(object sender, EventArgs e)
+        {
+            check = true;
+            this.Close();
+        }
+
+        private void no_Click(object sender, EventArgs e)
+        {
+            check = false;
+            this.Close();
+        }
+        private bool NotificationStyling(Color color, Color colorTitle, string image, 
             string icon, string textTitle, string textContent, bool yesNoBtn)
         {
             notifTitlelabel.ForeColor = colorTitle;
@@ -110,11 +152,17 @@ namespace Chat
                 Button yesBtn = new Button();
                 Button noBtn = new Button();
 
-
                 Color colorGreen = Color.LimeGreen;
                 Color colorTitleGreen = Color.Lime;
                 Color colorRed = Color.FromArgb(192, 0, 0);
                 Color colorTitleRed = Color.Red;
+
+                /*GeneratingButtons(yesBtn, "Yes", colorGreen, colorTitleGreen, new System.Drawing.Point(185, 110),
+                    "notifiYesBtn", new System.Drawing.Size(120, 35), yes_Click);
+
+                GeneratingButtons(noBtn, "No", colorRed, colorTitleRed, new System.Drawing.Point(10, 110),
+                    "notifiNoBtn", new System.Drawing.Size(120, 35), no_Click);*/
+
 
                 yesBtn.Text = "Yes";
                 yesBtn.BackColor = Color.Transparent;
@@ -123,16 +171,16 @@ namespace Chat
                 yesBtn.FlatAppearance.BorderSize = 2;
                 yesBtn.FlatAppearance.MouseDownBackColor = Color.Transparent;
                 yesBtn.FlatAppearance.MouseOverBackColor = Color.Transparent;
-                yesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                yesBtn.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+                yesBtn.FlatStyle = FlatStyle.Flat;
+                yesBtn.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(238)));
                 yesBtn.ForeColor = colorTitleGreen;
-                yesBtn.Location = new Point(182, 110);
+                yesBtn.Location = new System.Drawing.Point(185, 110);
                 yesBtn.Margin = new Padding(0);
                 yesBtn.Name = "notifiOkBtn";
-                yesBtn.Size = new Size(120, 35);
-                yesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+                yesBtn.Size = new System.Drawing.Size(120, 35);
+                yesBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 yesBtn.UseVisualStyleBackColor = false;
-                yesBtn.Click += new EventHandler(exit_Click);
+                yesBtn.Click += new EventHandler(yes_Click);
 
                 noBtn.Text = "No";
                 noBtn.BackColor = Color.Transparent;
@@ -141,26 +189,31 @@ namespace Chat
                 noBtn.FlatAppearance.BorderSize = 2;
                 noBtn.FlatAppearance.MouseDownBackColor = Color.Transparent;
                 noBtn.FlatAppearance.MouseOverBackColor = Color.Transparent;
-                noBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                noBtn.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+                noBtn.FlatStyle = FlatStyle.Flat;
+                noBtn.Font = new Font("Comic Sans MS", 10.8F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(238)));
                 noBtn.ForeColor = colorTitleRed;
-                noBtn.Location = new Point(10, 110);
+                noBtn.Location = new System.Drawing.Point(10, 110);
                 noBtn.Margin = new Padding(0);
                 noBtn.Name = "notifiOkBtn";
-                noBtn.Size = new Size(120, 35);
-                noBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+                noBtn.Size = new System.Drawing.Size(120, 35);
+                noBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 noBtn.UseVisualStyleBackColor = false;
-                noBtn.Click += new EventHandler(exit_Click);
+                noBtn.Click += new EventHandler(no_Click);
 
-                notificationPanel.Controls.Add(yesBtn);
+
                 notificationPanel.Controls.Add(noBtn);
+                notificationPanel.Controls.Add(yesBtn);
             }
+
+            return check;
         }
 
-        public void GetNotification(string type, string textContent, bool yesNoBtn = false)
-        { 
+        public bool GetNotification(string type, string textContent, bool yesNoBtn = false)
+        {            
+            bool check_ = NotificationType(type, textContent, yesNoBtn);
             this.ShowDialog();
-            NotificationType(type, textContent, yesNoBtn);
+
+            return check_;
         }
     }
 }

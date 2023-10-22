@@ -101,7 +101,7 @@
             this.notifiOkBtn.Text = "OK";
             this.notifiOkBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.notifiOkBtn.UseVisualStyleBackColor = false;
-            this.notifiOkBtn.Click += new System.EventHandler(this.button1_Click);
+            this.notifiOkBtn.Click += new System.EventHandler(this.notifiOkBtn_Click);
             // 
             // exit
             // 
