@@ -78,5 +78,19 @@ namespace Chat.Services
             }
         }
 
+        public void RemoveNameRole(int idRole)
+        {
+            using (var _dbContext = new ChatDbContext()) 
+            {
+                var roleToDelete = _dbContext.Set<Role>()
+                    .Where(u => u.Id == idRole)
+                    .First();
+
+
+                _dbContext.Set<Role>().Remove(roleToDelete);
+                _dbContext.SaveChanges();
+            }
+        }
+
     }
 }

@@ -41,12 +41,13 @@ namespace Chat.Services
             using (var _dbContext = new ChatDbContext())
             {
                 var roles = _dbContext.Set<Role>()
-                                   .ToList();
+                    .ToList();
+
                 return roles;
             }
         }
 
-        public List<Permissions> GetAllPermission()
+        public List<Permissions> GetAllUsedPermissions()
         {
             using (var _dbContext = new ChatDbContext())
             {
@@ -65,6 +66,17 @@ namespace Chat.Services
                                    .ToList();
                 return query;
             }
-        }       
+        }
+
+        public IEnumerable<Right> GetAllPermissions()
+        {
+            using (var _dbContext = new ChatDbContext())
+            {
+                var allPermissions = _dbContext.Set<Right>()
+                    .ToList();
+
+                return allPermissions;
+            }
+        }
     }
 }

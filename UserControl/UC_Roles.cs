@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Chat.Services.SettingsAccountService;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace Chat
 {
@@ -18,10 +19,27 @@ namespace Chat
     {
         private AdminChatDashboardService adminChatDashboardService = new AdminChatDashboardService();
         private UC_RolesService rolesService = new UC_RolesService();
-        private Notification notification = new Notification();
+        
         public UC_Roles()
         {
             InitializeComponent();
+        }
+
+        private void UC_Roles_Load(object sender, EventArgs e)
+        {
+            AddOptionsToRoleFilterBox();
+
+            rolesList.Columns.Add("Id", -2, HorizontalAlignment.Left);
+            rolesList.Columns.Add("Name", 400, HorizontalAlignment.Left);
+
+            rolesList.Font = new Font("Comic Sans MS", 10, FontStyle.Bold);
+
+            LoadDataIntoTableRole();
+
+            rolesList.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
+
+            rolesList.ItemActivate += new EventHandler(GetAllPermissionFromRole);
+            rolesList.ItemActivate += new EventHandler(rolesList_SelectedIndexChanged);
         }
 
         private void AddOptionsToRoleFilterBox()
@@ -102,28 +120,12 @@ namespace Chat
             RolesTableReload();
         }
 
-        private void UC_Roles_Load(object sender, EventArgs e)
-        {
-            AddOptionsToRoleFilterBox();
-
-            rolesList.Columns.Add("Id", -2, HorizontalAlignment.Left);
-            rolesList.Columns.Add("Name", 400, HorizontalAlignment.Left);
-
-            rolesList.Font = new Font("Comic Sans MS", 10, FontStyle.Bold);
-
-            LoadDataIntoTableRole();
-
-            rolesList.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
-
-            rolesList.ItemActivate += new EventHandler(GetAllPermissionFromRole);
-            rolesList.ItemActivate += new EventHandler(rolesList_SelectedIndexChanged);
-        }
 
         public void GetAllPermissionFromRole(object sender, EventArgs e)
         {
             int id = Int32.Parse(rolesList.SelectedItems[0].Text);
             var permissions = adminChatDashboardService
-                .GetAllPermission()
+                .GetAllUsedPermissions()
                 .Where(s => s.idRole == id);
 
             rolesListBox.Items.Clear();
@@ -132,12 +134,10 @@ namespace Chat
 
             foreach (var permission in permissions)
             {
-               /* Console.WriteLine(permission.v);*/
                 if (permissions.Count() == 0) 
                 {
                     rolesListBox.Items.Add("No permissions");
                     rolesListBox.Font = new Font("Comic Sans MS", 10, FontStyle.Italic);
-                    /*rolesListBox.*/
                 }
                 else rolesListBox.Items.Add(permission.namePermission);
             }         
@@ -145,7 +145,16 @@ namespace Chat
 
         private void AddPermissionBtn_Click(object sender, EventArgs e)
         {
-            
+            if (rolesList.SelectedItems.Count <= 0)
+            {
+                Notification notification = new Notification();
+                notification.GetNotification("Error", "Select a role name to grant permissions!");
+                return;
+            }
+            int idRole = Int32.Parse(rolesList.SelectedItems[0].Text);
+            string nameRole = rolesList.SelectedItems[0].SubItems[1].Text;
+            Permissions permissions = new Permissions(idRole, nameRole);
+            permissions.Show();
         }
 
         private void AddRoleBtn_Click(object sender, EventArgs e)
@@ -167,6 +176,7 @@ namespace Chat
             string newRoleName = rolesEditNameBox.Text;           
             if (rolesList.SelectedItems.Count <= 0)
             {
+                Notification notification = new Notification();
                 notification.GetNotification("Error", "Select the role name to edit!");
                 return;
             }
@@ -183,28 +193,50 @@ namespace Chat
 
         private void removeRoleBtn_Click(object sender, EventArgs e)
         {
-            bool check = notification.GetNotification("warning", "test", true);
-            Console.WriteLine(check);
+            Notification notification = new Notification();
+            if (rolesList.SelectedItems.Count <= 0)
+            {
+                notification.GetNotification("Error", "Select the role name to remove!");
+                return;
+            }
+   
+            string nameRole = rolesList.SelectedItems[0].SubItems[1].Text;
+
+            bool check = notification.GetNotification("warning", $"Are you sure you want to delete the roles {nameRole}?", true);
+            if (check) 
+            {
+                string idRole = rolesList.SelectedItems[0].Text;
+                rolesService.RemoveNameRole(Int32.Parse(idRole));
+                RolesTableReload();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            notification.GetNotification("error", "test", true);
+            Notification notification = new Notification();
+            bool check = notification.GetNotification("error", "test", false);
+            Console.WriteLine(check);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            notification.GetNotification("warning", "test", true);
+            Notification notification = new Notification();
+            bool check = notification.GetNotification("warning", "test", false);
+            Console.WriteLine(check);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            notification.GetNotification("info", "test", true);
+            Notification notification = new Notification();
+            bool check = notification.GetNotification("info", "test", false);
+            Console.WriteLine(check);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            notification.GetNotification("success", "test", true);
+            Notification notification = new Notification();
+            bool check = notification.GetNotification("success", "test", false);
+            Console.WriteLine(check);
         }
     }
 }
