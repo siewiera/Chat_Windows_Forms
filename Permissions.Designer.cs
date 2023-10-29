@@ -30,13 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Permissions));
             this.panelPermissions = new System.Windows.Forms.Panel();
+            this.roleTxtLabel = new System.Windows.Forms.Label();
+            this.usedPermissionsFilterBox = new System.Windows.Forms.ComboBox();
+            this.newPermissionsFilterBox = new System.Windows.Forms.ComboBox();
             this.nameRoleLabel = new System.Windows.Forms.TextBox();
             this.leftArrowBtn = new System.Windows.Forms.Button();
             this.dbLeftArrowBtn = new System.Windows.Forms.Button();
             this.dbRightArrowBtn = new System.Windows.Forms.Button();
             this.rightArrowBtn = new System.Windows.Forms.Button();
-            this.exit = new System.Windows.Forms.Button();
-            this.minimize = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.titleNewPermissionLabel = new System.Windows.Forms.Label();
             this.titlePermissionLabel = new System.Windows.Forms.Label();
@@ -47,6 +48,10 @@
             this.usedId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.usedPermissionName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.titleLabel = new System.Windows.Forms.Label();
+            this.backChangesBtn = new System.Windows.Forms.Button();
+            this.savePermissionBtn = new System.Windows.Forms.Button();
+            this.exit = new System.Windows.Forms.Button();
+            this.minimize = new System.Windows.Forms.Button();
             this.panelPermissions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -57,13 +62,18 @@
             this.panelPermissions.BackColor = System.Drawing.Color.Transparent;
             this.panelPermissions.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelPermissions.BackgroundImage")));
             this.panelPermissions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelPermissions.Controls.Add(this.minimize);
+            this.panelPermissions.Controls.Add(this.exit);
+            this.panelPermissions.Controls.Add(this.backChangesBtn);
+            this.panelPermissions.Controls.Add(this.savePermissionBtn);
+            this.panelPermissions.Controls.Add(this.roleTxtLabel);
+            this.panelPermissions.Controls.Add(this.usedPermissionsFilterBox);
+            this.panelPermissions.Controls.Add(this.newPermissionsFilterBox);
             this.panelPermissions.Controls.Add(this.nameRoleLabel);
             this.panelPermissions.Controls.Add(this.leftArrowBtn);
             this.panelPermissions.Controls.Add(this.dbLeftArrowBtn);
             this.panelPermissions.Controls.Add(this.dbRightArrowBtn);
             this.panelPermissions.Controls.Add(this.rightArrowBtn);
-            this.panelPermissions.Controls.Add(this.exit);
-            this.panelPermissions.Controls.Add(this.minimize);
             this.panelPermissions.Controls.Add(this.pictureBox1);
             this.panelPermissions.Controls.Add(this.titleNewPermissionLabel);
             this.panelPermissions.Controls.Add(this.titlePermissionLabel);
@@ -74,8 +84,51 @@
             this.panelPermissions.Location = new System.Drawing.Point(2, 2);
             this.panelPermissions.Name = "panelPermissions";
             this.panelPermissions.Padding = new System.Windows.Forms.Padding(2);
-            this.panelPermissions.Size = new System.Drawing.Size(773, 579);
+            this.panelPermissions.Size = new System.Drawing.Size(773, 636);
             this.panelPermissions.TabIndex = 0;
+            // 
+            // roleTxtLabel
+            // 
+            this.roleTxtLabel.AutoSize = true;
+            this.roleTxtLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.roleTxtLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.roleTxtLabel.Location = new System.Drawing.Point(130, 91);
+            this.roleTxtLabel.MaximumSize = new System.Drawing.Size(60, 30);
+            this.roleTxtLabel.MinimumSize = new System.Drawing.Size(60, 30);
+            this.roleTxtLabel.Name = "roleTxtLabel";
+            this.roleTxtLabel.Size = new System.Drawing.Size(60, 30);
+            this.roleTxtLabel.TabIndex = 73;
+            this.roleTxtLabel.Text = "Role";
+            // 
+            // usedPermissionsFilterBox
+            // 
+            this.usedPermissionsFilterBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.usedPermissionsFilterBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.usedPermissionsFilterBox.BackColor = System.Drawing.Color.Gray;
+            this.usedPermissionsFilterBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.usedPermissionsFilterBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.usedPermissionsFilterBox.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.usedPermissionsFilterBox.ForeColor = System.Drawing.Color.White;
+            this.usedPermissionsFilterBox.Location = new System.Drawing.Point(457, 203);
+            this.usedPermissionsFilterBox.Name = "usedPermissionsFilterBox";
+            this.usedPermissionsFilterBox.Size = new System.Drawing.Size(300, 25);
+            this.usedPermissionsFilterBox.Sorted = true;
+            this.usedPermissionsFilterBox.TabIndex = 72;
+            // 
+            // newPermissionsFilterBox
+            // 
+            this.newPermissionsFilterBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.newPermissionsFilterBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.newPermissionsFilterBox.BackColor = System.Drawing.Color.Gray;
+            this.newPermissionsFilterBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.newPermissionsFilterBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.newPermissionsFilterBox.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.newPermissionsFilterBox.ForeColor = System.Drawing.Color.White;
+            this.newPermissionsFilterBox.Location = new System.Drawing.Point(11, 203);
+            this.newPermissionsFilterBox.Name = "newPermissionsFilterBox";
+            this.newPermissionsFilterBox.Size = new System.Drawing.Size(300, 25);
+            this.newPermissionsFilterBox.Sorted = true;
+            this.newPermissionsFilterBox.TabIndex = 71;
             // 
             // nameRoleLabel
             // 
@@ -83,7 +136,7 @@
             this.nameRoleLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nameRoleLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nameRoleLabel.ForeColor = System.Drawing.Color.White;
-            this.nameRoleLabel.Location = new System.Drawing.Point(150, 99);
+            this.nameRoleLabel.Location = new System.Drawing.Point(196, 91);
             this.nameRoleLabel.MaximumSize = new System.Drawing.Size(220, 30);
             this.nameRoleLabel.MinimumSize = new System.Drawing.Size(220, 30);
             this.nameRoleLabel.Name = "nameRoleLabel";
@@ -165,57 +218,6 @@
             this.rightArrowBtn.UseVisualStyleBackColor = true;
             this.rightArrowBtn.Click += new System.EventHandler(this.rightArrowBtn_Click);
             // 
-            // exit
-            // 
-            this.exit.AccessibleDescription = "exit";
-            this.exit.AccessibleName = "exit";
-            this.exit.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.exit.BackColor = System.Drawing.Color.Transparent;
-            this.exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exit.BackgroundImage")));
-            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.exit.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.exit.FlatAppearance.BorderSize = 0;
-            this.exit.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
-            this.exit.ForeColor = System.Drawing.Color.Maroon;
-            this.exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.exit.Location = new System.Drawing.Point(740, 0);
-            this.exit.Margin = new System.Windows.Forms.Padding(0);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(33, 28);
-            this.exit.TabIndex = 54;
-            this.exit.UseCompatibleTextRendering = true;
-            this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.exit_Click);
-            // 
-            // minimize
-            // 
-            this.minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minimize.BackColor = System.Drawing.Color.Transparent;
-            this.minimize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("minimize.BackgroundImage")));
-            this.minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.minimize.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.minimize.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.minimize.FlatAppearance.BorderSize = 0;
-            this.minimize.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
-            this.minimize.ForeColor = System.Drawing.Color.Maroon;
-            this.minimize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.minimize.Location = new System.Drawing.Point(697, 0);
-            this.minimize.Margin = new System.Windows.Forms.Padding(0);
-            this.minimize.Name = "minimize";
-            this.minimize.Size = new System.Drawing.Size(33, 28);
-            this.minimize.TabIndex = 55;
-            this.minimize.UseCompatibleTextRendering = true;
-            this.minimize.UseVisualStyleBackColor = false;
-            this.minimize.Click += new System.EventHandler(this.minimize_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -240,7 +242,7 @@
             this.titleNewPermissionLabel.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
             this.titleNewPermissionLabel.ForeColor = System.Drawing.Color.DarkGray;
             this.titleNewPermissionLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.titleNewPermissionLabel.Location = new System.Drawing.Point(6, 198);
+            this.titleNewPermissionLabel.Location = new System.Drawing.Point(6, 161);
             this.titleNewPermissionLabel.Name = "titleNewPermissionLabel";
             this.titleNewPermissionLabel.Size = new System.Drawing.Size(171, 27);
             this.titleNewPermissionLabel.TabIndex = 53;
@@ -254,7 +256,7 @@
             this.titlePermissionLabel.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
             this.titlePermissionLabel.ForeColor = System.Drawing.Color.DarkGray;
             this.titlePermissionLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.titlePermissionLabel.Location = new System.Drawing.Point(452, 198);
+            this.titlePermissionLabel.Location = new System.Drawing.Point(452, 161);
             this.titlePermissionLabel.Name = "titlePermissionLabel";
             this.titlePermissionLabel.Size = new System.Drawing.Size(175, 27);
             this.titlePermissionLabel.TabIndex = 52;
@@ -294,7 +296,7 @@
             // newPermissionName
             // 
             this.newPermissionName.Text = "Permission Name";
-            this.newPermissionName.Width = 240;
+            this.newPermissionName.Width = 238;
             // 
             // usedPermissionsList
             // 
@@ -329,7 +331,7 @@
             // usedPermissionName
             // 
             this.usedPermissionName.Text = "Permission Name";
-            this.usedPermissionName.Width = 240;
+            this.usedPermissionName.Width = 238;
             // 
             // titleLabel
             // 
@@ -345,16 +347,120 @@
             this.titleLabel.Text = "Permisson";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // backChangesBtn
+            // 
+            this.backChangesBtn.BackColor = System.Drawing.Color.DarkGray;
+            this.backChangesBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backChangesBtn.BackgroundImage")));
+            this.backChangesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.backChangesBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.backChangesBtn.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.backChangesBtn.FlatAppearance.BorderSize = 2;
+            this.backChangesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backChangesBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
+            this.backChangesBtn.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.backChangesBtn.Image = ((System.Drawing.Image)(resources.GetObject("backChangesBtn.Image")));
+            this.backChangesBtn.ImageKey = "(none)";
+            this.backChangesBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.backChangesBtn.Location = new System.Drawing.Point(457, 579);
+            this.backChangesBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.backChangesBtn.MaximumSize = new System.Drawing.Size(140, 50);
+            this.backChangesBtn.MinimumSize = new System.Drawing.Size(140, 50);
+            this.backChangesBtn.Name = "backChangesBtn";
+            this.backChangesBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.backChangesBtn.Size = new System.Drawing.Size(140, 50);
+            this.backChangesBtn.TabIndex = 75;
+            this.backChangesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.backChangesBtn.UseCompatibleTextRendering = true;
+            this.backChangesBtn.UseVisualStyleBackColor = false;
+            this.backChangesBtn.Click += new System.EventHandler(this.backChangesBtn_Click);
+            // 
+            // savePermissionBtn
+            // 
+            this.savePermissionBtn.BackColor = System.Drawing.Color.DarkGray;
+            this.savePermissionBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("savePermissionBtn.BackgroundImage")));
+            this.savePermissionBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.savePermissionBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.savePermissionBtn.FlatAppearance.BorderColor = System.Drawing.Color.LimeGreen;
+            this.savePermissionBtn.FlatAppearance.BorderSize = 2;
+            this.savePermissionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.savePermissionBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
+            this.savePermissionBtn.ForeColor = System.Drawing.Color.LimeGreen;
+            this.savePermissionBtn.Image = ((System.Drawing.Image)(resources.GetObject("savePermissionBtn.Image")));
+            this.savePermissionBtn.ImageKey = "(none)";
+            this.savePermissionBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.savePermissionBtn.Location = new System.Drawing.Point(617, 579);
+            this.savePermissionBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.savePermissionBtn.MaximumSize = new System.Drawing.Size(140, 50);
+            this.savePermissionBtn.MinimumSize = new System.Drawing.Size(140, 50);
+            this.savePermissionBtn.Name = "savePermissionBtn";
+            this.savePermissionBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.savePermissionBtn.Size = new System.Drawing.Size(140, 50);
+            this.savePermissionBtn.TabIndex = 74;
+            this.savePermissionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.savePermissionBtn.UseCompatibleTextRendering = true;
+            this.savePermissionBtn.UseVisualStyleBackColor = false;
+            this.savePermissionBtn.Click += new System.EventHandler(this.savePermissionBtn_Click);
+            // 
+            // exit
+            // 
+            this.exit.AccessibleDescription = "exit";
+            this.exit.AccessibleName = "exit";
+            this.exit.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exit.BackColor = System.Drawing.Color.Transparent;
+            this.exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exit.BackgroundImage")));
+            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.exit.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.exit.FlatAppearance.BorderSize = 0;
+            this.exit.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
+            this.exit.ForeColor = System.Drawing.Color.Maroon;
+            this.exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.exit.Location = new System.Drawing.Point(738, 0);
+            this.exit.Margin = new System.Windows.Forms.Padding(0);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(33, 28);
+            this.exit.TabIndex = 76;
+            this.exit.UseCompatibleTextRendering = true;
+            this.exit.UseVisualStyleBackColor = false;
+            // 
+            // minimize
+            // 
+            this.minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.minimize.BackColor = System.Drawing.Color.Transparent;
+            this.minimize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("minimize.BackgroundImage")));
+            this.minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.minimize.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.minimize.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.minimize.FlatAppearance.BorderSize = 0;
+            this.minimize.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
+            this.minimize.ForeColor = System.Drawing.Color.Maroon;
+            this.minimize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.minimize.Location = new System.Drawing.Point(691, 0);
+            this.minimize.Margin = new System.Windows.Forms.Padding(0);
+            this.minimize.Name = "minimize";
+            this.minimize.Size = new System.Drawing.Size(33, 28);
+            this.minimize.TabIndex = 77;
+            this.minimize.UseCompatibleTextRendering = true;
+            this.minimize.UseVisualStyleBackColor = false;
+            // 
             // Permissions
             // 
             this.BackColor = System.Drawing.Color.Purple;
-            this.ClientSize = new System.Drawing.Size(777, 583);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(777, 640);
             this.Controls.Add(this.panelPermissions);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(777, 583);
-            this.MinimumSize = new System.Drawing.Size(777, 583);
+            this.MaximumSize = new System.Drawing.Size(777, 640);
+            this.MinimumSize = new System.Drawing.Size(777, 640);
             this.Name = "Permissions";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -376,8 +482,6 @@
         private System.Windows.Forms.Label titleNewPermissionLabel;
         private System.Windows.Forms.Label titlePermissionLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button exit;
-        private System.Windows.Forms.Button minimize;
         private System.Windows.Forms.Button rightArrowBtn;
         private System.Windows.Forms.Button leftArrowBtn;
         private System.Windows.Forms.Button dbLeftArrowBtn;
@@ -387,5 +491,12 @@
         private System.Windows.Forms.ColumnHeader newPermissionName;
         private System.Windows.Forms.ColumnHeader usedId;
         private System.Windows.Forms.ColumnHeader usedPermissionName;
+        public System.Windows.Forms.ComboBox newPermissionsFilterBox;
+        public System.Windows.Forms.ComboBox usedPermissionsFilterBox;
+        private System.Windows.Forms.Label roleTxtLabel;
+        private System.Windows.Forms.Button backChangesBtn;
+        private System.Windows.Forms.Button savePermissionBtn;
+        private System.Windows.Forms.Button minimize;
+        private System.Windows.Forms.Button exit;
     }
 }

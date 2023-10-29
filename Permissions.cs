@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Chat
 {
@@ -44,7 +45,8 @@ namespace Chat
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void movingItemsInLists(ListView fromListView, ListView toListView, bool onlySelected = true)
+        private void movingItemsInLists(System.Windows.Forms.ListView fromListView, 
+            System.Windows.Forms.ListView toListView, bool onlySelected = true)
         {
             string[] dataSelected;
             foreach (ListViewItem item in fromListView.Items)
@@ -79,21 +81,6 @@ namespace Chat
 
         private void rightArrowBtn_Click(object sender, EventArgs e)
         {
-            /* string[] dataSelected;
-             foreach (ListViewItem item in newPermissionsList.Items)
-             {
-                 if (item.Selected)
-                 {
-                     dataSelected = new string[]
-                     {
-                         item.Text,
-                         item.SubItems[1].Text,
-                     };
-                     ListViewItem usedPermissions = new ListViewItem(dataSelected);
-                     usedPermissionsList.Items.Add(usedPermissions);
-                     newPermissionsList.Items.Remove(item);
-                 }
-             }*/
             movingItemsInLists(newPermissionsList, usedPermissionsList, true);
         }
 
@@ -124,7 +111,14 @@ namespace Chat
             {
                 if (permissions.Count() > 0)
                 {
-                    usedPermissionsList.Items.Add(permission.namePermission);
+                    string[] usedPermission = new string[]
+                    {
+                        permission.idPermission.ToString(),
+                        permission.namePermission.ToString()
+                    };
+
+                    ListViewItem listViewItem = new ListViewItem(usedPermission);
+                    usedPermissionsList.Items.Add(listViewItem);
                 }
             }
         }
@@ -134,6 +128,10 @@ namespace Chat
             var permissions = adminChatDashboardService
                 .GetAllPermissions();
 
+            var usedPermissions = adminChatDashboardService
+                .GetAllUsedPermissions()
+                .Where(s => s.idRole == idRole);
+
             /*string x = usedPermissionsList.Items[0].Name;
 
             Console.WriteLine(x);*/
@@ -142,21 +140,33 @@ namespace Chat
 
             foreach (var permission in permissions)
             {
+                bool itemExists = false;
                 if (permissions.Count() > 0)
                 {
-                    string[] newPermissions = new string[]
+                    foreach (var usedPermission in usedPermissions)
                     {
+                        if (usedPermission.idPermission.ToString() == permission.Id.ToString())
+                        {
+                            itemExists = true;
+                        }
+                    }
+                    if (!itemExists) 
+                    {
+                        string[] newPermissions = new string[]
+                        {
                         permission.Id.ToString(),
                         permission.Name.ToString()
-                    };
+                        };
 
-                    ListViewItem listViewItem = new ListViewItem(newPermissions);
-                    newPermissionsList.Items.Add(listViewItem);
+                        ListViewItem listViewItem = new ListViewItem(newPermissions);
+                        newPermissionsList.Items.Add(listViewItem);
+                    }
+                    /*itemExists = false;*/
                 }               
             }
         }
 
-        private void stylingButtonOnClick(object sender, EventArgs e, Button button, bool backColor = true)
+        private void stylingButtonOnClick(object sender, EventArgs e, System.Windows.Forms.Button button, bool backColor = true)
         {
             if (backColor) 
             {
@@ -183,6 +193,22 @@ namespace Chat
 
             dbLeftArrowBtn.MouseDown += (s, args) => stylingButtonOnClick(sender, e, dbLeftArrowBtn, false);
             dbLeftArrowBtn.MouseUp += (s, args) => stylingButtonOnClick(sender, e, dbLeftArrowBtn, true);
+        }
+
+        private void savePermissionBtn_Click(object sender, EventArgs e)
+        {
+            PermissionsService permissionsService = new PermissionsService();
+            permissionsService.removeOldPermissions(idRole);
+            foreach (ListViewItem item in usedPermissionsList.Items)
+            {
+                permissionsService.saveNewPermissions(idRole, Int32.Parse(item.Text));
+
+            }
+        }
+
+        private void backChangesBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

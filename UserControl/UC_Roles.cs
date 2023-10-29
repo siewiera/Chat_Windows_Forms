@@ -154,7 +154,7 @@ namespace Chat
             int idRole = Int32.Parse(rolesList.SelectedItems[0].Text);
             string nameRole = rolesList.SelectedItems[0].SubItems[1].Text;
             Permissions permissions = new Permissions(idRole, nameRole);
-            permissions.Show();
+            permissions.ShowDialog();
         }
 
         private void AddRoleBtn_Click(object sender, EventArgs e)

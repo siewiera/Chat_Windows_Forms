@@ -25,7 +25,7 @@ namespace Chat.Services
 
         public List<Permissions> GetPermissionUsedData()
         {
-            using (var _dbContext = new ChatDbContext()) 
+            using (var _dbContext = new ChatDbContext())
             {
                 var query = (from rr in _dbContext.RightRoles
                              join r in _dbContext.Rights on rr.RightId equals r.Id
@@ -45,9 +45,38 @@ namespace Chat.Services
             }
         }
 
-        public void GetPermissionNewData()
+        public void removeOldPermissions(int idRole)
         {
+            using (var _dbContext = new ChatDbContext())
+            {
+                var oldPermissions = _dbContext.Set<RightRole>()
+                    .Where(rr => rr.RoleId == idRole)
+                    .ToList();
 
+                foreach (var oldPermission in oldPermissions)
+                {
+                    _dbContext.Set<RightRole>().Remove(oldPermission);
+                    _dbContext.SaveChanges();
+                }
+            }
         }
+
+        public void saveNewPermissions(int idRole, int idPermission)
+        {
+            using (var _dbContext = new ChatDbContext())
+            {
+                var newPermissions = new RightRole()
+                {
+                    RoleId = idRole,
+                    RightId = idPermission,
+                };
+
+                _dbContext.Set<RightRole>() 
+                    .AddRange(newPermissions);
+                _dbContext.SaveChanges();
+            };
+        }
+
     }
 }
+
