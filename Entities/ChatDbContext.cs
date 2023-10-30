@@ -11,11 +11,13 @@ namespace Chat.Entities
 {
     internal class ChatDbContext : DbContext
     {
-        private string _connectionString =
-            "Server=localhost;Database=ChatDb;Trusted_Connection=true;TrustServerCertificate=true;";
+        /*private string _connectionString =
+            "Server=localhost;Database=ChatDb;Trusted_Connection=true;TrustServerCertificate=true;";*/
         /*private string _connectionString =
             "Server=BPX-SIEWISE2;Database=ChatDb;Trusted_Connection=true;TrustServerCertificate=true;";*/
-        /* private string _connectionString = ConfigurationManager.AppSettings["MyDbConnection"];*/
+        public ChatDbContext(){}
+
+        public ChatDbContext(DbContextOptions<ChatDbContext> option): base(option) { }
 
 
         public DbSet<ConversationUser> ConversationUsers { get; set; }
@@ -72,7 +74,15 @@ namespace Chat.Entities
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(_connectionString);
+            /*optionsBuilder.UseSqlServer(_connectionString);*/
+
+            /*if (!optionsBuilder.IsConfigured)
+            {*/
+                optionsBuilder.UseSqlServer(
+                    /*ConfigurationManager.ConnectionStrings["Priv"].ConnectionString*/
+                    ConfigurationManager.ConnectionStrings["Work"].ConnectionString
+                );
+            /*}*/
         }
     } 
 }
