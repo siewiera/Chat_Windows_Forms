@@ -1,4 +1,5 @@
 ﻿using Chat.Properties;
+using Chat.Services.Button;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,7 +77,7 @@ namespace Chat
             }
         }
 
-        private void GeneratingButtons(Button button, string textButton, Color borderColor, Color textColor,
+        /*private void GeneratingButtons(Button button, string textButton, Color borderColor, Color textColor,
             System.Drawing.Point point, string nameButton, System.Drawing.Size sizeButton, EventHandler ev)
         {
             button.Text = textButton;
@@ -98,7 +99,7 @@ namespace Chat
             button.Click += ev;
 
             notificationPanel.Controls.Add(button);
-        }
+        }*/
 
         private void exit_Click(object sender, EventArgs e)
         {
@@ -141,6 +142,9 @@ namespace Chat
 
             this.BackColor = color;
 
+            ButtonsService buttonsService = new ButtonsService();
+            Bitmap bitmapEmpty = null;
+
             if (yesNoBtn)
             {
                 Button yesBtn = new Button();
@@ -151,18 +155,25 @@ namespace Chat
 
                 Color colorRed = Color.FromArgb(192, 0, 0);
                 Color colorTitleRed = Color.Red;
+                
 
-                GeneratingButtons(yesBtn, "Yes", colorGreen, colorTitleGreen, new System.Drawing.Point(175, 120),
+                buttonsService.GeneratingButtons(yesBtn, "Yes", bitmapEmpty, bitmapEmpty, colorGreen, colorTitleGreen, 2, 10, new System.Drawing.Point(175, 120),
                     "notifYesBtn", new System.Drawing.Size(120, 30), yesBtn_Click);
 
-                GeneratingButtons(noBtn, "No", colorRed, colorTitleRed, new System.Drawing.Point(20, 120),
+                buttonsService.GeneratingButtons(noBtn, "No", bitmapEmpty, bitmapEmpty, colorRed, colorTitleRed, 2, 10, new System.Drawing.Point(20, 120),
                     "notifNoBtn", new System.Drawing.Size(120, 30), noBtn_Click);
+
+                notificationPanel.Controls.Add(yesBtn);
+                notificationPanel.Controls.Add(noBtn);
+
             }
             else {
                 Button okBtn = new Button();
 
-                GeneratingButtons(okBtn, "OK", color, colorTitle, new System.Drawing.Point(100, 120),
+                buttonsService.GeneratingButtons(okBtn, "OK", bitmapEmpty, bitmapEmpty, color, colorTitle, 2, 10, new System.Drawing.Point(100, 120),
                     "notifOkBtn", new System.Drawing.Size(120, 30), okBtn_Click);
+
+                notificationPanel.Controls.Add(okBtn);
             }
         }
 

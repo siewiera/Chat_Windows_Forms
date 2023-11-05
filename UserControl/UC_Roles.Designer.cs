@@ -79,7 +79,7 @@
             // 
             this.rolesFilterBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.rolesFilterBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.rolesFilterBox.BackColor = System.Drawing.Color.Gray;
+            this.rolesFilterBox.BackColor = System.Drawing.Color.Black;
             this.rolesFilterBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.rolesFilterBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rolesFilterBox.Font = new System.Drawing.Font("Comic Sans MS", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);

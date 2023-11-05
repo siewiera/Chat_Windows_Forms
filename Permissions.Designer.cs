@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Permissions));
             this.panelPermissions = new System.Windows.Forms.Panel();
+            this.minimize = new System.Windows.Forms.Button();
+            this.exit = new System.Windows.Forms.Button();
+            this.backChangesBtn = new System.Windows.Forms.Button();
+            this.savePermissionBtn = new System.Windows.Forms.Button();
             this.roleTxtLabel = new System.Windows.Forms.Label();
             this.usedPermissionsFilterBox = new System.Windows.Forms.ComboBox();
             this.newPermissionsFilterBox = new System.Windows.Forms.ComboBox();
@@ -48,10 +52,6 @@
             this.usedId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.usedPermissionName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.titleLabel = new System.Windows.Forms.Label();
-            this.backChangesBtn = new System.Windows.Forms.Button();
-            this.savePermissionBtn = new System.Windows.Forms.Button();
-            this.exit = new System.Windows.Forms.Button();
-            this.minimize = new System.Windows.Forms.Button();
             this.panelPermissions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -87,6 +87,109 @@
             this.panelPermissions.Size = new System.Drawing.Size(773, 636);
             this.panelPermissions.TabIndex = 0;
             // 
+            // minimize
+            // 
+            this.minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.minimize.BackColor = System.Drawing.Color.Transparent;
+            this.minimize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("minimize.BackgroundImage")));
+            this.minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.minimize.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.minimize.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.minimize.FlatAppearance.BorderSize = 0;
+            this.minimize.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
+            this.minimize.ForeColor = System.Drawing.Color.Maroon;
+            this.minimize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.minimize.Location = new System.Drawing.Point(691, 0);
+            this.minimize.Margin = new System.Windows.Forms.Padding(0);
+            this.minimize.Name = "minimize";
+            this.minimize.Size = new System.Drawing.Size(33, 28);
+            this.minimize.TabIndex = 77;
+            this.minimize.UseCompatibleTextRendering = true;
+            this.minimize.UseVisualStyleBackColor = false;
+            // 
+            // exit
+            // 
+            this.exit.AccessibleDescription = "exit";
+            this.exit.AccessibleName = "exit";
+            this.exit.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exit.BackColor = System.Drawing.Color.Transparent;
+            this.exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exit.BackgroundImage")));
+            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.exit.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.exit.FlatAppearance.BorderSize = 0;
+            this.exit.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
+            this.exit.ForeColor = System.Drawing.Color.Maroon;
+            this.exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.exit.Location = new System.Drawing.Point(738, 0);
+            this.exit.Margin = new System.Windows.Forms.Padding(0);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(33, 28);
+            this.exit.TabIndex = 76;
+            this.exit.UseCompatibleTextRendering = true;
+            this.exit.UseVisualStyleBackColor = false;
+            // 
+            // backChangesBtn
+            // 
+            this.backChangesBtn.BackColor = System.Drawing.Color.DarkGray;
+            this.backChangesBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backChangesBtn.BackgroundImage")));
+            this.backChangesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.backChangesBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.backChangesBtn.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.backChangesBtn.FlatAppearance.BorderSize = 2;
+            this.backChangesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backChangesBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
+            this.backChangesBtn.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.backChangesBtn.Image = ((System.Drawing.Image)(resources.GetObject("backChangesBtn.Image")));
+            this.backChangesBtn.ImageKey = "(none)";
+            this.backChangesBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.backChangesBtn.Location = new System.Drawing.Point(457, 579);
+            this.backChangesBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.backChangesBtn.MaximumSize = new System.Drawing.Size(140, 50);
+            this.backChangesBtn.MinimumSize = new System.Drawing.Size(140, 50);
+            this.backChangesBtn.Name = "backChangesBtn";
+            this.backChangesBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.backChangesBtn.Size = new System.Drawing.Size(140, 50);
+            this.backChangesBtn.TabIndex = 75;
+            this.backChangesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.backChangesBtn.UseCompatibleTextRendering = true;
+            this.backChangesBtn.UseVisualStyleBackColor = false;
+            this.backChangesBtn.Click += new System.EventHandler(this.backChangesBtn_Click);
+            // 
+            // savePermissionBtn
+            // 
+            this.savePermissionBtn.BackColor = System.Drawing.Color.DarkGray;
+            this.savePermissionBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("savePermissionBtn.BackgroundImage")));
+            this.savePermissionBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.savePermissionBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.savePermissionBtn.FlatAppearance.BorderColor = System.Drawing.Color.LimeGreen;
+            this.savePermissionBtn.FlatAppearance.BorderSize = 2;
+            this.savePermissionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.savePermissionBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
+            this.savePermissionBtn.ForeColor = System.Drawing.Color.LimeGreen;
+            this.savePermissionBtn.Image = ((System.Drawing.Image)(resources.GetObject("savePermissionBtn.Image")));
+            this.savePermissionBtn.ImageKey = "(none)";
+            this.savePermissionBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.savePermissionBtn.Location = new System.Drawing.Point(617, 579);
+            this.savePermissionBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.savePermissionBtn.MaximumSize = new System.Drawing.Size(140, 50);
+            this.savePermissionBtn.MinimumSize = new System.Drawing.Size(140, 50);
+            this.savePermissionBtn.Name = "savePermissionBtn";
+            this.savePermissionBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.savePermissionBtn.Size = new System.Drawing.Size(140, 50);
+            this.savePermissionBtn.TabIndex = 74;
+            this.savePermissionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.savePermissionBtn.UseCompatibleTextRendering = true;
+            this.savePermissionBtn.UseVisualStyleBackColor = false;
+            this.savePermissionBtn.Click += new System.EventHandler(this.savePermissionBtn_Click);
+            // 
             // roleTxtLabel
             // 
             this.roleTxtLabel.AutoSize = true;
@@ -102,33 +205,37 @@
             // 
             // usedPermissionsFilterBox
             // 
-            this.usedPermissionsFilterBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.usedPermissionsFilterBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.usedPermissionsFilterBox.BackColor = System.Drawing.Color.Gray;
-            this.usedPermissionsFilterBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.usedPermissionsFilterBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.usedPermissionsFilterBox.BackColor = System.Drawing.Color.Black;
+            this.usedPermissionsFilterBox.DisplayMember = "-";
+            this.usedPermissionsFilterBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.usedPermissionsFilterBox.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.usedPermissionsFilterBox.ForeColor = System.Drawing.Color.White;
+            this.usedPermissionsFilterBox.Items.AddRange(new object[] {
+            "-"});
             this.usedPermissionsFilterBox.Location = new System.Drawing.Point(457, 203);
             this.usedPermissionsFilterBox.Name = "usedPermissionsFilterBox";
             this.usedPermissionsFilterBox.Size = new System.Drawing.Size(300, 25);
             this.usedPermissionsFilterBox.Sorted = true;
             this.usedPermissionsFilterBox.TabIndex = 72;
+            this.usedPermissionsFilterBox.ValueMember = "-";
+            this.usedPermissionsFilterBox.SelectedIndexChanged += new System.EventHandler(this.usedPermissionsFilterBox_SelectedIndexChanged);
             // 
             // newPermissionsFilterBox
             // 
-            this.newPermissionsFilterBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.newPermissionsFilterBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.newPermissionsFilterBox.BackColor = System.Drawing.Color.Gray;
-            this.newPermissionsFilterBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.newPermissionsFilterBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.newPermissionsFilterBox.BackColor = System.Drawing.Color.Black;
+            this.newPermissionsFilterBox.DisplayMember = "-";
+            this.newPermissionsFilterBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newPermissionsFilterBox.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.newPermissionsFilterBox.ForeColor = System.Drawing.Color.White;
+            this.newPermissionsFilterBox.Items.AddRange(new object[] {
+            "-"});
             this.newPermissionsFilterBox.Location = new System.Drawing.Point(11, 203);
             this.newPermissionsFilterBox.Name = "newPermissionsFilterBox";
             this.newPermissionsFilterBox.Size = new System.Drawing.Size(300, 25);
             this.newPermissionsFilterBox.Sorted = true;
             this.newPermissionsFilterBox.TabIndex = 71;
+            this.newPermissionsFilterBox.SelectedIndexChanged += new System.EventHandler(this.newPermissionsFilterBox_SelectedIndexChanged);
             // 
             // nameRoleLabel
             // 
@@ -346,109 +453,6 @@
             this.titleLabel.TabIndex = 49;
             this.titleLabel.Text = "Permisson";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // backChangesBtn
-            // 
-            this.backChangesBtn.BackColor = System.Drawing.Color.DarkGray;
-            this.backChangesBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backChangesBtn.BackgroundImage")));
-            this.backChangesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.backChangesBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.backChangesBtn.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.backChangesBtn.FlatAppearance.BorderSize = 2;
-            this.backChangesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backChangesBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
-            this.backChangesBtn.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.backChangesBtn.Image = ((System.Drawing.Image)(resources.GetObject("backChangesBtn.Image")));
-            this.backChangesBtn.ImageKey = "(none)";
-            this.backChangesBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.backChangesBtn.Location = new System.Drawing.Point(457, 579);
-            this.backChangesBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.backChangesBtn.MaximumSize = new System.Drawing.Size(140, 50);
-            this.backChangesBtn.MinimumSize = new System.Drawing.Size(140, 50);
-            this.backChangesBtn.Name = "backChangesBtn";
-            this.backChangesBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.backChangesBtn.Size = new System.Drawing.Size(140, 50);
-            this.backChangesBtn.TabIndex = 75;
-            this.backChangesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.backChangesBtn.UseCompatibleTextRendering = true;
-            this.backChangesBtn.UseVisualStyleBackColor = false;
-            this.backChangesBtn.Click += new System.EventHandler(this.backChangesBtn_Click);
-            // 
-            // savePermissionBtn
-            // 
-            this.savePermissionBtn.BackColor = System.Drawing.Color.DarkGray;
-            this.savePermissionBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("savePermissionBtn.BackgroundImage")));
-            this.savePermissionBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.savePermissionBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.savePermissionBtn.FlatAppearance.BorderColor = System.Drawing.Color.LimeGreen;
-            this.savePermissionBtn.FlatAppearance.BorderSize = 2;
-            this.savePermissionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savePermissionBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
-            this.savePermissionBtn.ForeColor = System.Drawing.Color.LimeGreen;
-            this.savePermissionBtn.Image = ((System.Drawing.Image)(resources.GetObject("savePermissionBtn.Image")));
-            this.savePermissionBtn.ImageKey = "(none)";
-            this.savePermissionBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.savePermissionBtn.Location = new System.Drawing.Point(617, 579);
-            this.savePermissionBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.savePermissionBtn.MaximumSize = new System.Drawing.Size(140, 50);
-            this.savePermissionBtn.MinimumSize = new System.Drawing.Size(140, 50);
-            this.savePermissionBtn.Name = "savePermissionBtn";
-            this.savePermissionBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.savePermissionBtn.Size = new System.Drawing.Size(140, 50);
-            this.savePermissionBtn.TabIndex = 74;
-            this.savePermissionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.savePermissionBtn.UseCompatibleTextRendering = true;
-            this.savePermissionBtn.UseVisualStyleBackColor = false;
-            this.savePermissionBtn.Click += new System.EventHandler(this.savePermissionBtn_Click);
-            // 
-            // exit
-            // 
-            this.exit.AccessibleDescription = "exit";
-            this.exit.AccessibleName = "exit";
-            this.exit.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.exit.BackColor = System.Drawing.Color.Transparent;
-            this.exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exit.BackgroundImage")));
-            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.exit.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.exit.FlatAppearance.BorderSize = 0;
-            this.exit.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
-            this.exit.ForeColor = System.Drawing.Color.Maroon;
-            this.exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.exit.Location = new System.Drawing.Point(738, 0);
-            this.exit.Margin = new System.Windows.Forms.Padding(0);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(33, 28);
-            this.exit.TabIndex = 76;
-            this.exit.UseCompatibleTextRendering = true;
-            this.exit.UseVisualStyleBackColor = false;
-            // 
-            // minimize
-            // 
-            this.minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minimize.BackColor = System.Drawing.Color.Transparent;
-            this.minimize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("minimize.BackgroundImage")));
-            this.minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.minimize.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.minimize.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.minimize.FlatAppearance.BorderSize = 0;
-            this.minimize.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
-            this.minimize.ForeColor = System.Drawing.Color.Maroon;
-            this.minimize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.minimize.Location = new System.Drawing.Point(691, 0);
-            this.minimize.Margin = new System.Windows.Forms.Padding(0);
-            this.minimize.Name = "minimize";
-            this.minimize.Size = new System.Drawing.Size(33, 28);
-            this.minimize.TabIndex = 77;
-            this.minimize.UseCompatibleTextRendering = true;
-            this.minimize.UseVisualStyleBackColor = false;
             // 
             // Permissions
             // 

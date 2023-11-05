@@ -1,4 +1,5 @@
 ﻿using Chat.Entities;
+using Chat.Properties;
 using Chat.Services;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -33,6 +35,14 @@ namespace Chat
             usedPermissionsList_Load();
             newPermissionsList_Load();
             addActionToButton(sender, e);
+
+            AddOptionsToUsedPermissionsFilterBox();
+            AddOptionsToNewPermissionsFilterBox();
+            
+
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(Permissions));
+            savePermissionBtn.Image = ((Image)(resources.GetObject("savePermissionBtn.Image")));
+            backChangesBtn.Image = ((Image)(resources.GetObject("backChangesBtn.Image")));
         }
 
         private void exit_Click(object sender, EventArgs e)
@@ -76,51 +86,97 @@ namespace Chat
                     toListView.Items.Add(listView);
                     fromListView.Items.Remove(item);
                 }                
-            }
+            }           
         }
 
         private void rightArrowBtn_Click(object sender, EventArgs e)
-        {
+        {           
             movingItemsInLists(newPermissionsList, usedPermissionsList, true);
+            AddOptionsToNewPermissionsFilterBox();
+            AddOptionsToUsedPermissionsFilterBox();
         }
 
         private void dbRightArrowBtn_Click(object sender, EventArgs e)
-        {
+        {                      
             movingItemsInLists(newPermissionsList, usedPermissionsList, false);
+            newPermissionsFilterBox.Text = "-";
+            FilteringTableNewPermissions();
+            AddOptionsToNewPermissionsFilterBox();
+            AddOptionsToUsedPermissionsFilterBox();
         }
 
 
         private void leftArrowBtn_Click(object sender, EventArgs e)
         {
             movingItemsInLists(usedPermissionsList, newPermissionsList, true);
+            AddOptionsToNewPermissionsFilterBox();
+            AddOptionsToUsedPermissionsFilterBox();
         }
         private void dbLeftArrowBtn_Click(object sender, EventArgs e)
-        {
+        {                    
             movingItemsInLists(usedPermissionsList, newPermissionsList, false);
+            /*usedPermissionsFilterBox.Text = "-";*/
+            FilteringTableUsedPermissions();
+            AddOptionsToNewPermissionsFilterBox();
+            AddOptionsToUsedPermissionsFilterBox();
         }
 
-        private void usedPermissionsList_Load()
-        {
-            var permissions = adminChatDashboardService
+        private void usedPermissionsList_Load(bool checkNewPermissionsList = false)
+        {           
+            usedPermissionsList.Items.Clear();
+            if (checkNewPermissionsList)
+            {
+                var permissions = adminChatDashboardService
+                .GetAllPermissions();
+
+                var newPermissions = newPermissionsList.Items;
+                foreach (var permission in permissions)
+                {
+                    bool itemExists = false;
+                    if (permissions.Count() > 0)
+                    {
+                        foreach (ListViewItem item in newPermissions)
+                        {
+                            if (item.Text == permission.Id.ToString())
+                            {
+                                itemExists = true;
+                            }
+                        }
+                        if (!itemExists)
+                        {
+                            string[] usedPermissions = new string[]
+                            {
+                                permission.Id.ToString(),
+                                permission.Name.ToString()
+                            };
+
+                            ListViewItem listViewItem = new ListViewItem(usedPermissions);
+                            usedPermissionsList.Items.Add(listViewItem);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                var permissions = adminChatDashboardService
                 .GetAllUsedPermissions()
                 .Where(s => s.idRole == idRole);
 
-            usedPermissionsList.Items.Clear();
-
-            foreach (var permission in permissions)
-            {
-                if (permissions.Count() > 0)
+                foreach (var permission in permissions)
                 {
-                    string[] usedPermission = new string[]
+                    if (permissions.Count() > 0)
                     {
+                        string[] usedPermission = new string[]
+                        {
                         permission.idPermission.ToString(),
                         permission.namePermission.ToString()
-                    };
+                        };
 
-                    ListViewItem listViewItem = new ListViewItem(usedPermission);
-                    usedPermissionsList.Items.Add(listViewItem);
+                        ListViewItem listViewItem = new ListViewItem(usedPermission);
+                        usedPermissionsList.Items.Add(listViewItem);
+                    }
                 }
-            }
+            }          
         }
 
         private void newPermissionsList_Load()
@@ -128,13 +184,10 @@ namespace Chat
             var permissions = adminChatDashboardService
                 .GetAllPermissions();
 
-            var usedPermissions = adminChatDashboardService
+            /*var usedPermissions = adminChatDashboardService
                 .GetAllUsedPermissions()
-                .Where(s => s.idRole == idRole);
-
-            /*string x = usedPermissionsList.Items[0].Name;
-
-            Console.WriteLine(x);*/
+                .Where(s => s.idRole == idRole);*/
+            var usedPermissions = usedPermissionsList.Items;
 
             newPermissionsList.Items.Clear();
 
@@ -143,9 +196,10 @@ namespace Chat
                 bool itemExists = false;
                 if (permissions.Count() > 0)
                 {
-                    foreach (var usedPermission in usedPermissions)
+                    foreach (ListViewItem item in usedPermissions)
                     {
-                        if (usedPermission.idPermission.ToString() == permission.Id.ToString())
+                        /*if (usedPermission.idPermission.ToString() == permission.Id.ToString())*/
+                        if (item.Text == permission.Id.ToString())
                         {
                             itemExists = true;
                         }
@@ -161,7 +215,6 @@ namespace Chat
                         ListViewItem listViewItem = new ListViewItem(newPermissions);
                         newPermissionsList.Items.Add(listViewItem);
                     }
-                    /*itemExists = false;*/
                 }               
             }
         }
@@ -208,7 +261,81 @@ namespace Chat
 
         private void backChangesBtn_Click(object sender, EventArgs e)
         {
+            usedPermissionsList_Load();
+            newPermissionsList_Load();
+        }
 
+        private void AddOptionsToUsedPermissionsFilterBox()
+        {
+            usedPermissionsFilterBox.Items.Clear();
+            usedPermissionsFilterBox.ForeColor = Color.Gold;
+            usedPermissionsFilterBox.Items.Add("-");
+            foreach (ListViewItem item in usedPermissionsList.Items)
+            {
+                usedPermissionsFilterBox.Items.Add(item.SubItems[1].Text);
+            }
+        }
+
+        private void FilteringTableUsedPermissions()
+        {
+            string selectedVal = usedPermissionsFilterBox
+                .SelectedItem
+                .ToString();
+
+            if (selectedVal == "-" || selectedVal == "") usedPermissionsList_Load(true);
+            else
+            {
+                usedPermissionsList_Load(true);
+                foreach (ListViewItem item in usedPermissionsList.Items)
+                {
+                    if (item.SubItems[1].Text != selectedVal)
+                    {
+                        item.Remove();
+                    }
+                }
+            }
+        }
+
+
+        private void AddOptionsToNewPermissionsFilterBox()
+        {
+            newPermissionsFilterBox.Items.Clear();
+            newPermissionsFilterBox.ForeColor = Color.Gold;
+            newPermissionsFilterBox.Items.Add("-");
+            foreach (ListViewItem item in newPermissionsList.Items)
+            {
+                newPermissionsFilterBox.Items.Add(item.SubItems[1].Text);
+            }
+        }
+
+        private void FilteringTableNewPermissions()
+        {
+            string selectedVal = newPermissionsFilterBox
+                .SelectedItem
+                .ToString();
+
+            if (selectedVal == "-" || selectedVal == "") newPermissionsList_Load();
+            else
+            {
+                newPermissionsList_Load();
+                foreach (ListViewItem item in newPermissionsList.Items)
+                {
+                    if (item.SubItems[1].Text != selectedVal)
+                    {
+                        item.Remove();
+                    }
+                }
+            }
+        }
+
+        private void newPermissionsFilterBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilteringTableNewPermissions();
+        }
+
+        private void usedPermissionsFilterBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilteringTableUsedPermissions();
         }
     }
 }
