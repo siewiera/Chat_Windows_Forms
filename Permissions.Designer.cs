@@ -351,7 +351,7 @@
             this.titleNewPermissionLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.titleNewPermissionLabel.Location = new System.Drawing.Point(6, 161);
             this.titleNewPermissionLabel.Name = "titleNewPermissionLabel";
-            this.titleNewPermissionLabel.Size = new System.Drawing.Size(171, 27);
+            this.titleNewPermissionLabel.Size = new System.Drawing.Size(201, 32);
             this.titleNewPermissionLabel.TabIndex = 53;
             this.titleNewPermissionLabel.Text = "New permissions";
             this.titleNewPermissionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -365,7 +365,7 @@
             this.titlePermissionLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.titlePermissionLabel.Location = new System.Drawing.Point(452, 161);
             this.titlePermissionLabel.Name = "titlePermissionLabel";
-            this.titlePermissionLabel.Size = new System.Drawing.Size(175, 27);
+            this.titlePermissionLabel.Size = new System.Drawing.Size(207, 32);
             this.titlePermissionLabel.TabIndex = 52;
             this.titlePermissionLabel.Text = "Used permissions";
             this.titlePermissionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -449,7 +449,7 @@
             this.titleLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.titleLabel.Location = new System.Drawing.Point(125, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(235, 58);
+            this.titleLabel.Size = new System.Drawing.Size(285, 69);
             this.titleLabel.TabIndex = 49;
             this.titleLabel.Text = "Permisson";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
