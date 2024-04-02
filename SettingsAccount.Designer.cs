@@ -204,6 +204,7 @@
             this.usernameBox.MaximumSize = new System.Drawing.Size(200, 30);
             this.usernameBox.MinimumSize = new System.Drawing.Size(200, 30);
             this.usernameBox.Name = "usernameBox";
+            this.usernameBox.ReadOnly = true;
             this.usernameBox.Size = new System.Drawing.Size(200, 30);
             this.usernameBox.TabIndex = 32;
             // 
@@ -215,7 +216,7 @@
             this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveBtn.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Bold);
             this.saveBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(245)))), ((int)(((byte)(243)))));
-            this.saveBtn.Image = global::Chat.Properties.Resources.save;
+            this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
             this.saveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.saveBtn.Location = new System.Drawing.Point(368, 663);

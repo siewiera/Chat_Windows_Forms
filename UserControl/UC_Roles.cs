@@ -215,21 +215,18 @@ namespace Chat
         {
             Notification notification = new Notification();
             bool check = notification.GetNotification("error", "test", false);
-            Console.WriteLine(check);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Notification notification = new Notification();
             bool check = notification.GetNotification("warning", "test", false);
-            Console.WriteLine(check);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Notification notification = new Notification();
             bool check = notification.GetNotification("info", "test", false);
-            Console.WriteLine(check);
         }
 
         private void button4_Click(object sender, EventArgs e)

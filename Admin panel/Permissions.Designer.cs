@@ -135,6 +135,7 @@
             this.exit.TabIndex = 76;
             this.exit.UseCompatibleTextRendering = true;
             this.exit.UseVisualStyleBackColor = false;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
             // backChangesBtn
             // 
@@ -147,7 +148,6 @@
             this.backChangesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backChangesBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
             this.backChangesBtn.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.backChangesBtn.Image = ((System.Drawing.Image)(resources.GetObject("backChangesBtn.Image")));
             this.backChangesBtn.ImageKey = "(none)";
             this.backChangesBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.backChangesBtn.Location = new System.Drawing.Point(457, 579);
@@ -174,7 +174,6 @@
             this.savePermissionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.savePermissionBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
             this.savePermissionBtn.ForeColor = System.Drawing.Color.LimeGreen;
-            this.savePermissionBtn.Image = ((System.Drawing.Image)(resources.GetObject("savePermissionBtn.Image")));
             this.savePermissionBtn.ImageKey = "(none)";
             this.savePermissionBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.savePermissionBtn.Location = new System.Drawing.Point(617, 579);
@@ -351,7 +350,7 @@
             this.titleNewPermissionLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.titleNewPermissionLabel.Location = new System.Drawing.Point(6, 161);
             this.titleNewPermissionLabel.Name = "titleNewPermissionLabel";
-            this.titleNewPermissionLabel.Size = new System.Drawing.Size(201, 32);
+            this.titleNewPermissionLabel.Size = new System.Drawing.Size(171, 27);
             this.titleNewPermissionLabel.TabIndex = 53;
             this.titleNewPermissionLabel.Text = "New permissions";
             this.titleNewPermissionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -365,7 +364,7 @@
             this.titlePermissionLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.titlePermissionLabel.Location = new System.Drawing.Point(452, 161);
             this.titlePermissionLabel.Name = "titlePermissionLabel";
-            this.titlePermissionLabel.Size = new System.Drawing.Size(207, 32);
+            this.titlePermissionLabel.Size = new System.Drawing.Size(175, 27);
             this.titlePermissionLabel.TabIndex = 52;
             this.titlePermissionLabel.Text = "Used permissions";
             this.titlePermissionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -449,7 +448,7 @@
             this.titleLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.titleLabel.Location = new System.Drawing.Point(125, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(285, 69);
+            this.titleLabel.Size = new System.Drawing.Size(235, 58);
             this.titleLabel.TabIndex = 49;
             this.titleLabel.Text = "Permisson";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

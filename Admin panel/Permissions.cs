@@ -115,7 +115,7 @@ namespace Chat
         private void dbLeftArrowBtn_Click(object sender, EventArgs e)
         {                    
             movingItemsInLists(usedPermissionsList, newPermissionsList, false);
-            /*usedPermissionsFilterBox.Text = "-";*/
+            usedPermissionsFilterBox.Text = "-";
             FilteringTableUsedPermissions();
             AddOptionsToNewPermissionsFilterBox();
             AddOptionsToUsedPermissionsFilterBox();
@@ -184,9 +184,6 @@ namespace Chat
             var permissions = adminChatDashboardService
                 .GetAllPermissions();
 
-            /*var usedPermissions = adminChatDashboardService
-                .GetAllUsedPermissions()
-                .Where(s => s.idRole == idRole);*/
             var usedPermissions = usedPermissionsList.Items;
 
             newPermissionsList.Items.Clear();
@@ -198,7 +195,6 @@ namespace Chat
                 {
                     foreach (ListViewItem item in usedPermissions)
                     {
-                        /*if (usedPermission.idPermission.ToString() == permission.Id.ToString())*/
                         if (item.Text == permission.Id.ToString())
                         {
                             itemExists = true;
@@ -252,11 +248,16 @@ namespace Chat
         {
             PermissionsService permissionsService = new PermissionsService();
             permissionsService.removeOldPermissions(idRole);
+
             foreach (ListViewItem item in usedPermissionsList.Items)
             {
                 permissionsService.saveNewPermissions(idRole, Int32.Parse(item.Text));
-
+                
             }
+
+            Notification notification = new Notification();
+            bool check = notification.GetNotification("Success", "Changes saved correctly!", false);
+            if (check) this.Close();
         }
 
         private void backChangesBtn_Click(object sender, EventArgs e)

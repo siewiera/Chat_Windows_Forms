@@ -74,13 +74,15 @@ namespace Chat.Entities
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            string[] connectionType = { "Work", "Priv" };
             /*optionsBuilder.UseSqlServer(_connectionString);*/
 
             /*if (!optionsBuilder.IsConfigured)
             {*/
                 optionsBuilder.UseSqlServer(
-                    /*ConfigurationManager.ConnectionStrings["Priv"].ConnectionString*/
-                    ConfigurationManager.ConnectionStrings["Work"].ConnectionString
+                    ConfigurationManager.ConnectionStrings[connectionType[1]].ConnectionString
+                /*ConfigurationManager.ConnectionStrings["Priv"].ConnectionString*/
+                /*ConfigurationManager.ConnectionStrings["Work"].ConnectionString*/
                 );
             /*}*/
         }
