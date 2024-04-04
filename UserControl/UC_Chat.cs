@@ -17,15 +17,21 @@ namespace Chat
 {
     public partial class UC_Chat : UserControl
     {
-        
+        private UC_ChatService uc_chatService = new UC_ChatService();
+        private LoggedUserService _loggedUserService;
+
         public UC_Chat()
         {
             InitializeComponent();
+            int idLoggedUser = GlobalVariables.Instance.globalId;
+            if (idLoggedUser == null || idLoggedUser == 0) idLoggedUser = 14;
+            _loggedUserService = new LoggedUserService(idLoggedUser);
         }
 
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        private void SendMessageBtn_Click(object sender, EventArgs e)
         {
-
+            string message = MessageFieldTBox.Text;
+            uc_chatService.CreatingChatMessage(message, this);
         }
     }
 }

@@ -32,6 +32,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.roomList = new System.Windows.Forms.ListView();
             this.connectBtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,12 +41,13 @@
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.roomList);
             this.panel2.Controls.Add(this.connectBtn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(396, 698);
+            this.panel2.Size = new System.Drawing.Size(1196, 698);
             this.panel2.TabIndex = 0;
             // 
             // roomList
@@ -63,7 +65,7 @@
             this.roomList.HideSelection = false;
             this.roomList.LabelWrap = false;
             this.roomList.Location = new System.Drawing.Point(16, 243);
-            this.roomList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.roomList.Margin = new System.Windows.Forms.Padding(2);
             this.roomList.Name = "roomList";
             this.roomList.Size = new System.Drawing.Size(362, 374);
             this.roomList.TabIndex = 21;
@@ -85,7 +87,7 @@
             this.connectBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.connectBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.connectBtn.Location = new System.Drawing.Point(202, 647);
-            this.connectBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.connectBtn.Margin = new System.Windows.Forms.Padding(4);
             this.connectBtn.Name = "connectBtn";
             this.connectBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.connectBtn.Size = new System.Drawing.Size(176, 37);
@@ -93,20 +95,29 @@
             this.connectBtn.Text = "Connect";
             this.connectBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.connectBtn.UseVisualStyleBackColor = false;
+            this.connectBtn.Click += new System.EventHandler(this.connectBtn_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Location = new System.Drawing.Point(403, 177);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(790, 440);
+            this.panel1.TabIndex = 22;
             // 
             // MainPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(400, 702);
+            this.ClientSize = new System.Drawing.Size(1200, 702);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(400, 702);
-            this.MinimumSize = new System.Drawing.Size(400, 702);
+            this.MaximumSize = new System.Drawing.Size(1200, 702);
+            this.MinimumSize = new System.Drawing.Size(1200, 702);
             this.Name = "MainPanel";
-            this.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Padding = new System.Windows.Forms.Padding(2);
             this.Text = "ChatPanel";
             this.Load += new System.EventHandler(this.roomList_Load);
             this.panel2.ResumeLayout(false);
@@ -119,5 +130,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button connectBtn;
         private System.Windows.Forms.ListView roomList;
+        private System.Windows.Forms.Panel panel1;
     }
 }

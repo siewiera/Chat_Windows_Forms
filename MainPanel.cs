@@ -16,6 +16,7 @@ namespace Chat
 {
     public partial class MainPanel : Form
     {
+        private UC_Chat uc_chat = new UC_Chat(); 
         public MainPanel()
         {
             InitializeComponent();
@@ -63,6 +64,11 @@ namespace Chat
 
                 roomList.Items.Add(list);
             }
+        }
+
+        private void connectBtn_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Add(uc_chat);
         }
     }
 }

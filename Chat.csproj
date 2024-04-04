@@ -430,6 +430,7 @@
     <Compile Include="Services\RoomListService.cs" />
     <Compile Include="Services\SettingsAccountService.cs" />
     <Compile Include="Services\SignInService.cs" />
+    <Compile Include="Services\UC_ChatService.cs" />
     <Compile Include="Services\UC_RolesService.cs" />
     <Compile Include="SettingsAccount.cs">
       <SubType>Form</SubType>

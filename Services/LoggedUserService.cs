@@ -18,8 +18,9 @@ namespace Chat.Services
         {
             _dbContext = new ChatDbContext();
             _user = _dbContext.Set<User>()
-                            .Where(u => u.Id == id)
-                            .First();
+                                .Where(u => u.Id == id)
+                                .First();
+           
         }
 
         public int GetId()
