@@ -400,6 +400,18 @@
     <Compile Include="Migrations\20230924160951_update.designer.cs">
       <DependentUpon>20230924160951_update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20240410180512_EntitiConversationModification.cs" />
+    <Compile Include="Migrations\20240410180512_EntitiConversationModification.designer.cs">
+      <DependentUpon>20240410180512_EntitiConversationModification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20240410191627_EntitiConversationModification_2.cs" />
+    <Compile Include="Migrations\20240410191627_EntitiConversationModification_2.designer.cs">
+      <DependentUpon>20240410191627_EntitiConversationModification_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20240410192551_EntitiConversationModification_3.cs" />
+    <Compile Include="Migrations\20240410192551_EntitiConversationModification_3.designer.cs">
+      <DependentUpon>20240410192551_EntitiConversationModification_3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ChatDbContextModelSnapshot.cs" />
     <Compile Include="Notification.cs">
       <SubType>Form</SubType>

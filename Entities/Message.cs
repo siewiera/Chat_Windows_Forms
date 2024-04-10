@@ -14,6 +14,6 @@ namespace Chat.Entities
         public string Contents { get; set; }
         public DateTime CreationDate { get; set; }
 
-        public virtual Conversation Conversation { get; set; }
+        public virtual ICollection<Conversation> Conversations { get; set; }
     }
 }

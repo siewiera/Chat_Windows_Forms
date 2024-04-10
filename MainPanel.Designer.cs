@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPanel));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.roomList = new System.Windows.Forms.ListView();
             this.connectBtn = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,10 +50,18 @@
             this.panel2.Size = new System.Drawing.Size(1196, 698);
             this.panel2.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Location = new System.Drawing.Point(390, 243);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(795, 445);
+            this.panel1.TabIndex = 22;
+            // 
             // roomList
             // 
             this.roomList.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.roomList.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.roomList.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.roomList.AllowColumnReorder = true;
             this.roomList.AutoArrange = false;
             this.roomList.BackColor = System.Drawing.Color.Gray;
@@ -66,7 +74,10 @@
             this.roomList.LabelWrap = false;
             this.roomList.Location = new System.Drawing.Point(16, 243);
             this.roomList.Margin = new System.Windows.Forms.Padding(2);
+            this.roomList.MultiSelect = false;
             this.roomList.Name = "roomList";
+            this.roomList.ShowGroups = false;
+            this.roomList.ShowItemToolTips = true;
             this.roomList.Size = new System.Drawing.Size(362, 374);
             this.roomList.TabIndex = 21;
             this.roomList.UseCompatibleStateImageBehavior = false;
@@ -96,14 +107,6 @@
             this.connectBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.connectBtn.UseVisualStyleBackColor = false;
             this.connectBtn.Click += new System.EventHandler(this.connectBtn_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Location = new System.Drawing.Point(403, 177);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(790, 440);
-            this.panel1.TabIndex = 22;
             // 
             // MainPanel
             // 

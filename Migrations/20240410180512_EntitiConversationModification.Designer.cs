@@ -4,14 +4,16 @@ using Chat.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Chat.Migrations
 {
     [DbContext(typeof(ChatDbContext))]
-    partial class ChatDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240410180512_EntitiConversationModification")]
+    partial class EntitiConversationModification
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,10 +39,6 @@ namespace Chat.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ConversationUserId");
-
-                    b.HasIndex("MessageId");
-
                     b.HasIndex("RoomId");
 
                     b.ToTable("Conversations");
@@ -61,6 +59,8 @@ namespace Chat.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ConversationId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("ConversationUsers");
@@ -76,10 +76,15 @@ namespace Chat.Migrations
                     b.Property<string>("Contents")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ConversationMessageId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ConversationMessageId");
 
                     b.ToTable("Messages");
                 });
@@ -207,18 +212,6 @@ namespace Chat.Migrations
 
             modelBuilder.Entity("Chat.Entities.Conversation", b =>
                 {
-                    b.HasOne("Chat.Entities.ConversationUser", "ConversationUser")
-                        .WithMany("Conversations")
-                        .HasForeignKey("ConversationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Chat.Entities.Message", "Message")
-                        .WithMany("Conversations")
-                        .HasForeignKey("MessageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Chat.Entities.Room", "Room")
                         .WithMany("Conversations")
                         .HasForeignKey("RoomId")
@@ -228,11 +221,26 @@ namespace Chat.Migrations
 
             modelBuilder.Entity("Chat.Entities.ConversationUser", b =>
                 {
+                    b.HasOne("Chat.Entities.Conversation", "Conversation")
+                        .WithMany("ConversationUsers")
+                        .HasForeignKey("ConversationId")
+                        .HasPrincipalKey("ConversationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Chat.Entities.User", "User")
                         .WithMany("ConversationUsers")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Chat.Entities.Message", b =>
+                {
+                    b.HasOne("Chat.Entities.Conversation", "Conversation")
+                        .WithMany("Messages")
+                        .HasForeignKey("ConversationMessageId")
+                        .HasPrincipalKey("MessageId");
                 });
 
             modelBuilder.Entity("Chat.Entities.RightRole", b =>

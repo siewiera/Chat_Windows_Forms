@@ -17,6 +17,6 @@ namespace Chat.Entities
         [Required]
         public bool Blocked { get; set; }
 
-        public virtual ICollection<Conversation> Conversations{ get; set; }
+        public virtual ICollection<Conversation> Conversations { get; set; }
     }
 }

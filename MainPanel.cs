@@ -16,14 +16,27 @@ namespace Chat
 {
     public partial class MainPanel : Form
     {
-        private UC_Chat uc_chat = new UC_Chat(); 
+        private UC_Chat uc_chat;
+        private Notification notification;
         public MainPanel()
         {
             InitializeComponent();
+            KeyPreview = true;
+            KeyDown += ClickSend_KeyPress;
+        }
+
+        /* użycie przycisku Send z chatu po klawiszu Enter */
+        private void ClickSend_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                uc_chat.SendMessageBtn.PerformClick();
+                e.Handled = true;
+            }
         }
 
         private void roomList_Load(object sender, EventArgs e)
-        {         
+        {
             roomList.Columns.Add("Id", -2, HorizontalAlignment.Left);
             roomList.Columns.Add("Name", -2, HorizontalAlignment.Left);
             roomList.Columns.Add("Password", -2, HorizontalAlignment.Left);
@@ -37,8 +50,8 @@ namespace Chat
             roomList.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent);
 
 
-            /*roomList.ItemActivate += new EventHandler(settingsUserAccount);*/
-            
+            /*roomList.ItemActivate += new EventHandler(connectBtn_Click);*/
+
         }
 
         public void LoadDataIntoTableRooms()
@@ -68,7 +81,19 @@ namespace Chat
 
         private void connectBtn_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Add(uc_chat);
+            if (roomList.SelectedItems.Count <= 0)
+            {
+                notification = new Notification();
+                notification.GetNotification("Error", "Select the room you want to connect to");
+            }
+            else
+            {
+                panel1.Controls.Remove(uc_chat);
+                string id_room = roomList.SelectedItems[0].Text;
+                string name_room = roomList.SelectedItems[0].SubItems[1].Text;
+                uc_chat = new UC_Chat(Int32.Parse(id_room), name_room);
+                panel1.Controls.Add(uc_chat);
+            }
         }
     }
 }

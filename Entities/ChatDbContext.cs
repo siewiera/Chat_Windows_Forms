@@ -5,6 +5,7 @@ using System.IdentityModel.Claims;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
 
 namespace Chat.Entities
@@ -43,15 +44,19 @@ namespace Chat.Entities
             
             });
 
-            modelBuilder.Entity<Conversation>(con => 
+            modelBuilder.Entity<Conversation>(con =>
             {
-                con.HasMany(c => c.Messages)
-                 .WithOne(m => m.Conversation);
+                con.HasOne(c => c.Message)
+                .WithMany(m => m.Conversations)
+                .HasForeignKey(m => m.MessageId);
 
                 con.HasOne(c => c.Room)
                 .WithMany(r => r.Conversations)
                 .HasForeignKey(r => r.RoomId);
 
+                con.HasOne(cu => cu.ConversationUser)
+                .WithMany(c => c.Conversations)
+                .HasForeignKey(c => c.ConversationUserId);
             });
 
             modelBuilder.Entity<ConversationUser>(con => 
@@ -59,10 +64,6 @@ namespace Chat.Entities
                 con.HasOne(u => u.User)
                 .WithMany(cu => cu.ConversationUsers)
                 .HasForeignKey(cu => cu.UserId);
-
-                con.HasOne(c => c.Conversation)
-                .WithMany(cu => cu.ConversationUsers)
-                .HasForeignKey(cu => cu.ConversationId);
             });
 
             modelBuilder.Entity<User>(us => 
@@ -75,16 +76,10 @@ namespace Chat.Entities
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string[] connectionType = { "Work", "Priv" };
-            /*optionsBuilder.UseSqlServer(_connectionString);*/
 
-            /*if (!optionsBuilder.IsConfigured)
-            {*/
-                optionsBuilder.UseSqlServer(
-                    ConfigurationManager.ConnectionStrings[connectionType[1]].ConnectionString
-                /*ConfigurationManager.ConnectionStrings["Priv"].ConnectionString*/
-                /*ConfigurationManager.ConnectionStrings["Work"].ConnectionString*/
-                );
-            /*}*/
+            optionsBuilder.UseSqlServer(
+                ConfigurationManager.ConnectionStrings[connectionType[1]].ConnectionString
+            );
         }
     } 
 }

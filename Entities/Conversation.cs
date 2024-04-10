@@ -11,15 +11,14 @@ namespace Chat.Entities
     internal class Conversation
     {
         public int Id { get; set; }
-        public string KeyConversation { get; set; } = new Room().KeyRoom;
 
         public int ConversationUserId { get; set; }
-        public virtual ICollection<ConversationUser> ConversationUsers { get; set; }
+        public virtual ConversationUser ConversationUser { get; set; }
 
         public int RoomId { get; set; }
         public virtual Room Room { get; set; }
 
         public int MessageId { get; set; }
-        public virtual ICollection<Message> Messages { get; set; }
+        public virtual Message Message { get; set; }
     }
 }
