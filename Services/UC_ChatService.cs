@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,7 +29,7 @@ namespace Chat.Services
             _loggedUserService = new LoggedUserService(idLoggedUser);
         }
 
-        public void CreatingChatMessage(UC_Chat uc_chat, string message, DateTime nowDate, bool otherMessage, string user_fullName)
+        public void CreatingChatMessage(UC_Chat uc_chat, string message, DateTime nowDate, bool otherMessage, string nickname)
         {
             FlowLayoutPanel myMessageAreaLPanel = new FlowLayoutPanel();
 
@@ -77,7 +78,7 @@ namespace Chat.Services
             label_detials.Name = "MyNicknameAndTimeLabel";
             label_detials.Size = new System.Drawing.Size(85, 13);
             label_detials.TabIndex = 3;
-            label_detials.Text = user_fullName + " " + nowDate.ToString();
+            label_detials.Text = nickname + " " + nowDate.ToString();
 
 
             /* area for message */
@@ -97,13 +98,20 @@ namespace Chat.Services
             myMessageAreaLPanel.AutoSize = true;
             myMessageAreaLPanel.TabIndex = 6;
 
-            uc_chat.ChatBoxLayoutPanel.Controls.Add(myMessageAreaLPanel);
+            uc_chat.ChatBoxLayoutPanel.Invoke((MethodInvoker)delegate
+            {
+                uc_chat.ChatBoxLayoutPanel.Controls.Add(myMessageAreaLPanel);
+            });
+            /*uc_chat.ChatBoxLayoutPanel.Controls.Add(myMessageAreaLPanel);*/
             AutomaticChatScroll(uc_chat);
         }
 
         public void AutomaticChatScroll(UC_Chat uc_chat)
         {
-            uc_chat.ChatBoxLayoutPanel.AutoScrollPosition = new System.Drawing.Point(0, uc_chat.ChatBoxLayoutPanel.VerticalScroll.Maximum);
+            uc_chat.ChatBoxLayoutPanel.Invoke((MethodInvoker)delegate
+            {
+                uc_chat.ChatBoxLayoutPanel.AutoScrollPosition = new System.Drawing.Point(0, uc_chat.ChatBoxLayoutPanel.VerticalScroll.Maximum);
+            });
         }
 
         public void SavingMessagesToDatbase(string message, DateTime time, int id_room)
@@ -132,15 +140,17 @@ namespace Chat.Services
                 dbContext.SaveChanges();
             }
         }
-        private class Messages
+
+        public class Messages
         {
             public int id_user;
             public string nickname;
             public DateTime messageDate;
             public string contents;
+            public int lastConvserastionId;
         };
 
-        private List<Messages> GetAllMessage(int id_room)
+        public List<Messages> GetAllMessage(int id_room)
         {
             using (var dbContext = new ChatDbContext())
             {
@@ -156,7 +166,8 @@ namespace Chat.Services
                                  id_user = us.Id,
                                  nickname = us.NickName,
                                  messageDate = me.CreationDate,
-                                 contents = me.Contents
+                                 contents = me.Contents,
+                                 lastConvserastionId = con.Id,
                              })
                              .ToList();
 
@@ -164,18 +175,35 @@ namespace Chat.Services
             }
         }
 
-        public void GeneratingAllMessages(UC_Chat uc_chat, int id_room)
+        private async Task setGlobalLastConversationId()
         {
-            var messageDetails = GetAllMessage(id_room);
+            await Task.Run(() =>
+            {
+                using (var dbContext = new ChatDbContext())
+                {
+                    int maxConersationID = 0;
+
+                    if (dbContext.Conversations.Any())
+                        maxConersationID = dbContext.Conversations.Max(c => c.Id);
+       
+                    GlobalVariables.Instance.globalLastConversationId = maxConersationID;
+                }
+            });
+        }
+
+        public async Task GeneratingAllMessages(UC_Chat uc_chat, int id_room)
+        {
+            var messagesDetails = GetAllMessage(id_room);
             int id_logged = GlobalVariables.Instance.globalId;
 
-            foreach (var detail in messageDetails)
+            foreach (var detail in messagesDetails)
             {
-                if(id_logged == detail.id_user)
-                    CreatingChatMessage(uc_chat, detail.contents,  detail.messageDate, false, detail.nickname);
-                else
-                    CreatingChatMessage(uc_chat, detail.contents, detail.messageDate, true, detail.nickname);
+                if (id_logged == detail.id_user)
+                     CreatingChatMessage(uc_chat, detail.contents, detail.messageDate, false, detail.nickname);
+                else 
+                    CreatingChatMessage(uc_chat, detail.contents, detail.messageDate, true, detail.nickname);                     
             }
+            await setGlobalLastConversationId();
         }
     }
 }

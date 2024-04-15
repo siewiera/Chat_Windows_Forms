@@ -39,7 +39,8 @@ namespace Chat
             string login = loginBox.Text;
             string password = passwordBox.Text;
 
-            AdminChatDashboard adminChatDashboard = new AdminChatDashboard();
+           /* AdminChatDashboard adminChatDashboard = new AdminChatDashboard();*/
+            MainPanel mainPanel = new MainPanel();
             
             var signInService = new SignInService();
             int check = signInService.GetDataInLogin(login, password);
@@ -49,7 +50,8 @@ namespace Chat
                 /*int id = GlobalVariables.Instance.globalId;
                 SettingsAccount settingsAccount = new SettingsAccount(id);*/
                 this.Hide();
-                adminChatDashboard.Show();
+                /*adminChatDashboard.Show();*/
+                mainPanel.Show();
             }
             else
             {

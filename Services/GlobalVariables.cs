@@ -11,6 +11,7 @@ namespace Chat.Services
         private static GlobalVariables instance;
 
         public int globalId;
+        public int globalLastConversationId;
 
         public GlobalVariables(){}
 

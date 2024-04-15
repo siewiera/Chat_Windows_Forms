@@ -25,6 +25,31 @@ namespace Chat
             KeyDown += ClickSend_KeyPress;
         }
 
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            /*this.Close();*/
+            Environment.Exit(0);
+        }
+
+        private void resizeBtn_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.resizeBtn.BackgroundImage = Properties.Resources.increase;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+                this.resizeBtn.BackgroundImage = Properties.Resources.reduce_1_;
+            }
+        }
+
+        private void minimizeBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         /* użycie przycisku Send z chatu po klawiszu Enter */
         private void ClickSend_KeyPress(object sender, KeyEventArgs e)
         {
@@ -49,7 +74,7 @@ namespace Chat
             roomList.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent);
             roomList.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent);
 
-
+            label1.Text = GlobalVariables.Instance.globalId.ToString();
             /*roomList.ItemActivate += new EventHandler(connectBtn_Click);*/
 
         }

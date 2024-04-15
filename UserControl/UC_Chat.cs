@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using static Chat.Services.SettingsAccountService;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+using System.Timers;
 
 namespace Chat
 {
@@ -22,6 +23,7 @@ namespace Chat
         private LoggedUserService _loggedUserService;
         private readonly int id;
         private readonly string name_room;
+        static System.Timers.Timer timer;
 
         public UC_Chat(int id, string name_room)
         {
@@ -40,7 +42,7 @@ namespace Chat
             Notification notification = new Notification();
 
             string message = MessageFieldTBox.Text;
-            string user_fullName = _loggedUserService.GetName() + ' ' + _loggedUserService.GetLastName();
+            string nickname = _loggedUserService.GetNickname();
             int id_room = Int32.Parse(RoomIdLabel.Text);
 
             DateTime time = DateTime.Now;
@@ -49,19 +51,44 @@ namespace Chat
             else
             {
                 uc_chatService.SavingMessagesToDatbase(message, time, id_room);
-                uc_chatService.CreatingChatMessage(this, message, time, false, user_fullName);
+                /*uc_chatService.CreatingChatMessage(this, message, time, false, nickname);*/
                 MessageFieldTBox.Text = "";
             }
         }
+        public async Task checkIsAnyNewMessage(int id_room)
+        {
+            await Task.Run(() =>
+            {
+                var allMessagesFromRoom = uc_chatService.GetAllMessage(id_room);
+                int id_logged = GlobalVariables.Instance.globalId;
 
-        private void UC_Chat_Load(object sender, EventArgs e)
+                foreach (var detail in allMessagesFromRoom)
+                {
+                    int lastConversationIdInChat = GlobalVariables.Instance.globalLastConversationId;
+
+                    if (detail.lastConvserastionId > lastConversationIdInChat)
+                    {
+                        if (id_logged == detail.id_user)
+                            uc_chatService.CreatingChatMessage(this, detail.contents, detail.messageDate, false, detail.nickname);
+                        else
+                            uc_chatService.CreatingChatMessage(this, detail.contents, detail.messageDate, true, detail.nickname);
+                        GlobalVariables.Instance.globalLastConversationId = detail.lastConvserastionId;
+                    }
+                }
+            });          
+        }
+
+        private async void UC_Chat_Load(object sender, EventArgs e)
         {
             uc_chatService.AutomaticChatScroll(this);
             RoomIdLabel.Text = id.ToString();
             RoomNameLabel.Text = name_room;
 
-            uc_chatService.GeneratingAllMessages(this, id);
-        }
+            await uc_chatService.GeneratingAllMessages(this, id);
 
+            timer = new System.Timers.Timer(2000);
+            timer.Elapsed += async (se, ev) => checkIsAnyNewMessage(id);
+            timer.Start();
+        }
     }
 }
