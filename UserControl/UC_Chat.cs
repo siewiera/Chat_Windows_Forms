@@ -37,12 +37,11 @@ namespace Chat
             this.name_room = name_room;
         }
 
-        private void SendMessageBtn_Click(object sender, EventArgs e)
+        public void SendMessageBtn_Click(object sender, EventArgs e)
         {
             Notification notification = new Notification();
 
             string message = MessageFieldTBox.Text;
-            string nickname = _loggedUserService.GetNickname();
             int id_room = Int32.Parse(RoomIdLabel.Text);
 
             DateTime time = DateTime.Now;
@@ -51,7 +50,6 @@ namespace Chat
             else
             {
                 uc_chatService.SavingMessagesToDatbase(message, time, id_room);
-                /*uc_chatService.CreatingChatMessage(this, message, time, false, nickname);*/
                 MessageFieldTBox.Text = "";
             }
         }

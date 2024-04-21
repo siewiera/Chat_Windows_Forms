@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Chat.Services.SettingsAccountService;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Chat
 {
@@ -18,6 +19,8 @@ namespace Chat
     {
         private UC_Chat uc_chat;
         private Notification notification;
+        static System.Timers.Timer timer;
+
         public MainPanel()
         {
             InitializeComponent();
@@ -43,6 +46,13 @@ namespace Chat
                 this.WindowState = FormWindowState.Maximized;
                 this.resizeBtn.BackgroundImage = Properties.Resources.reduce_1_;
             }
+
+            float scaleX = (float)this.Width / panel1.Width;
+            float scaleY = (float)this.Height / panel1.Height;
+
+            panel1.Width = (int)(panel1.Width * scaleX);
+            panel1.Height = (int)(panel1.Height * scaleY);
+            
         }
 
         private void minimizeBtn_Click(object sender, EventArgs e)
@@ -55,50 +65,62 @@ namespace Chat
         {
             if (e.KeyCode == Keys.Enter)
             {
-                uc_chat.SendMessageBtn.PerformClick();
-                e.Handled = true;
+                if (!e.Control && e.KeyCode == Keys.Enter)
+                {
+                    uc_chat.SendMessageBtn_Click(this, EventArgs.Empty);
+                    e.Handled = true;
+                }
             }
         }
 
-        private void roomList_Load(object sender, EventArgs e)
+        private async void roomList_Load(object sender, EventArgs e)
         {
-            roomList.Columns.Add("Id", -2, HorizontalAlignment.Left);
-            roomList.Columns.Add("Name", -2, HorizontalAlignment.Left);
-            roomList.Columns.Add("Password", -2, HorizontalAlignment.Left);
-            roomList.Columns.Add("Blocked", -2, HorizontalAlignment.Left);
-
             LoadDataIntoTableRooms();
 
-            roomList.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
-            roomList.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
-            roomList.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.ColumnContent);
-            roomList.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.ColumnContent);
+            timer = new System.Timers.Timer(5000);
+            timer.Elapsed += async (se, ev) => await loadUserDataDetails();
+            timer.Start();
+        }
 
-            label1.Text = GlobalVariables.Instance.globalId.ToString();
-            /*roomList.ItemActivate += new EventHandler(connectBtn_Click);*/
+        public async Task loadUserDataDetails()
+        {
+            await Task.Run(() =>
+            {
+                int user_id = GlobalVariables.Instance.globalId;
+                LoggedUserService loggedUserService = new LoggedUserService(user_id);
 
+                emailDetailsLabel.Invoke((MethodInvoker)delegate 
+                { 
+                    emailDetailsLabel.Text = loggedUserService.GetEmail();  
+                });
+
+                fullNameDetailsLabel.Invoke((MethodInvoker)delegate 
+                { 
+                    fullNameDetailsLabel.Text = loggedUserService.GetName() + " " + loggedUserService.GetLastName();  
+                });
+                    
+            });
         }
 
         public void LoadDataIntoTableRooms()
         {
             RoomListService roomListService = new RoomListService();
             var allRooms = roomListService.GetListOfAllRooms();
+            bool secured = false;
 
             foreach ( var room in allRooms ) 
             {
+                if(room.Password != null && room.Password != "") 
+                    secured = true;
+
                 string[] rooms_data = new string[]
                 {
                     room.Id.ToString(),
                     room.Name,
-                    room.Password,
-                    room.Blocked.ToString()   
+                    secured.ToString(),
                 };
                 ListViewItem list = new ListViewItem(rooms_data);
                 list.Font = new Font("Comic Sans MS", 10, FontStyle.Italic);
-
-                /*if (rooms_data[3] == "true") list.ForeColor = Color.LightGreen;
-                else if (roleName == "Master_Admin") list.ForeColor = Color.YellowGreen;
-                else list.ForeColor = Color.WhiteSmoke;*/
 
                 roomList.Items.Add(list);
             }
@@ -119,6 +141,19 @@ namespace Chat
                 uc_chat = new UC_Chat(Int32.Parse(id_room), name_room);
                 panel1.Controls.Add(uc_chat);
             }
+        }
+
+        private void settingsBtn_Click(object sender, EventArgs e)
+        {
+            int user_id = GlobalVariables.Instance.globalId;
+            SettingsAccount settingsAccount = new SettingsAccount(user_id);
+            settingsAccount.Show();
+        }
+
+        private void adminPanelBtn_Click(object sender, EventArgs e)
+        {
+            AdminChatDashboard adminChatDashboard = new AdminChatDashboard(); 
+            adminChatDashboard.Show();
         }
     }
 }

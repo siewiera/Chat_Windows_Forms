@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace Chat
 {
@@ -20,11 +21,38 @@ namespace Chat
             InitializeComponent();
             var service = new ChatService();
             service.AddDataToDatabase();
+
+            KeyPreview = true;
+            KeyDown += SignIn_KeyPress;
+        }
+
+        /* użycie przycisku Send z chatu po klawiszu Enter */
+        private void SignIn_KeyPress(object sender, KeyEventArgs e)
+        {
+            string login = loginBox.Text;
+            string password = passwordBox.Text;
+
+            Notification notification = new Notification();
+            MainPanel mainPanel = new MainPanel();
+            
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                var signInService = new SignInService();
+                int check = signInService.GetDataInLogin(login, password);
+
+                if (check == 100)
+                {
+                    signInBtn_Click_1(sender, EventArgs.Empty);
+                    e.Handled = true;
+                }
+            }
         }
 
         private void exit_Click_2(object sender, EventArgs e)
         {
-            this.Close();
+            /*this.Close();*/
+            Environment.Exit(0);
         }
 
         private void signUpBtn_Click_1(object sender, EventArgs e)
@@ -39,7 +67,6 @@ namespace Chat
             string login = loginBox.Text;
             string password = passwordBox.Text;
 
-           /* AdminChatDashboard adminChatDashboard = new AdminChatDashboard();*/
             MainPanel mainPanel = new MainPanel();
             
             var signInService = new SignInService();
@@ -47,10 +74,7 @@ namespace Chat
 
             if (check == 100) 
             {
-                /*int id = GlobalVariables.Instance.globalId;
-                SettingsAccount settingsAccount = new SettingsAccount(id);*/
                 this.Hide();
-                /*adminChatDashboard.Show();*/
                 mainPanel.Show();
             }
             else

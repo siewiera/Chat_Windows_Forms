@@ -19,7 +19,7 @@ namespace Chat
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignIn());
+            Application.Run(new SignIn());Application.Run(new SignIn());
             /*Application.Run(new AdminChatDashboard());*/
             /*Application.Run(new MainPanel());*/
         }

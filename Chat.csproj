@@ -354,12 +354,6 @@
     <Compile Include="Admin panel\AdminChatDashboard.Designer.cs">
       <DependentUpon>AdminChatDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChatDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChatDashboard.Designer.cs">
-      <DependentUpon>ChatDashboard.cs</DependentUpon>
-    </Compile>
     <Compile Include="ChatDbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -487,9 +481,6 @@
     <EmbeddedResource Include="Admin panel\AdminChatDashboard.resx">
       <DependentUpon>AdminChatDashboard.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChatDashboard.resx">
-      <DependentUpon>ChatDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPanel.resx">
       <DependentUpon>MainPanel.cs</DependentUpon>

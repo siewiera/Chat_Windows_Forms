@@ -13,6 +13,7 @@ namespace Chat.Services
     internal class SignInService
     {
         private readonly ChatDbContext _dbContext;
+        Notification notification = new Notification();
         public int _userID;
 
         public SignInService()
@@ -37,7 +38,8 @@ namespace Chat.Services
             {
                 if (username.First().Blocked == true)
                 {
-                    MessageBox.Show("Your account is blocked!");
+                    /* MessageBox.Show("Your account is blocked!");*/
+                    notification.GetNotification("warning", "Your account is blocked!");
                     return 103;
                 }
 
@@ -48,18 +50,21 @@ namespace Chat.Services
             }
             else if (count == 0)
             {
-                MessageBox.Show("Invalid login details!");
+                notification.GetNotification("warning", "Invalid login details!");
+                /*MessageBox.Show("Invalid login details!");*/
                 return 101;
             }
             else if (count >= 2)
             {
                 AccountBlocking(username);
-                MessageBox.Show("Please contact your administrator! Error: 102");
+                /*MessageBox.Show("Please contact your administrator! Error: 102");*/
+                notification.GetNotification("error", "Please contact your administrator! Error: 102");
                 return 102;
             }
             else
             {
-                MessageBox.Show("Something went wrong! :(");
+                /*MessageBox.Show("Something went wrong! :(");*/
+                notification.GetNotification("error", "Something went wrong! :(");
                 return -1;
             }
         }
