@@ -110,11 +110,11 @@
             this.rolesListBox.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.rolesListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.rolesListBox.FormattingEnabled = true;
-            this.rolesListBox.ItemHeight = 29;
+            this.rolesListBox.ItemHeight = 23;
             this.rolesListBox.Location = new System.Drawing.Point(498, 369);
             this.rolesListBox.Name = "rolesListBox";
             this.rolesListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.rolesListBox.Size = new System.Drawing.Size(284, 234);
+            this.rolesListBox.Size = new System.Drawing.Size(284, 232);
             this.rolesListBox.TabIndex = 53;
             // 
             // permissionLabel
@@ -126,7 +126,7 @@
             this.permissionLabel.MaximumSize = new System.Drawing.Size(284, 0);
             this.permissionLabel.MinimumSize = new System.Drawing.Size(284, 0);
             this.permissionLabel.Name = "permissionLabel";
-            this.permissionLabel.Size = new System.Drawing.Size(284, 34);
+            this.permissionLabel.Size = new System.Drawing.Size(284, 28);
             this.permissionLabel.TabIndex = 58;
             this.permissionLabel.Text = "Permission";
             // 
@@ -328,7 +328,7 @@
             this.button1.Location = new System.Drawing.Point(505, 21);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(79, 39);
-            this.button1.TabIndex = 64;
+            this.button1.TabIndex = 4;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

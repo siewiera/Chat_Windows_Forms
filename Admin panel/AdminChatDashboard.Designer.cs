@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminChatDashboard));
             this.exit = new System.Windows.Forms.Button();
             this.minimize = new System.Windows.Forms.Button();
@@ -40,7 +39,6 @@
             this.roleButton = new System.Windows.Forms.Button();
             this.messageButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panelAdmin = new System.Windows.Forms.Panel();
             this.labelLoggedUserEmail = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -168,12 +166,6 @@
             this.titleLabel.ForeColor = System.Drawing.Color.Silver;
             this.titleLabel.Name = "titleLabel";
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.White;
-            this.imageList1.Images.SetKeyName(0, "check-red.png");
-            // 
             // panelAdmin
             // 
             resources.ApplyResources(this.panelAdmin, "panelAdmin");
@@ -238,7 +230,6 @@
         private System.Windows.Forms.Button roleButton;
         private System.Windows.Forms.Button messageButton;
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Panel panelAdmin;
         private System.Windows.Forms.Label labelLoggedUserEmail;
         private System.Windows.Forms.Panel panel1;

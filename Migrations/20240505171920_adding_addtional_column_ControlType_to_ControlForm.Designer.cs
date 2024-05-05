@@ -4,14 +4,16 @@ using Chat.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Chat.Migrations
 {
     [DbContext(typeof(ChatDbContext))]
-    partial class ChatDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240505171920_adding_addtional_column_ControlType_to_ControlForm")]
+    partial class adding_addtional_column_ControlType_to_ControlForm
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,7 +48,7 @@ namespace Chat.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ControlForms");
+                    b.ToTable("ControlForm");
                 });
 
             modelBuilder.Entity("Chat.Entities.Conversation", b =>
@@ -149,7 +151,7 @@ namespace Chat.Migrations
 
                     b.HasIndex("RightId");
 
-                    b.ToTable("RightControls");
+                    b.ToTable("RightControl");
                 });
 
             modelBuilder.Entity("Chat.Entities.RightRole", b =>

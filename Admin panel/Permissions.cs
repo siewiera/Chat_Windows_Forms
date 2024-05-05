@@ -55,7 +55,7 @@ namespace Chat
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void movingItemsInLists(System.Windows.Forms.ListView fromListView, 
+        public void movingItemsInLists(System.Windows.Forms.ListView fromListView, 
             System.Windows.Forms.ListView toListView, bool onlySelected = true)
         {
             string[] dataSelected;
@@ -168,8 +168,8 @@ namespace Chat
                     {
                         string[] usedPermission = new string[]
                         {
-                        permission.idPermission.ToString(),
-                        permission.namePermission.ToString()
+                            permission.idPermission.ToString(),
+                            permission.namePermission.ToString()
                         };
 
                         ListViewItem listViewItem = new ListViewItem(usedPermission);
@@ -338,5 +338,6 @@ namespace Chat
         {
             FilteringTableUsedPermissions();
         }
+
     }
 }

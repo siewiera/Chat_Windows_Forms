@@ -4,14 +4,16 @@ using Chat.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Chat.Migrations
 {
     [DbContext(typeof(ChatDbContext))]
-    partial class ChatDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240504205256_Adding_control_table")]
+    partial class Adding_control_table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace Chat.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Chat.Entities.ControlForm", b =>
+            modelBuilder.Entity("Chat.Entities.Control", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -28,9 +30,6 @@ namespace Chat.Migrations
 
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
-
-                    b.Property<string>("ControlType")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -46,7 +45,7 @@ namespace Chat.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ControlForms");
+                    b.ToTable("Control");
                 });
 
             modelBuilder.Entity("Chat.Entities.Conversation", b =>
@@ -149,7 +148,7 @@ namespace Chat.Migrations
 
                     b.HasIndex("RightId");
 
-                    b.ToTable("RightControls");
+                    b.ToTable("RightControl");
                 });
 
             modelBuilder.Entity("Chat.Entities.RightRole", b =>
@@ -289,7 +288,7 @@ namespace Chat.Migrations
 
             modelBuilder.Entity("Chat.Entities.RightControl", b =>
                 {
-                    b.HasOne("Chat.Entities.ControlForm", "ControlForm")
+                    b.HasOne("Chat.Entities.Control", "Control")
                         .WithMany("RightControls")
                         .HasForeignKey("ControlId")
                         .OnDelete(DeleteBehavior.Cascade)

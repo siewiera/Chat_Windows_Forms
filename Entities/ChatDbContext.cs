@@ -29,6 +29,8 @@ namespace Chat.Entities
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Right> Rights { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<ControlForm> ControlForms { get; set; }
+        public DbSet<RightControl> RightControls { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -42,6 +44,18 @@ namespace Chat.Entities
                 .WithMany(rr => rr.RightRoles)
                 .HasForeignKey(rr => rr.RightId);
             
+            });
+
+            modelBuilder.Entity<RightControl>(rig =>
+            {
+                rig.HasOne(r => r.Right)
+                .WithMany(rr => rr.RightControls)
+                .HasForeignKey(rr => rr.RightId);
+
+                rig.HasOne(r => r.ControlForm)
+                .WithMany(rr => rr.RightControls)
+                .HasForeignKey(rr => rr.ControlId);
+
             });
 
             modelBuilder.Entity<Conversation>(con =>

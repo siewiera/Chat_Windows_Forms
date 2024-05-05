@@ -30581,7 +30581,7 @@
     <value>169, 0</value>
   </data>
   <data name="titleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 58</value>
+    <value>227, 46</value>
   </data>
   <data name="titleLabel.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
@@ -30603,41 +30603,6 @@
   </data>
   <data name="&gt;&gt;titleLabel.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>54, 26</value>
-  </metadata>
-  <data name="imageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADO
-        BQAAAk1TRnQBSQFMAwEBAAHIAQAByAEAASABAAEgAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABgAMA
-        ASADAAEBAQABIAYAAUD/AP8A/wD/AP8A/wBQAAMjATMDCwEO/wD1AAMyAU8CIQGaAfsDRAF5/wDxAAMq
-        A0ABhwH3AgAC/wJXAVoBwv8A7QADIwEyAlQBcAHxAgAC/wIAAv8CIQGaAfsDDAEQ/wDlAAMaASQCVgFp
-        AegCAAL/AgAC/wIAAv8CAAL/AzkBX/8A4QADFAEbAlcBYwHfAgAC/wIAAv8CAAL/AgAC/wIAAv8DWQG7
-        /wDdAAMPARQCXAFhAdYCAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8CMgG+Af0CFQEWAR3/ANUAAwgBCgJb
-        AV0BxQIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8CAAL/A0kBhv8A0QADBgEHAlcBWQG8AgAC/wIA
-        Av8CAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8CAAL/AloBZQHsAwcBCf8AyQADAgEDAlMBVQGqAgAC/wIA
-        Av8CAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8DQAFv/wDFAAQBAlABUQGcAgAC/wIA
-        Av8CAAL/AgAC/wIAAv8CAAL/A1UBrQJdAWEB0QIAAv8CAAL/AgAC/wIAAv8CXAFlAecDCAEK/wDBAANK
-        AYkCAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8CWgFdAccDBwEJAzABSgIAAv8CAAL/AgAC/wIAAv8CAAL/
-        A0UBfP8AvQACPwFAAW4CAAL/AgAC/wIAAv8CAAL/AgAC/wIAAv8CWwFhAd4DEgEXCAACUwFUAakCAAL/
-        AgAC/wIAAv8CAAL/AkQBdwH2AxgBIf8AtQADOQFeAhkBtQH+AgAC/wIAAv8CAAL/AgAC/wIAAv8CXgFq
-        Ae0DHAEnDAADDQERAlkBZQHjAgAC/wIAAv8CAAL/AgAC/wNWAbD/ALEABAECXgFqAe0CAAL/AgAC/wIA
-        Av8CAAL/AgAC/wJNAW8B8wMpAT0UAAMtAUUCKwGwAfwCAAL/AgAC/wIAAv8CAAL/AjABMQFM/wCxAAMG
-        AQgDDQERAw0BEQMNAREDDQERAw0BEQMGAQgcAAM/AWwCAAL/AgAC/wIAAv8CAAL/Al4BZQHiAw4BEv8A
-        6QACSwFMAY8CAAL/AgAC/wIAAv8CAAL/A1YBsAQB/wDlAAQBA0wBjgIAAv8CAAL/AgAC/wIAAv8DPwFt
-        /wDtAANIAYQCAAL/AgAC/wIAAv8COQGJAfgDJwE6/wDtAAJBAUIBcgIrAbAB/AIAAv8CAAL/AlQBZwHq
-        AxkBIv8A7QADKwFBAlYBaQHoAgAC/wIAAv8CXAFhAdYDDQER/wDtAAMRARYDWQG7AgAC/wIAAv8CXQFg
-        Ac4DDQER/wDtAAMDAQQCRgFHAYECHAGbAfoCAAL/AloBXQHHAwwBEP8A8QADIAEtAl0BXwHJAgAC/wJb
-        AV8B0wMVARz/APEABAIDOQFfAlsBYwHkAlkBZQHd/wD5AAMJAQsDKgFA/wD/AP8A/wD/AP8A/wCPAAFC
-        AU0BPgcAAT4DAAEoAwABgAMAASADAAEBAQABAQYAAQIWAAP/AQAE/wwABP8MAAT/DAAB/wH8Av8MAAH/
-        AfgC/wwAAf8B8AL/DAAB/wHgAX8B/wwAAf8BwAF/Af8MAAH/AYABfwH/DAAB/wEAAT8B/wwAAf4BAAE/
-        Af8MAAH8AQABHwH/DAAB+AEAAR8B/wwAAfABAAEPAf8MAAHwAQABDwH/DAAB4AEMAQcB/wwAAcABHAEH
-        Af8MAAGAAT4BAwH/DAABwAF/AQEB/wwAAv8BgAH/DAAC/wGAAf8MAAL/AeABfwwAAv8B8AE/DAAC/wH4
-        AR8MAAL/AfwBDwwAAv8B/gEHDAAD/wGDDAAD/wHDDAAD/wHzDAAE/wwABP8MAAT/DAAL
-</value>
   </data>
   <metadata name="panelAdmin.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -30697,7 +30662,7 @@
     <value>162, 0</value>
   </data>
   <data name="labelLoggedUserEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>162, 17</value>
   </data>
   <data name="labelLoggedUserEmail.TabIndex" type="System.Int32, mscorlib">
     <value>53</value>
@@ -45289,12 +45254,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Admin panel</value>
-  </data>
-  <data name="&gt;&gt;imageList1.Name" xml:space="preserve">
-    <value>imageList1</value>
-  </data>
-  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AdminChatDashboard</value>

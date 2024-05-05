@@ -1,4 +1,5 @@
-﻿using Chat.Entities;
+﻿using Chat.Admin_panel;
+using Chat.Entities;
 using Chat.Services;
 using System;
 using System.Collections.Generic;
@@ -19,8 +20,9 @@ namespace Chat
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignIn());Application.Run(new SignIn());
-            /*Application.Run(new AdminChatDashboard());*/
+            /*Application.un(new SignIn());*/
+            /*Application.Run(new ControlsFromForms());*/
+            Application.Run(new InitializingEnviroment());
             /*Application.Run(new MainPanel());*/
         }
     }

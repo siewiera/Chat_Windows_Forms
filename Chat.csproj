@@ -354,10 +354,24 @@
     <Compile Include="Admin panel\AdminChatDashboard.Designer.cs">
       <DependentUpon>AdminChatDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin panel\ControlsFromForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin panel\ControlsFromForms.Designer.cs">
+      <DependentUpon>ControlsFromForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChatDbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ChatDbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ControlForm.cs" />
+    <Compile Include="Entities\RightControl.cs" />
+    <Compile Include="InitializingEnviroment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InitializingEnviroment.Designer.cs">
+      <DependentUpon>InitializingEnviroment.cs</DependentUpon>
     </Compile>
     <Compile Include="MainPanel.cs">
       <SubType>Form</SubType>
@@ -405,6 +419,26 @@
     <Compile Include="Migrations\20240410192551_EntitiConversationModification_3.cs" />
     <Compile Include="Migrations\20240410192551_EntitiConversationModification_3.designer.cs">
       <DependentUpon>20240410192551_EntitiConversationModification_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20240504205256_Adding_control_table.cs" />
+    <Compile Include="Migrations\20240504205256_Adding_control_table.designer.cs">
+      <DependentUpon>20240504205256_Adding_control_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20240505160844_rename_table_Control_ControlForm.cs" />
+    <Compile Include="Migrations\20240505160844_rename_table_Control_ControlForm.designer.cs">
+      <DependentUpon>20240505160844_rename_table_Control_ControlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20240505161013_rename_table_Control_ControlForm_.cs" />
+    <Compile Include="Migrations\20240505161013_rename_table_Control_ControlForm_.designer.cs">
+      <DependentUpon>20240505161013_rename_table_Control_ControlForm_.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20240505171920_adding_addtional_column_ControlType_to_ControlForm.cs" />
+    <Compile Include="Migrations\20240505171920_adding_addtional_column_ControlType_to_ControlForm.designer.cs">
+      <DependentUpon>20240505171920_adding_addtional_column_ControlType_to_ControlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20240505173621__.cs" />
+    <Compile Include="Migrations\20240505173621__.designer.cs">
+      <DependentUpon>20240505173621__.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ChatDbContextModelSnapshot.cs" />
     <Compile Include="Notification.cs">
@@ -481,6 +515,12 @@
     <EmbeddedResource Include="Admin panel\AdminChatDashboard.resx">
       <DependentUpon>AdminChatDashboard.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin panel\ControlsFromForms.resx">
+      <DependentUpon>ControlsFromForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InitializingEnviroment.resx">
+      <DependentUpon>InitializingEnviroment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPanel.resx">
       <DependentUpon>MainPanel.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using Chat.Entities;
+﻿using Chat.Admin_panel;
+using Chat.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -6,14 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Chat.Services
 {
     internal class SignInService
     {
         private readonly ChatDbContext _dbContext;
-        Notification notification = new Notification();
+        private Notification notification = new Notification();
         public int _userID;
 
         public SignInService()

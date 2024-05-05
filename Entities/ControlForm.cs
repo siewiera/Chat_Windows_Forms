@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Chat.Entities
 {
-    internal class Right
+    internal class ControlForm
     {
         public int Id { get; set; }
-        [Required]
+        public int TabIndex { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<RightRole> RightRoles { get; set; }
+        public string Description { get; set; }
+        public string ControlType { get; set; }
+        public string FormName { get; set; }
+        public bool Active { get; set; }
         public virtual ICollection<RightControl> RightControls { get; set; }
     }
 }
