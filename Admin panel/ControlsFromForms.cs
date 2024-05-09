@@ -20,41 +20,7 @@ namespace Chat.Admin_panel
 
         private void newControlsFormList_Load()
         {
-            List<Control> allForm = new List<Control>();
-
-            Form[] forms = new Form[]
-            { 
-                new AdminChatDashboard(),
-                new ControlsFromForms(),
-                new SettingsAccount(13),
-                new MainPanel(),
-                new Permissions(21, "User"),           
-            };
-
-            foreach (Form form in forms)
-            {
-                allForm.Add(form);
-            }
-
-            UserControl[] userControl = new UserControl[]
-            {
-                new UC_Chat(1, "room1"),
-                new UC_Roles(),
-                new UC_Users(),
-            };
-
-
-
-            foreach (UserControl control in userControl)
-            {
-                allForm.Add(control);
-            }
-
-
-            foreach (Control control in allForm)
-            {
-                allControls.AddRange(getFormsControls(control));
-            }
+            
             
 
             foreach (Control control in allControls)

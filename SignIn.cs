@@ -1,5 +1,6 @@
 ﻿using Chat.Entities;
 using Chat.Services;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,14 +56,16 @@ namespace Chat
             Environment.Exit(0);
         }
 
-        private void signUpBtn_Click_1(object sender, EventArgs e)
+        private async void signUpBtn_Click_1(object sender, EventArgs e)
         {
             Register register = new Register();
-            register.Show();
-            this.Hide();
+            InitializingEnviroment init = new InitializingEnviroment();
+            string[] exe = new string[]{ "updateRoles" };
+
+            await init.LoadInitData(this, register, exe);
         }
 
-        private void signInBtn_Click_1(object sender, EventArgs e)
+        private async void signInBtn_Click_1(object sender, EventArgs e)
         {
             string login = loginBox.Text;
             string password = passwordBox.Text;
@@ -74,8 +77,12 @@ namespace Chat
 
             if (check == 100) 
             {
-                this.Hide();
-                mainPanel.Show();
+                /*this.Hide();
+                mainPanel.Show();*/
+                InitializingEnviroment init = new InitializingEnviroment();
+                string[] exe = new string[] { "updateControls", "updateRooms", "updateRoles" };
+
+                await init.LoadInitData(this, mainPanel, exe);
             }
             else
             {

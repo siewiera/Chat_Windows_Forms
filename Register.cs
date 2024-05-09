@@ -25,18 +25,23 @@ namespace Chat
         }
     
 
-        private void signInButton_Click(object sender, EventArgs e)
+        private async void signInButton_Click(object sender, EventArgs e)
         {
-            signIn.Show();
-            this.Hide();
+            /*signIn.Show();
+            this.Hide();*/
+            InitializingEnviroment init = new InitializingEnviroment();
+            string[] exe = new string[] { };
+
+            await init.LoadInitData(this, signIn, exe);
         }
 
         private void exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            /*this.Close();*/
+            Environment.Exit(0);
         }
 
-        private void sendButton_Click(object sender, EventArgs e)
+        private async void sendButton_Click(object sender, EventArgs e)
         {
             string login = loginBox.Text;
             string email = emailBox.Text;
@@ -45,8 +50,12 @@ namespace Chat
             var checkRegistration = new RegistrationService().CheckRegister(login, email, password);
             if (checkRegistration)
             {
-                this.Hide();
-                signIn.Show();
+                /*this.Hide();
+                signIn.Show();*/
+                InitializingEnviroment init = new InitializingEnviroment();
+                string[] exe = new string[] { };
+
+                await init.LoadInitData(this, signIn, exe);
             }
         }
 

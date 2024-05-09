@@ -133,20 +133,6 @@ namespace Chat
 
         private void AddingControls(ControlFormClass controlFormClass, ChatDbContext _dbContext)
         {
-            /*var updateItems = _dbContext.Set<ControlForm>();
-
-            foreach (var item in updateItems)
-            {
-                item.TabIndex = controlFormClass.tabIndex;
-                item.Name = controlFormClass.name;
-                item.Description = controlFormClass.description;
-                item.ControlType = controlFormClass.controlType;
-                item.FormName = controlFormClass.formName;
-                item.Active = true;
-
-                _dbContext.SaveChanges();
-            };*/
-
             var controlForm = new ControlForm()
             {
                 TabIndex = controlFormClass.tabIndex,
@@ -170,9 +156,7 @@ namespace Chat
                     var allTabIndex = _dbContext.Set<ControlForm>();
                     foreach (var item in allTabIndex)
                     {
-                        item.Active = status;
-                        /*_dbContext.Set<ControlForm>().Where(c => c.TabIndex == item.TabIndex).;*/
-                        
+                        item.Active = status;                        
                     }
                     _dbContext.SaveChanges();
                 }
@@ -193,7 +177,54 @@ namespace Chat
 
         private void InitializingEnviroment_Load(object sender, EventArgs e)
         {
-            UpdatingStatusOfControls();
+            /*UpdatingStatusOfControls();*/
+        }
+
+        public async Task LoadInitData(Form hideForm, Form showForm, string[] exe)
+        {
+            if (!exe.Any())
+            {
+                hideForm.Hide();
+                this.Show();
+                await Task.Delay(3000);
+                this.Hide();
+                showForm.Show();
+            }
+            else
+            {
+                hideForm.Hide();
+                this.Show();
+
+                foreach (string item in exe)
+                {
+                    switch (item.ToLower())
+                    {
+                        case "updatecontrols":
+
+                            UpdatingStatusOfControls();
+                            break;
+
+                        case "updateroles":
+
+                            Console.WriteLine("updateRoles");
+                            break;
+
+                        case "updaterooms":
+
+                            Console.WriteLine("updateRoom");
+                            break;
+
+                        default:
+
+                            Console.WriteLine("default");
+                            break;
+                    };
+                }
+
+                await Task.Delay(3000);
+                this.Hide();
+                showForm.Show();
+            }
         }
     }
 }
