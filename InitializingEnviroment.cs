@@ -56,7 +56,7 @@ namespace Chat
             Form[] forms = new Form[]
             {
                 new AdminChatDashboard(),
-                new ControlsFromForms(),
+                new ControlsFromForms(9, "creating_rooms"),
                 new SettingsAccount(13),
                 new MainPanel(),
                 new Permissions(21, "User"),

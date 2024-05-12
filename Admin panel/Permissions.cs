@@ -1,4 +1,5 @@
-﻿using Chat.Entities;
+﻿using Chat.Admin_panel;
+using Chat.Entities;
 using Chat.Properties;
 using Chat.Services;
 using System;
@@ -78,10 +79,10 @@ namespace Chat
                 else
                 {
                     dataSelected = new string[]
-                            {
-                            item.Text,
-                            item.SubItems[1].Text,
-                            };
+                    {
+                        item.Text,
+                        item.SubItems[1].Text,
+                    };
                     ListViewItem listView = new ListViewItem(dataSelected);
                     toListView.Items.Add(listView);
                     fromListView.Items.Remove(item);
@@ -339,5 +340,39 @@ namespace Chat
             FilteringTableUsedPermissions();
         }
 
+        private void addControlsBtn_Click(object sender, EventArgs e)
+        {
+            Notification notification = new Notification();
+
+            int idPermission;
+            string namePermission;
+            if (newPermissionsList.SelectedItems.Count <= 0)
+            {
+                if (usedPermissionsList.SelectedItems.Count <= 0)
+                {
+                    notification.GetNotification("Error", "Select the role name to remove!");
+                    return;
+                }
+                else
+                {
+                    idPermission = Int32.Parse(usedPermissionsList.SelectedItems[0].Text);
+                    namePermission = usedPermissionsList.SelectedItems[0].SubItems[1].Text;
+                }              
+            }
+            else 
+            {
+                idPermission = Int32.Parse(newPermissionsList.SelectedItems[0].Text);
+                namePermission = newPermissionsList.SelectedItems[0].SubItems[1].Text;
+            }
+            
+
+            ControlsFromForms controlsForms = new ControlsFromForms(idPermission, namePermission);
+            InitializingEnviroment initializing = new InitializingEnviroment();
+            Form form = new Form();
+            string[] exe = new string[] { };
+
+            initializing.LoadInitData(form, controlsForms, exe);
+
+        }
     }
 }

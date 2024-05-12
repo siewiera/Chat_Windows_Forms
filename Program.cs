@@ -20,9 +20,9 @@ namespace Chat
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            /*Application.un(new SignIn());*/
-            /*Application.Run(new ControlsFromForms());*/
             Application.Run(new SignIn());
+            /*Application.Run(new ControlsFromForms());*/
+            /*Application.Run(new SignIn());*/
             /*Application.Run(new MainPanel());*/
         }
     }

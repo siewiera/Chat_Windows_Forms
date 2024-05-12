@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Permissions));
             this.panelPermissions = new System.Windows.Forms.Panel();
+            this.addControlsBtn = new System.Windows.Forms.Button();
             this.minimize = new System.Windows.Forms.Button();
             this.exit = new System.Windows.Forms.Button();
             this.backChangesBtn = new System.Windows.Forms.Button();
@@ -62,6 +63,7 @@
             this.panelPermissions.BackColor = System.Drawing.Color.Transparent;
             this.panelPermissions.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelPermissions.BackgroundImage")));
             this.panelPermissions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelPermissions.Controls.Add(this.addControlsBtn);
             this.panelPermissions.Controls.Add(this.minimize);
             this.panelPermissions.Controls.Add(this.exit);
             this.panelPermissions.Controls.Add(this.backChangesBtn);
@@ -86,6 +88,33 @@
             this.panelPermissions.Padding = new System.Windows.Forms.Padding(2);
             this.panelPermissions.Size = new System.Drawing.Size(773, 636);
             this.panelPermissions.TabIndex = 0;
+            // 
+            // addControlsBtn
+            // 
+            this.addControlsBtn.BackColor = System.Drawing.Color.DarkGray;
+            this.addControlsBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addControlsBtn.BackgroundImage")));
+            this.addControlsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.addControlsBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.addControlsBtn.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.addControlsBtn.FlatAppearance.BorderSize = 2;
+            this.addControlsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addControlsBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
+            this.addControlsBtn.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.addControlsBtn.ImageKey = "(none)";
+            this.addControlsBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.addControlsBtn.Location = new System.Drawing.Point(458, 580);
+            this.addControlsBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.addControlsBtn.MaximumSize = new System.Drawing.Size(140, 50);
+            this.addControlsBtn.MinimumSize = new System.Drawing.Size(140, 50);
+            this.addControlsBtn.Name = "addControlsBtn";
+            this.addControlsBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.addControlsBtn.Size = new System.Drawing.Size(140, 50);
+            this.addControlsBtn.TabIndex = 78;
+            this.addControlsBtn.Text = "Add Access";
+            this.addControlsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.addControlsBtn.UseCompatibleTextRendering = true;
+            this.addControlsBtn.UseVisualStyleBackColor = false;
+            this.addControlsBtn.Click += new System.EventHandler(this.addControlsBtn_Click);
             // 
             // minimize
             // 
@@ -143,14 +172,14 @@
             this.backChangesBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backChangesBtn.BackgroundImage")));
             this.backChangesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.backChangesBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.backChangesBtn.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.backChangesBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.backChangesBtn.FlatAppearance.BorderSize = 2;
             this.backChangesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backChangesBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
-            this.backChangesBtn.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.backChangesBtn.ForeColor = System.Drawing.Color.White;
             this.backChangesBtn.ImageKey = "(none)";
             this.backChangesBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.backChangesBtn.Location = new System.Drawing.Point(457, 579);
+            this.backChangesBtn.Location = new System.Drawing.Point(299, 579);
             this.backChangesBtn.Margin = new System.Windows.Forms.Padding(4);
             this.backChangesBtn.MaximumSize = new System.Drawing.Size(140, 50);
             this.backChangesBtn.MinimumSize = new System.Drawing.Size(140, 50);
@@ -158,6 +187,7 @@
             this.backChangesBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.backChangesBtn.Size = new System.Drawing.Size(140, 50);
             this.backChangesBtn.TabIndex = 75;
+            this.backChangesBtn.Text = "Refresh";
             this.backChangesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.backChangesBtn.UseCompatibleTextRendering = true;
             this.backChangesBtn.UseVisualStyleBackColor = false;
@@ -185,6 +215,7 @@
             this.savePermissionBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.savePermissionBtn.Size = new System.Drawing.Size(140, 50);
             this.savePermissionBtn.TabIndex = 74;
+            this.savePermissionBtn.Text = "Save";
             this.savePermissionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.savePermissionBtn.UseCompatibleTextRendering = true;
             this.savePermissionBtn.UseVisualStyleBackColor = false;
@@ -502,5 +533,6 @@
         private System.Windows.Forms.Button savePermissionBtn;
         private System.Windows.Forms.Button minimize;
         private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.Button addControlsBtn;
     }
 }
