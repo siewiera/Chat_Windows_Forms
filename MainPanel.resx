@@ -13651,7 +13651,7 @@
     <value>61, 57</value>
   </data>
   <data name="settingsBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>56</value>
+    <value>21</value>
   </data>
   <data name="settingsBtn.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -13755,7 +13755,7 @@
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAI3YSURBVHhe7d0J
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAI3YSURBVHhe7d0J
         mN1lffbxYwV3QEhmO9tMAgqI4hK3vtrWKra2lbba0opA2MOWPSErxGEJhEXZwbAJQRSjaFvavra4IJva
         8ta2FmttsS4tSyKZs85M1vM+95nff5555twTssz/bHP/rut7JcQFyOSc+5Mzk5mEbuTKC3t7Cguz78sv
         SJ+cX5C5yH1/fW5e79fy87OPup52Pe/aUm1etkKbO0EX7KbzfbmxnRfVG3buBJ0zQXMm6OwJOmuCzkR9
@@ -17294,6 +17294,9 @@
   </data>
   <data name="connectBtn.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
+  </data>
+  <data name="connectBtn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;connectBtn.Name" xml:space="preserve">
     <value>connectBtn</value>

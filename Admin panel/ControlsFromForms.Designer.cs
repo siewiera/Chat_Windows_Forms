@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlsFromForms));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.idPermissionLabel = new System.Windows.Forms.Label();
+            this.exit = new System.Windows.Forms.Button();
+            this.backChangesControlsBtn = new System.Windows.Forms.Button();
+            this.saveControlsFromPermissionBtn = new System.Windows.Forms.Button();
             this.usedControlFilterComboBox = new System.Windows.Forms.ComboBox();
             this.newControlFilterComboBox = new System.Windows.Forms.ComboBox();
             this.permissionLabel = new System.Windows.Forms.Label();
@@ -52,9 +54,6 @@
             this.usedControlsDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.usedControlsFormName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.usedControlsType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.backChangesControlsBtn = new System.Windows.Forms.Button();
-            this.saveControlsFromPermissionBtn = new System.Windows.Forms.Button();
-            this.exit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +66,6 @@
             this.panel1.Controls.Add(this.exit);
             this.panel1.Controls.Add(this.backChangesControlsBtn);
             this.panel1.Controls.Add(this.saveControlsFromPermissionBtn);
-            this.panel1.Controls.Add(this.idPermissionLabel);
             this.panel1.Controls.Add(this.usedControlFilterComboBox);
             this.panel1.Controls.Add(this.newControlFilterComboBox);
             this.panel1.Controls.Add(this.permissionLabel);
@@ -87,18 +85,87 @@
             this.panel1.Size = new System.Drawing.Size(950, 642);
             this.panel1.TabIndex = 0;
             // 
-            // idPermissionLabel
+            // exit
             // 
-            this.idPermissionLabel.AutoSize = true;
-            this.idPermissionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.idPermissionLabel.ForeColor = System.Drawing.Color.White;
-            this.idPermissionLabel.Location = new System.Drawing.Point(468, 16);
-            this.idPermissionLabel.MaximumSize = new System.Drawing.Size(0, 30);
-            this.idPermissionLabel.MinimumSize = new System.Drawing.Size(0, 30);
-            this.idPermissionLabel.Name = "idPermissionLabel";
-            this.idPermissionLabel.Size = new System.Drawing.Size(51, 30);
-            this.idPermissionLabel.TabIndex = 87;
-            this.idPermissionLabel.Text = "label1";
+            this.exit.AccessibleDescription = "exit";
+            this.exit.AccessibleName = "exit";
+            this.exit.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exit.BackColor = System.Drawing.Color.Transparent;
+            this.exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exit.BackgroundImage")));
+            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.exit.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.exit.FlatAppearance.BorderSize = 0;
+            this.exit.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
+            this.exit.ForeColor = System.Drawing.Color.Maroon;
+            this.exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.exit.Location = new System.Drawing.Point(902, 9);
+            this.exit.Margin = new System.Windows.Forms.Padding(0);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(33, 28);
+            this.exit.TabIndex = 92;
+            this.exit.UseCompatibleTextRendering = true;
+            this.exit.UseVisualStyleBackColor = false;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
+            // backChangesControlsBtn
+            // 
+            this.backChangesControlsBtn.BackColor = System.Drawing.Color.DarkGray;
+            this.backChangesControlsBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backChangesControlsBtn.BackgroundImage")));
+            this.backChangesControlsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.backChangesControlsBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.backChangesControlsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.backChangesControlsBtn.FlatAppearance.BorderSize = 2;
+            this.backChangesControlsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backChangesControlsBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
+            this.backChangesControlsBtn.ForeColor = System.Drawing.Color.White;
+            this.backChangesControlsBtn.ImageKey = "(none)";
+            this.backChangesControlsBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.backChangesControlsBtn.Location = new System.Drawing.Point(623, 581);
+            this.backChangesControlsBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.backChangesControlsBtn.MaximumSize = new System.Drawing.Size(140, 50);
+            this.backChangesControlsBtn.MinimumSize = new System.Drawing.Size(140, 50);
+            this.backChangesControlsBtn.Name = "backChangesControlsBtn";
+            this.backChangesControlsBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.backChangesControlsBtn.Size = new System.Drawing.Size(140, 50);
+            this.backChangesControlsBtn.TabIndex = 91;
+            this.backChangesControlsBtn.Text = "Refresh";
+            this.backChangesControlsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.backChangesControlsBtn.UseCompatibleTextRendering = true;
+            this.backChangesControlsBtn.UseVisualStyleBackColor = false;
+            this.backChangesControlsBtn.Click += new System.EventHandler(this.backChangesControlsBtn_Click);
+            // 
+            // saveControlsFromPermissionBtn
+            // 
+            this.saveControlsFromPermissionBtn.AccessibleDescription = "zapis uprawnień";
+            this.saveControlsFromPermissionBtn.BackColor = System.Drawing.Color.DarkGray;
+            this.saveControlsFromPermissionBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveControlsFromPermissionBtn.BackgroundImage")));
+            this.saveControlsFromPermissionBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.saveControlsFromPermissionBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.saveControlsFromPermissionBtn.FlatAppearance.BorderColor = System.Drawing.Color.LimeGreen;
+            this.saveControlsFromPermissionBtn.FlatAppearance.BorderSize = 2;
+            this.saveControlsFromPermissionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveControlsFromPermissionBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
+            this.saveControlsFromPermissionBtn.ForeColor = System.Drawing.Color.LimeGreen;
+            this.saveControlsFromPermissionBtn.ImageKey = "(none)";
+            this.saveControlsFromPermissionBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.saveControlsFromPermissionBtn.Location = new System.Drawing.Point(790, 581);
+            this.saveControlsFromPermissionBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.saveControlsFromPermissionBtn.MaximumSize = new System.Drawing.Size(140, 50);
+            this.saveControlsFromPermissionBtn.MinimumSize = new System.Drawing.Size(140, 50);
+            this.saveControlsFromPermissionBtn.Name = "saveControlsFromPermissionBtn";
+            this.saveControlsFromPermissionBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.saveControlsFromPermissionBtn.Size = new System.Drawing.Size(140, 50);
+            this.saveControlsFromPermissionBtn.TabIndex = 90;
+            this.saveControlsFromPermissionBtn.Text = "Save";
+            this.saveControlsFromPermissionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.saveControlsFromPermissionBtn.UseCompatibleTextRendering = true;
+            this.saveControlsFromPermissionBtn.UseVisualStyleBackColor = false;
+            this.saveControlsFromPermissionBtn.Click += new System.EventHandler(this.saveControlsFromPermissionBtn_Click);
             // 
             // usedControlFilterComboBox
             // 
@@ -106,10 +173,6 @@
             this.usedControlFilterComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.usedControlFilterComboBox.ForeColor = System.Drawing.Color.Lime;
             this.usedControlFilterComboBox.FormattingEnabled = true;
-            this.usedControlFilterComboBox.Items.AddRange(new object[] {
-            "test1",
-            "test2",
-            "test3"});
             this.usedControlFilterComboBox.Location = new System.Drawing.Point(522, 224);
             this.usedControlFilterComboBox.Name = "usedControlFilterComboBox";
             this.usedControlFilterComboBox.Size = new System.Drawing.Size(410, 21);
@@ -119,16 +182,13 @@
             // 
             this.newControlFilterComboBox.BackColor = System.Drawing.Color.Black;
             this.newControlFilterComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.newControlFilterComboBox.ForeColor = System.Drawing.Color.Lime;
+            this.newControlFilterComboBox.ForeColor = System.Drawing.Color.Gold;
             this.newControlFilterComboBox.FormattingEnabled = true;
-            this.newControlFilterComboBox.Items.AddRange(new object[] {
-            "test1",
-            "test2",
-            "test3"});
             this.newControlFilterComboBox.Location = new System.Drawing.Point(16, 224);
             this.newControlFilterComboBox.Name = "newControlFilterComboBox";
             this.newControlFilterComboBox.Size = new System.Drawing.Size(410, 21);
             this.newControlFilterComboBox.TabIndex = 85;
+            this.newControlFilterComboBox.SelectedIndexChanged += new System.EventHandler(this.newControlFilterComboBox_SelectedIndexChanged);
             // 
             // permissionLabel
             // 
@@ -286,6 +346,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.newControlsFormListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.newControlsFormListView.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("newControlsFormListView.BackgroundImage")));
+            this.newControlsFormListView.BackgroundImageTiled = true;
             this.newControlsFormListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.controlsId,
             this.controlsDescription,
@@ -300,7 +361,9 @@
             this.newControlsFormListView.MaximumSize = new System.Drawing.Size(410, 320);
             this.newControlsFormListView.MinimumSize = new System.Drawing.Size(410, 320);
             this.newControlsFormListView.Name = "newControlsFormListView";
+            this.newControlsFormListView.ShowItemToolTips = true;
             this.newControlsFormListView.Size = new System.Drawing.Size(410, 320);
+            this.newControlsFormListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.newControlsFormListView.TabIndex = 76;
             this.newControlsFormListView.UseCompatibleStateImageBehavior = false;
             this.newControlsFormListView.View = System.Windows.Forms.View.Details;
@@ -334,6 +397,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.usedControlsFormListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.usedControlsFormListView.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("usedControlsFormListView.BackgroundImage")));
+            this.usedControlsFormListView.BackgroundImageTiled = true;
             this.usedControlsFormListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.usedControlsId,
             this.usedControlsDescription,
@@ -348,7 +412,9 @@
             this.usedControlsFormListView.MaximumSize = new System.Drawing.Size(410, 320);
             this.usedControlsFormListView.MinimumSize = new System.Drawing.Size(402, 320);
             this.usedControlsFormListView.Name = "usedControlsFormListView";
+            this.usedControlsFormListView.ShowItemToolTips = true;
             this.usedControlsFormListView.Size = new System.Drawing.Size(410, 320);
+            this.usedControlsFormListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.usedControlsFormListView.TabIndex = 75;
             this.usedControlsFormListView.UseCompatibleStateImageBehavior = false;
             this.usedControlsFormListView.View = System.Windows.Forms.View.Details;
@@ -373,87 +439,6 @@
             this.usedControlsType.Text = "Type";
             this.usedControlsType.Width = 80;
             // 
-            // backChangesControlsBtn
-            // 
-            this.backChangesControlsBtn.BackColor = System.Drawing.Color.DarkGray;
-            this.backChangesControlsBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backChangesControlsBtn.BackgroundImage")));
-            this.backChangesControlsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.backChangesControlsBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.backChangesControlsBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.backChangesControlsBtn.FlatAppearance.BorderSize = 2;
-            this.backChangesControlsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backChangesControlsBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
-            this.backChangesControlsBtn.ForeColor = System.Drawing.Color.White;
-            this.backChangesControlsBtn.ImageKey = "(none)";
-            this.backChangesControlsBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.backChangesControlsBtn.Location = new System.Drawing.Point(623, 581);
-            this.backChangesControlsBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.backChangesControlsBtn.MaximumSize = new System.Drawing.Size(140, 50);
-            this.backChangesControlsBtn.MinimumSize = new System.Drawing.Size(140, 50);
-            this.backChangesControlsBtn.Name = "backChangesControlsBtn";
-            this.backChangesControlsBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.backChangesControlsBtn.Size = new System.Drawing.Size(140, 50);
-            this.backChangesControlsBtn.TabIndex = 91;
-            this.backChangesControlsBtn.Text = "Refresh";
-            this.backChangesControlsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.backChangesControlsBtn.UseCompatibleTextRendering = true;
-            this.backChangesControlsBtn.UseVisualStyleBackColor = false;
-            // 
-            // saveControlsFromPermissionBtn
-            // 
-            this.saveControlsFromPermissionBtn.AccessibleDescription = "zapis uprawnień";
-            this.saveControlsFromPermissionBtn.BackColor = System.Drawing.Color.DarkGray;
-            this.saveControlsFromPermissionBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveControlsFromPermissionBtn.BackgroundImage")));
-            this.saveControlsFromPermissionBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.saveControlsFromPermissionBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.saveControlsFromPermissionBtn.FlatAppearance.BorderColor = System.Drawing.Color.LimeGreen;
-            this.saveControlsFromPermissionBtn.FlatAppearance.BorderSize = 2;
-            this.saveControlsFromPermissionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveControlsFromPermissionBtn.Font = new System.Drawing.Font("Comic Sans MS", 13F, System.Drawing.FontStyle.Bold);
-            this.saveControlsFromPermissionBtn.ForeColor = System.Drawing.Color.LimeGreen;
-            this.saveControlsFromPermissionBtn.ImageKey = "(none)";
-            this.saveControlsFromPermissionBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.saveControlsFromPermissionBtn.Location = new System.Drawing.Point(790, 581);
-            this.saveControlsFromPermissionBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.saveControlsFromPermissionBtn.MaximumSize = new System.Drawing.Size(140, 50);
-            this.saveControlsFromPermissionBtn.MinimumSize = new System.Drawing.Size(140, 50);
-            this.saveControlsFromPermissionBtn.Name = "saveControlsFromPermissionBtn";
-            this.saveControlsFromPermissionBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.saveControlsFromPermissionBtn.Size = new System.Drawing.Size(140, 50);
-            this.saveControlsFromPermissionBtn.TabIndex = 90;
-            this.saveControlsFromPermissionBtn.Text = "Save";
-            this.saveControlsFromPermissionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.saveControlsFromPermissionBtn.UseCompatibleTextRendering = true;
-            this.saveControlsFromPermissionBtn.UseVisualStyleBackColor = false;
-            this.saveControlsFromPermissionBtn.Click += new System.EventHandler(this.saveControlsFromPermissionBtn_Click);
-            // 
-            // exit
-            // 
-            this.exit.AccessibleDescription = "exit";
-            this.exit.AccessibleName = "exit";
-            this.exit.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.exit.BackColor = System.Drawing.Color.Transparent;
-            this.exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exit.BackgroundImage")));
-            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.exit.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.exit.FlatAppearance.BorderSize = 0;
-            this.exit.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
-            this.exit.ForeColor = System.Drawing.Color.Maroon;
-            this.exit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.exit.Location = new System.Drawing.Point(902, 9);
-            this.exit.Margin = new System.Windows.Forms.Padding(0);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(33, 28);
-            this.exit.TabIndex = 92;
-            this.exit.UseCompatibleTextRendering = true;
-            this.exit.UseVisualStyleBackColor = false;
-            this.exit.Click += new System.EventHandler(this.exit_Click);
-            // 
             // ControlsFromForms
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -465,6 +450,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ControlsFromForms";
             this.Padding = new System.Windows.Forms.Padding(5);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Controls from Forms";
             this.Load += new System.EventHandler(this.ControlsFromForms_Load);
             this.panel1.ResumeLayout(false);
@@ -496,7 +482,6 @@
         private System.Windows.Forms.ColumnHeader usedControlsType;
         public System.Windows.Forms.ListView newControlsFormListView;
         public System.Windows.Forms.ListView usedControlsFormListView;
-        private System.Windows.Forms.Label idPermissionLabel;
         private System.Windows.Forms.ColumnHeader controlsFormName;
         private System.Windows.Forms.ColumnHeader usedControlsFormName;
         private System.Windows.Forms.Button backChangesControlsBtn;

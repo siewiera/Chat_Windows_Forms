@@ -50,7 +50,6 @@ namespace Chat
         private void UpdatingStatusOfControls()
         {
             List<Control> allForm = new List<Control>();
-            List<Control> allControls = new List<Control>();
             List<int> tabIndex = new List<int>();
 
             Form[] forms = new Form[]
@@ -118,10 +117,14 @@ namespace Chat
             var updateItems = _dbContext.Set<ControlForm>()
                 .Where(c => c.TabIndex == controlFormClass.tabIndex);
 
+            string description = controlFormClass.description;
+            if (controlFormClass.description == null)
+                description = "";
+
             foreach (var item in updateItems)
             { 
                 item.Name = controlFormClass.name;
-                item.Description = controlFormClass.description;
+                item.Description = description;
                 item.ControlType = controlFormClass.controlType;
                 item.FormName = controlFormClass.formName;
                 item.Active = true;
@@ -133,11 +136,15 @@ namespace Chat
 
         private void AddingControls(ControlFormClass controlFormClass, ChatDbContext _dbContext)
         {
+            string description = controlFormClass.description;
+            if (controlFormClass.description == null)
+                description = "";
+
             var controlForm = new ControlForm()
             {
                 TabIndex = controlFormClass.tabIndex,
                 Name = controlFormClass.name,
-                Description = controlFormClass.description,
+                Description = description,
                 ControlType = controlFormClass.controlType,
                 FormName = controlFormClass.formName,
                 Active = true,
@@ -180,21 +187,16 @@ namespace Chat
             /*UpdatingStatusOfControls();*/
         }
 
+
         public async Task LoadInitData(Form hideForm, Form showForm, string[] exe)
         {
+            hideForm.Hide();
+            Show();
+
             if (!exe.Any())
-            {
-                hideForm.Hide();
-                this.Show();
                 await Task.Delay(3000);
-                this.Hide();
-                showForm.Show();
-            }
             else
             {
-                hideForm.Hide();
-                this.Show();
-
                 foreach (string item in exe)
                 {
                     switch (item.ToLower())
@@ -222,9 +224,12 @@ namespace Chat
                 }
 
                 await Task.Delay(3000);
-                this.Hide();
-                showForm.Show();
             }
+
+            showForm.Show();
+            this.Hide();
+
         }
+
     }
 }

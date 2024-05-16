@@ -25,13 +25,14 @@ namespace Chat.Services
             using (var _dbContext = new ChatDbContext())
             {
                 var query = (from rr in _dbContext.RightControls
-                             join r in _dbContext.ControlForms on rr.RightId equals r.Id
+                             join r in _dbContext.ControlForms on rr.ControlId equals r.Id
                              where rr.RightId == id_permisson
+                             where r.Active == true
                              orderby r.Name
                              select new ControlsDetails
                              {
                                  id = r.Id,
-                                 description = r.Description,
+                                 description = r.Name + "-" + r.Description,
                                  formName = r.FormName,
                                  controlType = r.ControlType
                              })
@@ -50,11 +51,12 @@ namespace Chat.Services
                              into gj
                              from subRightControl in gj.DefaultIfEmpty()
                              where subRightControl.RightId != id_permisson
+                             where r.Active == true
                              orderby r.Name
                              select new ControlsDetails
                              {
                                  id = r.Id,
-                                 description = r.Description,
+                                 description = r.Name + "-" + r.Description,
                                  formName = r.FormName,
                                  controlType = r.ControlType
                              })
@@ -79,6 +81,7 @@ namespace Chat.Services
                 _dbContext.SaveChanges();
             }
         }
+
 
         public void RemoveAllControlsFromPermission(int id_permission)
         {

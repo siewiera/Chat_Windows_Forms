@@ -8,14 +8,15 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+/*using static System.Windows.Forms.VisualStyles.VisualStyleElement;*/
 
 namespace Chat.Admin_panel
 {
     public partial class ControlsFromForms : Form
     {
-        private Permissions permission = new Permissions(21, "User");
+/*        private Permissions permission = new Permissions(21, "User");
 
-        List<Control> allControls = new List<Control>();
+        List<Control> allControls = new List<Control>();*/
 
         private int idPermission;
         private string namePermission;
@@ -29,6 +30,7 @@ namespace Chat.Admin_panel
         private void newControlsFormList_Load()
         {
             ControlsFromFormsService controlsService = new ControlsFromFormsService();
+            newControlsFormListView.Items.Clear();
             
             var newControlsList =  controlsService.GetNewContorlsFromPermission(idPermission);
 
@@ -44,12 +46,14 @@ namespace Chat.Admin_panel
 
                 ListViewItem listViewItem1 = new ListViewItem(newControlArray);
                 newControlsFormListView.Items.Add(listViewItem1);
+                AddingOptionsToFilter(newControlFilterComboBox, newControl.description);
             }         
         }
 
         private void usedControlsFormList_Load()
         {
             ControlsFromFormsService controlsService = new ControlsFromFormsService();
+            usedControlsFormListView.Items.Clear();
 
             var usedControlsList = controlsService.GetUsedControlsFromPermission(idPermission);
 
@@ -65,6 +69,7 @@ namespace Chat.Admin_panel
 
                 ListViewItem listViewItem1 = new ListViewItem(usedControlArray);
                 usedControlsFormListView.Items.Add(listViewItem1);
+                AddingOptionsToFilter(usedControlFilterComboBox, usedControl.description);
             }
         }
 
@@ -173,6 +178,25 @@ namespace Chat.Admin_panel
         private void exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void backChangesControlsBtn_Click(object sender, EventArgs e)
+        {
+            newControlsFormList_Load();
+            usedControlsFormList_Load();
+        }
+
+        private void AddingOptionsToFilter(ComboBox comboBox, string option)
+        {
+            if (!comboBox.Items.Contains("-"))
+                comboBox.Items.Add("-");
+
+            comboBox.Items.Add(option);
+        }
+
+        private void newControlFilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

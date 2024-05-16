@@ -466,6 +466,7 @@
     <Compile Include="Services\ControlsFromFormsService.cs" />
     <Compile Include="Services\GlobalVariables.cs" />
     <Compile Include="Services\LoggedUserService.cs" />
+    <Compile Include="Services\PermissionsManagement.cs" />
     <Compile Include="Services\PermissionsService.cs" />
     <Compile Include="Services\RegistrationService.cs" />
     <Compile Include="Services\RoomListService.cs" />

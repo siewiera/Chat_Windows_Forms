@@ -19,7 +19,8 @@ namespace Chat.Services
         private LoggedUserService _loggedUserService;
         public SettingsAccountService(int id) 
         {
-            _loggedUserService = new LoggedUserService(id);
+            this.id = id;
+            _loggedUserService = new LoggedUserService(this.id);
         }
 
         public class UserData

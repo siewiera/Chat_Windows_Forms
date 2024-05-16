@@ -77,30 +77,6 @@ namespace Chat
             }
         }
 
-        /*private void GeneratingButtons(Button button, string textButton, Color borderColor, Color textColor,
-            System.Drawing.Point point, string nameButton, System.Drawing.Size sizeButton, EventHandler ev)
-        {
-            button.Text = textButton;
-            button.BackColor = Color.Transparent;
-            button.BackgroundImageLayout = ImageLayout.None;
-            button.FlatAppearance.BorderColor = borderColor;
-            button.FlatAppearance.BorderSize = 2;
-            button.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            button.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            button.FlatStyle = FlatStyle.Flat;
-            button.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(238)));
-            button.ForeColor = textColor;
-            button.Location = point;
-            button.Margin = new Padding(0);
-            button.Name = nameButton;
-            button.Size = sizeButton;
-            button.TextImageRelation = TextImageRelation.TextBeforeImage;
-            button.UseVisualStyleBackColor = false;           
-            button.Click += ev;
-
-            notificationPanel.Controls.Add(button);
-        }*/
-
         private void exit_Click(object sender, EventArgs e)
         {
             this.check = false;

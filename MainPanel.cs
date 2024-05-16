@@ -19,6 +19,7 @@ namespace Chat
     {
         private UC_Chat uc_chat;
         private Notification notification;
+        private PermissionsManagement permissionsManagement;
         static System.Timers.Timer timer;
 
         public MainPanel()
@@ -76,6 +77,8 @@ namespace Chat
         private async void roomList_Load(object sender, EventArgs e)
         {
             LoadDataIntoTableRooms();
+            permissionsManagement = new PermissionsManagement(this);
+            permissionsManagement.CheckingPermissions();
 
             timer = new System.Timers.Timer(5000);
             timer.Elapsed += async (se, ev) => await loadUserDataDetails();
@@ -86,8 +89,8 @@ namespace Chat
         {
             await Task.Run(() =>
             {
-                int user_id = GlobalVariables.Instance.globalId;
-                LoggedUserService loggedUserService = new LoggedUserService(user_id);
+                int id_user = GlobalVariables.Instance.globalId;
+                LoggedUserService loggedUserService = new LoggedUserService(id_user);
 
                 emailDetailsLabel.Invoke((MethodInvoker)delegate 
                 { 

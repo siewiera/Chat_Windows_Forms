@@ -80,8 +80,7 @@ namespace Chat
                 /*this.Hide();
                 mainPanel.Show();*/
                 InitializingEnviroment init = new InitializingEnviroment();
-                string[] exe = new string[] { "updateControls", "updateRooms", "updateRoles" };
-
+                string[] exe = new string[] { "updateControls", "updateRooms", "updateRoles" };          
                 await init.LoadInitData(this, mainPanel, exe);
             }
             else
