@@ -19,6 +19,7 @@ namespace Chat
     public partial class Permissions : Form
     {
         private AdminChatDashboardService adminChatDashboardService = new AdminChatDashboardService();
+        private PermissionsManagement permissionsManagement;
         int idRole;
         string nameRole;
 
@@ -32,6 +33,9 @@ namespace Chat
 
         private void permissions_Load(object sender, EventArgs e)
         {
+            permissionsManagement = new PermissionsManagement(this);
+            permissionsManagement.CheckingPermissions();
+
             nameRoleLabel.Text = nameRole;
             usedPermissionsList_Load();
             newPermissionsList_Load();

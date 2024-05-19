@@ -19,6 +19,7 @@ namespace Chat
     {
         private ChatService _chatService = new ChatService();
         private AdminChatDashboardService adminChatDashboardService = new AdminChatDashboardService();
+        private PermissionsManagement permissionsManagement;
         private UC_Roles uc_roles = new UC_Roles();
         private UC_Users uc_users = new UC_Users();
 
@@ -114,6 +115,9 @@ namespace Chat
 
         private void AdminChatDashboard_Load(object sender, EventArgs e)
         {
+            permissionsManagement = new PermissionsManagement(this);
+            permissionsManagement.CheckingPermissions();
+
             int idLogged = GlobalVariables.Instance.globalId;
             if (idLogged == 0) return;
             string emailLogged = adminChatDashboardService.GetAllUsers().Where(a => a.Id == idLogged).First().EmailAdress;

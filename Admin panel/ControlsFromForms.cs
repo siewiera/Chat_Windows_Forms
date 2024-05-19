@@ -14,9 +14,7 @@ namespace Chat.Admin_panel
 {
     public partial class ControlsFromForms : Form
     {
-/*        private Permissions permission = new Permissions(21, "User");
-
-        List<Control> allControls = new List<Control>();*/
+        private PermissionsManagement permissionsManagement;
 
         private int idPermission;
         private string namePermission;
@@ -91,6 +89,9 @@ namespace Chat.Admin_panel
 
         private void ControlsFromForms_Load(object sender, EventArgs e)
         {
+            permissionsManagement = new PermissionsManagement(this);
+            permissionsManagement.CheckingPermissions();
+
             newControlsFormList_Load();
             usedControlsFormList_Load();
             permissionNameTextBox.Text = namePermission;

@@ -24,6 +24,7 @@ namespace Chat
         private readonly int id;
         private readonly string name_room;
         static System.Timers.Timer timer;
+        private PermissionsManagement permissionsManagement;
 
         public UC_Chat(int id, string name_room)
         {
@@ -78,6 +79,8 @@ namespace Chat
 
         private async void UC_Chat_Load(object sender, EventArgs e)
         {
+
+
             uc_chatService.AutomaticChatScroll(this);
             RoomIdLabel.Text = id.ToString();
             RoomNameLabel.Text = name_room;

@@ -18,6 +18,7 @@ namespace Chat
     public partial class SettingsAccount : Form
     {      
         private SettingsAccountService settingsAccountService;
+        private PermissionsManagement permissionsManagement;
         private UC_Users myForm;
         public SettingsAccount(int id, UC_Users myForm = null)
         {
@@ -50,6 +51,8 @@ namespace Chat
 
         private void Settings_Load(object sender, EventArgs e)
         {
+            permissionsManagement = new PermissionsManagement(this);
+            permissionsManagement.CheckingPermissions();
 
             var userData = settingsAccountService.LoadUserData();
 
