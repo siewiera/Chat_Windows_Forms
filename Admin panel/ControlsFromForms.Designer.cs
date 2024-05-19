@@ -169,6 +169,7 @@
             // 
             // usedControlFilterComboBox
             // 
+            this.usedControlFilterComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.usedControlFilterComboBox.BackColor = System.Drawing.Color.Black;
             this.usedControlFilterComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.usedControlFilterComboBox.ForeColor = System.Drawing.Color.Lime;
@@ -177,9 +178,11 @@
             this.usedControlFilterComboBox.Name = "usedControlFilterComboBox";
             this.usedControlFilterComboBox.Size = new System.Drawing.Size(410, 21);
             this.usedControlFilterComboBox.TabIndex = 86;
+            this.usedControlFilterComboBox.SelectedIndexChanged += new System.EventHandler(this.usedControlFilterComboBox_SelectedIndexChanged);
             // 
             // newControlFilterComboBox
             // 
+            this.newControlFilterComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.newControlFilterComboBox.BackColor = System.Drawing.Color.Black;
             this.newControlFilterComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.newControlFilterComboBox.ForeColor = System.Drawing.Color.Gold;

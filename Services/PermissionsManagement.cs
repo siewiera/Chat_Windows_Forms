@@ -31,6 +31,22 @@ namespace Chat.Services
             public int tabIndex;
         }
 
+        private List<PermissionDetails> GetAllControlsForm()
+        {
+            using (var _dbContext = new ChatDbContext())
+            {
+                var query = (from cf in _dbContext.ControlForms
+                             where cf.Active == true
+                             where cf.FormName == _form.Name
+                             select new PermissionDetails
+                             {
+                                 tabIndex = cf.TabIndex,
+                             }).ToList();
+
+                return query;
+            }
+        }
+
         private List<PermissionDetails> GetPermissionsDetails()
         {
             using (var _dbContext = new ChatDbContext())
@@ -55,7 +71,7 @@ namespace Chat.Services
             }
         }
 
-        private void BlockingAllControlsInForm()
+        /*private void BlockingAllControlsInForm()
         {
             
             foreach (Control control in initializing.getFormsControls(_form))
@@ -65,10 +81,56 @@ namespace Chat.Services
                     control.Visible = false;
                 });
             }
+        }*/
+
+        private void BlockingControlsInForm(List<PermissionDetails> listOfUnavailableControls)
+        {
+            Console.WriteLine("Lista zablokowanych kontrolek: ");
+            foreach (PermissionDetails item in listOfUnavailableControls)
+            { 
+                foreach (Control control in initializing.getFormsControls(_form))
+                {
+                    if (control.TabIndex == item.tabIndex)
+                    {
+                        control.Invoke((MethodInvoker)delegate
+                        {
+                            Console.WriteLine(control.Name);
+                            control.Visible = false;
+                        });
+                    } 
+                }
+            }
+        }
+
+        private async Task CheckingPermissionsForControls()
+        {
+            await Task.Run(() => 
+            { 
+                List<PermissionDetails> listOfAvailableControls = GetPermissionsDetails();
+                List<PermissionDetails> listOfUnavailableControls = GetAllControlsForm();
+
+                Console.WriteLine("Lista dostępnych kontrole: ");
+                foreach(PermissionDetails item in listOfAvailableControls)
+                { 
+                    foreach (Control control in initializing.getFormsControls(_form))
+                    {
+                        if (control.TabIndex == item.tabIndex)
+                        {
+                            control.Invoke((MethodInvoker)delegate 
+                            {
+                                Console.WriteLine(control.Name);
+                                control.Visible = true;
+                            });
+                            listOfUnavailableControls.RemoveAll(i => i.tabIndex == item.tabIndex);
+                        }
+                    }
+                }
+                BlockingControlsInForm(listOfUnavailableControls);
+            });
         }
 
 
-        private async Task UnBlockingControlsInForm()
+        /*private async Task UnBlockingControlsInForm()
         {
             await Task.Run(() =>
             {
@@ -82,19 +144,20 @@ namespace Chat.Services
                         control.Invoke((MethodInvoker)delegate
                         {
                             if (control.TabIndex == item.tabIndex)
-                            control.Visible = true;
+                                control.Visible = true;
                         });
                     }
                 }
             });
-        }
+        }*/
 
         public async void CheckingPermissions()
         {
-            UnBlockingControlsInForm();
+            /*UnBlockingControlsInForm();*/
+            CheckingPermissionsForControls();
 
             timer = new System.Timers.Timer(5000);
-            timer.Elapsed += async (se, ev) => await UnBlockingControlsInForm();
+            timer.Elapsed += async (se, ev) => await CheckingPermissionsForControls();
             timer.Start();
         }
     }

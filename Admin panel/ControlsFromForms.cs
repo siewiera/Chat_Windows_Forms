@@ -196,7 +196,42 @@ namespace Chat.Admin_panel
 
         private void newControlFilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string selectedVal = newControlFilterComboBox
+                .SelectedItem
+                .ToString();
 
+            if (selectedVal == "-" || selectedVal == "") newControlsFormList_Load();
+            else
+            {
+                newControlsFormList_Load();
+                foreach (ListViewItem item in newControlsFormListView.Items)
+                {
+                    if (item.SubItems[1].Text != selectedVal)
+                    {
+                        item.Remove();
+                    }
+                }
+            }
+        }
+
+        private void usedControlFilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedVal = usedControlFilterComboBox
+                .SelectedItem
+                .ToString();
+
+            if (selectedVal == "-" || selectedVal == "") usedControlsFormList_Load();
+            else
+            {
+                usedControlsFormList_Load();
+                foreach (ListViewItem item in usedControlsFormListView.Items)
+                {
+                    if (item.SubItems[1].Text != selectedVal)
+                    {
+                        item.Remove();
+                    }
+                }
+            }
         }
     }
 }
