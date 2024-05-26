@@ -31,6 +31,12 @@ namespace Chat
 
         }
 
+        public Permissions()
+        {
+            InitializeComponent();
+            return;
+        }
+
         private void permissions_Load(object sender, EventArgs e)
         {
             permissionsManagement = new PermissionsManagement(this);

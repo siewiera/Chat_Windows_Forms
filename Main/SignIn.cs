@@ -60,7 +60,7 @@ namespace Chat
         {
             Register register = new Register();
             InitializingEnviroment init = new InitializingEnviroment();
-            string[] exe = new string[]{ "updateRoles" };
+            string[] exe = new string[]{ };
 
             await init.LoadInitData(this, register, exe);
         }
@@ -77,10 +77,12 @@ namespace Chat
 
             if (check == 100) 
             {
-                /*this.Hide();
-                mainPanel.Show();*/
                 InitializingEnviroment init = new InitializingEnviroment();
-                string[] exe = new string[] { "updateControls", "updateRooms", "updateRoles" };          
+                string[] exe = new string[] 
+                {
+                    "updateControls", 
+                    "updateRooms", 
+                };          
                 await init.LoadInitData(this, mainPanel, exe);
             }
             else

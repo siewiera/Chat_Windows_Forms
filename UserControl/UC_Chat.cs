@@ -38,6 +38,12 @@ namespace Chat
             this.name_room = name_room;
         }
 
+        public UC_Chat()
+        {
+            InitializeComponent();
+            return;
+        }
+
         public void SendMessageBtn_Click(object sender, EventArgs e)
         {
             Notification notification = new Notification();

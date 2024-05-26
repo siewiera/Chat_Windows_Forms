@@ -55,10 +55,10 @@ namespace Chat
             Form[] forms = new Form[]
             {
                 new AdminChatDashboard(),
-                new ControlsFromForms(9, "creating_rooms"),
-                new SettingsAccount(13),
+                new ControlsFromForms(),
+                new SettingsAccount(),
                 new MainPanel(),
-                new Permissions(21, "User"),
+                new Permissions(),
             };
 
             foreach (Form form_ in forms)
@@ -68,7 +68,7 @@ namespace Chat
 
             UserControl[] userControl = new UserControl[]
             {
-                new UC_Chat(1, "room1"),
+                new UC_Chat(),
                 new UC_Roles(),
                 new UC_Users(),
             };
@@ -206,19 +206,14 @@ namespace Chat
                             UpdatingStatusOfControls();
                             break;
 
-                        case "updateroles":
-
-                            Console.WriteLine("updateRoles");
-                            break;
-
                         case "updaterooms":
 
-                            Console.WriteLine("updateRoom");
+                            /*Console.WriteLine("updateRoom");*/
                             break;
 
                         default:
 
-                            Console.WriteLine("default");
+                            /*Console.WriteLine("default");*/
                             break;
                     };
                 }

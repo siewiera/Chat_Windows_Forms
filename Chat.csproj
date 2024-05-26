@@ -348,16 +348,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin panel\AdminChatDashboard.cs">
+    <Compile Include="Admin_panel\AdminChatDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin panel\AdminChatDashboard.Designer.cs">
+    <Compile Include="Admin_panel\AdminChatDashboard.Designer.cs">
       <DependentUpon>AdminChatDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin panel\ControlsFromForms.cs">
+    <Compile Include="Admin_panel\ControlsFromForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin panel\ControlsFromForms.Designer.cs">
+    <Compile Include="Admin_panel\ControlsFromForms.Designer.cs">
       <DependentUpon>ControlsFromForms.cs</DependentUpon>
     </Compile>
     <Compile Include="ChatDbDataSet.Designer.cs">
@@ -367,16 +367,16 @@
     </Compile>
     <Compile Include="Entities\ControlForm.cs" />
     <Compile Include="Entities\RightControl.cs" />
-    <Compile Include="InitializingEnviroment.cs">
+    <Compile Include="Main\InitializingEnviroment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InitializingEnviroment.Designer.cs">
+    <Compile Include="Main\InitializingEnviroment.Designer.cs">
       <DependentUpon>InitializingEnviroment.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainPanel.cs">
+    <Compile Include="Main\MainPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainPanel.Designer.cs">
+    <Compile Include="Main\MainPanel.Designer.cs">
       <DependentUpon>MainPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\ChatDbContext.cs" />
@@ -441,16 +441,16 @@
       <DependentUpon>20240505173621__.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ChatDbContextModelSnapshot.cs" />
-    <Compile Include="Notification.cs">
+    <Compile Include="Main\Notification.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Notification.Designer.cs">
+    <Compile Include="Main\Notification.Designer.cs">
       <DependentUpon>Notification.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin panel\Permissions.cs">
+    <Compile Include="Admin_panel\Permissions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin panel\Permissions.Designer.cs">
+    <Compile Include="Admin_panel\Permissions.Designer.cs">
       <DependentUpon>Permissions.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -474,26 +474,26 @@
     <Compile Include="Services\SignInService.cs" />
     <Compile Include="Services\UC_ChatService.cs" />
     <Compile Include="Services\UC_RolesService.cs" />
-    <Compile Include="SettingsAccount.cs">
+    <Compile Include="Main\SettingsAccount.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="SettingsAccount.Designer.cs">
+    <Compile Include="Main\SettingsAccount.Designer.cs">
       <DependentUpon>SettingsAccount.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="SignIn.cs">
+    <Compile Include="Main\SignIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignIn.Designer.cs">
+    <Compile Include="Main\SignIn.Designer.cs">
       <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Register.cs">
+    <Compile Include="Main\Register.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Register.Designer.cs">
+    <Compile Include="Main\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\UC_Chat.cs">
@@ -514,30 +514,30 @@
     <Compile Include="UserControl\UC_Roles.Designer.cs">
       <DependentUpon>UC_Roles.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Admin panel\AdminChatDashboard.resx">
+    <EmbeddedResource Include="Admin_panel\AdminChatDashboard.resx">
       <DependentUpon>AdminChatDashboard.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin panel\ControlsFromForms.resx">
+    <EmbeddedResource Include="Admin_panel\ControlsFromForms.resx">
       <DependentUpon>ControlsFromForms.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InitializingEnviroment.resx">
+    <EmbeddedResource Include="Main\InitializingEnviroment.resx">
       <DependentUpon>InitializingEnviroment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainPanel.resx">
+    <EmbeddedResource Include="Main\MainPanel.resx">
       <DependentUpon>MainPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Notification.resx">
+    <EmbeddedResource Include="Main\Notification.resx">
       <DependentUpon>Notification.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin panel\Permissions.resx">
+    <EmbeddedResource Include="Admin_panel\Permissions.resx">
       <DependentUpon>Permissions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsAccount.resx">
+    <EmbeddedResource Include="Main\SettingsAccount.resx">
       <DependentUpon>SettingsAccount.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignIn.resx">
+    <EmbeddedResource Include="Main\SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -545,7 +545,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Register.resx">
+    <EmbeddedResource Include="Main\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UC_Chat.resx">

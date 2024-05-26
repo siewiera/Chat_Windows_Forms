@@ -71,32 +71,21 @@ namespace Chat.Services
             }
         }
 
-        /*private void BlockingAllControlsInForm()
-        {
-            
-            foreach (Control control in initializing.getFormsControls(_form))
-            {
-                control.Invoke((MethodInvoker)delegate
-                {
-                    control.Visible = false;
-                });
-            }
-        }*/
-
         private void BlockingControlsInForm(List<PermissionDetails> listOfUnavailableControls)
         {
-            Console.WriteLine("Lista zablokowanych kontrolek: ");
             foreach (PermissionDetails item in listOfUnavailableControls)
             { 
                 foreach (Control control in initializing.getFormsControls(_form))
                 {
                     if (control.TabIndex == item.tabIndex)
                     {
-                        control.Invoke((MethodInvoker)delegate
+                        if (control.IsHandleCreated && !control.IsDisposed)
                         {
-                            Console.WriteLine(control.Name);
-                            control.Visible = false;
-                        });
+                            control.Invoke((MethodInvoker)delegate
+                            {
+                                control.Visible = false;
+                            });
+                        }
                     } 
                 }
             }
@@ -109,20 +98,21 @@ namespace Chat.Services
                 List<PermissionDetails> listOfAvailableControls = GetPermissionsDetails();
                 List<PermissionDetails> listOfUnavailableControls = GetAllControlsForm();
 
-                Console.WriteLine("Lista dostępnych kontrole: ");
                 foreach(PermissionDetails item in listOfAvailableControls)
                 { 
                     foreach (Control control in initializing.getFormsControls(_form))
                     {
                         if (control.TabIndex == item.tabIndex)
                         {
-                            control.Invoke((MethodInvoker)delegate 
-                            {
-                                Console.WriteLine(control.Name);
-                                control.Visible = true;
-                            });
-                            listOfUnavailableControls.RemoveAll(i => i.tabIndex == item.tabIndex);
-                        }
+                            if (control.IsHandleCreated && !control.IsDisposed)
+                            { 
+                                control.Invoke((MethodInvoker)delegate
+                                {
+                                    control.Visible = true;
+                                });
+                                listOfUnavailableControls.RemoveAll(i => i.tabIndex == item.tabIndex);
+                            }
+                        }                   
                     }
                 }
                 BlockingControlsInForm(listOfUnavailableControls);
@@ -130,35 +120,21 @@ namespace Chat.Services
         }
 
 
-        /*private async Task UnBlockingControlsInForm()
-        {
-            await Task.Run(() =>
-            {
-                BlockingAllControlsInForm();
-                List<PermissionDetails> list = GetPermissionsDetails();
-
-                foreach (PermissionDetails item in list)
-                {
-                    foreach (Control control in initializing.getFormsControls(_form))
-                    {
-                        control.Invoke((MethodInvoker)delegate
-                        {
-                            if (control.TabIndex == item.tabIndex)
-                                control.Visible = true;
-                        });
-                    }
-                }
-            });
-        }*/
-
         public async void CheckingPermissions()
         {
-            /*UnBlockingControlsInForm();*/
-            CheckingPermissionsForControls();
-
             timer = new System.Timers.Timer(5000);
-            timer.Elapsed += async (se, ev) => await CheckingPermissionsForControls();
-            timer.Start();
+
+            if (!_form.IsDisposed && _form.Visible)
+            {
+                timer.Elapsed += async (se, ev) => await CheckingPermissionsForControls();
+                timer.Start();
+            }
+            else
+            {
+                timer.Stop();
+                return;
+            }
+            
         }
     }
 }

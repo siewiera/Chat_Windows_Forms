@@ -18,11 +18,17 @@ namespace Chat.Admin_panel
 
         private int idPermission;
         private string namePermission;
-        public ControlsFromForms(int idPermission = 9, string namePermission= "creating_rooms")
+        public ControlsFromForms(int idPermission, string namePermission)
         {
             InitializeComponent();
             this.idPermission = idPermission;
             this.namePermission = namePermission;
+        }
+
+        public ControlsFromForms()
+        {
+            InitializeComponent();
+            return;
         }
 
         private void newControlsFormList_Load()
@@ -178,7 +184,7 @@ namespace Chat.Admin_panel
 
         private void exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void backChangesControlsBtn_Click(object sender, EventArgs e)
@@ -234,5 +240,6 @@ namespace Chat.Admin_panel
                 }
             }
         }
+
     }
 }

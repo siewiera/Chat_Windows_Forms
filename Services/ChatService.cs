@@ -20,20 +20,19 @@ namespace Chat.Services
 
         public void AddDataToDatabase()
         {
-            if (_dbContext.Database.CanConnect()) 
+            if (!_dbContext.Database.CanConnect()) return;
+            
+            if (!_dbContext.Roles.Any()) 
             {
-                if (!_dbContext.Roles.Any()) 
-                {
-                    var role = GetRole();
-                    _dbContext.Roles.AddRange(role);
-                }
-                if (!_dbContext.Rights.Any())
-                {
-                    var right = GetRight();
-                    _dbContext.Rights.AddRange(right);                  
-                }
-                _dbContext.SaveChanges();
-            }         
+                var role = GetRole();
+                _dbContext.Roles.AddRange(role);
+            }
+            if (!_dbContext.Rights.Any())
+            {
+                var right = GetRight();
+                _dbContext.Rights.AddRange(right);                  
+            }
+            _dbContext.SaveChanges();                 
         }
 
         private IEnumerable<Role> GetRole()

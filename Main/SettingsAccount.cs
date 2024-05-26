@@ -27,6 +27,12 @@ namespace Chat
             this.myForm = myForm;
         }
 
+        public SettingsAccount()
+        {
+            InitializeComponent();
+            return;
+        }
+
         private void exit_Click(object sender, EventArgs e)
         {
             this.Close();

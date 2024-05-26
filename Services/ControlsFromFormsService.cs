@@ -45,8 +45,8 @@ namespace Chat.Services
         public List<ControlsDetails> GetNewContorlsFromPermission(int id_permisson)
         {
             using (var _dbContext = new ChatDbContext())
-            {    
-                var query = (from r in _dbContext.ControlForms
+            {
+                /*var query = (from r in _dbContext.ControlForms
                              join rr in _dbContext.RightControls on r.Id equals rr.ControlId
                              into gj
                              from subRightControl in gj.DefaultIfEmpty()
@@ -60,6 +60,22 @@ namespace Chat.Services
                                  formName = r.FormName,
                                  controlType = r.ControlType
                              })
+                             .ToList();*/
+
+                var query = (from r in _dbContext.ControlForms
+                             where !_dbContext.RightControls
+                                .Where(rc => rc.RightId == id_permisson)
+                                .Select(rc => rc.ControlId)
+                                .Contains(r.Id)
+                             orderby r.Name
+                             select new ControlsDetails
+                             {
+                                 id = r.Id,
+                                 description = r.Name + "-" + r.Description,
+                                 formName = r.FormName,
+                                 controlType = r.ControlType
+                             })
+                             .Distinct()
                              .ToList();
 
                 return query;
@@ -91,11 +107,11 @@ namespace Chat.Services
                     .Where(rr => rr.RightId == id_permission)
                     .ToList();
 
-                foreach (var oldControl in oldControlsFromPermisison)
-                {
-                    _dbContext.Set<RightControl>().Remove(oldControl);
-                    _dbContext.SaveChanges();
-                }
+                /*foreach (var oldControl in oldControlsFromPermisison)
+                {*/
+                _dbContext.Set<RightControl>().RemoveRange(oldControlsFromPermisison);
+                _dbContext.SaveChanges();
+               /* }*/
             }
         }
     }
